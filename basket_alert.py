@@ -45,6 +45,7 @@ def api_get(endpoint, params):
     remaining = response.headers.get(
         "x-ratelimit-requests-remaining"
     )
+
     if remaining is not None:
         requests_remaining = int(remaining)
 
@@ -131,7 +132,7 @@ def main():
     now = datetime.now(timezone.utc)
     today = now.date()
 
-    # Alterna oggi e domani per risparmiare richieste.
+    # Alterna le partite di oggi e domani.
     target_date = (
         today
         if now.minute < 30
@@ -150,16 +151,18 @@ def main():
     print("Data controllata:", target_date)
     print("Partite trovate:", len(games))
 
-    # Elimina i tentativi di quote più vecchi di un giorno.
+    # Rimuove i tentativi di quote più vecchi di 24 ore.
+    cutoff = (now - timedelta(days=1)).isoformat()
+
     state["attempted"] = {
         game_id: timestamp
         for game_id, timestamp in state["attempted"].items()
-        if timestamp >= (now - timedelta(days=1)).isoformat()
+        if timestamp >= cutoff
     }
 
-    # Prima controlla le partite in corso.
+    # Controlla le partite in corso.
     for item in games:
-        game = item["game"]
+        game = item
         game_id = str(game["id"])
         status = game["status"]["short"]
 
@@ -171,11 +174,11 @@ def main():
         if not favorite or game_id in state["alerts"]:
             continue
 
-        home = item["teams"]["home"]["name"]
-        away = item["teams"]["away"]["name"]
+        home = game["teams"]["home"]["name"]
+        away = game["teams"]["away"]["name"]
 
-        home_score = item["scores"]["home"]["total"]
-        away_score = item["scores"]["away"]["total"]
+        home_score = game["scores"]["home"]["total"]
+        away_score = game["scores"]["away"]["total"]
 
         if home_score is None or away_score is None:
             continue
@@ -202,11 +205,11 @@ def main():
             state["alerts"].append(game_id)
             print("Avviso inviato:", game_id)
 
-    # Poi memorizza le quote delle partite non iniziate.
+    # Cerca le partite non ancora iniziate.
     upcoming = []
 
     for item in games:
-        game = item["game"]
+        game = item
         game_id = str(game["id"])
 
         if game["status"]["short"] != "NS":
@@ -218,18 +221,18 @@ def main():
         if game_id in state["attempted"]:
             continue
 
-        upcoming.append(item)
+        upcoming.append(game)
 
-    # Dai priorità alle partite che iniziano prima.
+    # Controlla prima le partite con inizio più vicino.
     upcoming.sort(
-        key=lambda item: item["game"].get("timestamp") or 0
+        key=lambda game: game.get("timestamp") or 0
     )
 
-    for item in upcoming:
+    for game in upcoming:
         if requests_used >= MAX_REQUESTS_PER_RUN:
             break
 
-        game_id = str(item["game"]["id"])
+        game_id = str(game["id"])
 
         favorite = get_favorite(game_id)
 
