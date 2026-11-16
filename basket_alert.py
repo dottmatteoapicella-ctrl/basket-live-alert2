@@ -24,12 +24,14 @@ def api_get(endpoint, params):
     global requests_used, requests_remaining
 
     if requests_used >= MAX_REQUESTS_PER_RUN:
+        print("DEBUG API: limite richieste per esecuzione.")
         return None
 
     if (
         requests_remaining is not None
         and requests_remaining <= MIN_REQUESTS_REMAINING
     ):
+        print("DEBUG API: limite di sicurezza raggiunto.")
         return None
 
     response = requests.get(
@@ -47,7 +49,10 @@ def api_get(endpoint, params):
     )
 
     if remaining is not None:
-        requests_remaining = int(remaining)
+        try:
+            requests_remaining = int(remaining)
+        except ValueError:
+            print("DEBUG API: limite non interpretabile.")
 
     data = response.json()
 
@@ -72,9 +77,15 @@ def send_telegram(message):
 
 def load_state():
     if STATE_FILE.exists():
-        return json.loads(
+        print("DEBUG STATO: file basket_state.json trovato.")
+
+        state = json.loads(
             STATE_FILE.read_text(encoding="utf-8")
         )
+
+        return state
+
+    print("DEBUG STATO: file basket_state.json NON trovato.")
 
     return {
         "favorites": {},
@@ -91,10 +102,18 @@ def save_state(state):
 
 
 def get_favorite(game_id):
+    print("DEBUG QUOTE: richiesta partita", game_id)
+
     odds_data = api_get("odds", {"game": game_id})
 
     if not odds_data:
+        print("DEBUG QUOTE: nessuna quota disponibile.")
         return None
+
+    print(
+        "DEBUG QUOTE: risultati ricevuti:",
+        len(odds_data)
+    )
 
     for bookmaker in odds_data[0].get("bookmakers", []):
         for bet in bookmaker.get("bets", []):
@@ -111,7 +130,10 @@ def get_favorite(game_id):
                         pass
 
             if "Home" in values and "Away" in values:
+                print("DEBUG QUOTE Home/Away:", values)
+
                 if values["Home"] == values["Away"]:
+                    print("DEBUG QUOTE: quote identiche.")
                     return None
 
                 return (
@@ -120,19 +142,34 @@ def get_favorite(game_id):
                     else "away"
                 )
 
+    print("DEBUG QUOTE: mercato Home/Away non trovato.")
     return None
 
 
 def main():
+    print("=== BASKET LIVE ALERT ===")
+
     state = load_state()
     state.setdefault("favorites", {})
     state.setdefault("alerts", [])
     state.setdefault("attempted", {})
 
+    print(
+        "DEBUG STATO: favorite salvate:",
+        len(state["favorites"])
+    )
+    print(
+        "DEBUG STATO: alert gia inviati:",
+        len(state["alerts"])
+    )
+    print(
+        "DEBUG STATO: tentativi quote salvati:",
+        len(state["attempted"])
+    )
+
     now = datetime.now(timezone.utc)
     today = now.date()
 
-    # Controlla sempre le partite di oggi.
     games = api_get(
         "games",
         {"date": today.isoformat()},
@@ -145,7 +182,6 @@ def main():
     print("Data controllata:", today)
     print("Partite trovate:", len(games))
 
-    # Rimuove i tentativi di quote più vecchi di 24 ore.
     cutoff = (now - timedelta(days=1)).isoformat()
 
     state["attempted"] = {
@@ -154,8 +190,15 @@ def main():
         if timestamp >= cutoff
     }
 
-    # Controlla le partite in diretta.
     live_statuses = ("Q1", "Q2", "Q3", "Q4", "HT", "OT")
+
+    live_count = 0
+    live_with_favorite = 0
+    live_without_favorite = 0
+    losing_count = 0
+    alerts_sent = 0
+
+    print("\n=== DEBUG PARTITE LIVE ===")
 
     for game in games:
         game_id = str(game["id"])
@@ -164,10 +207,7 @@ def main():
         if status not in live_statuses:
             continue
 
-        favorite = state["favorites"].get(game_id)
-
-        if not favorite or game_id in state["alerts"]:
-            continue
+        live_count += 1
 
         home = game["teams"]["home"]["name"]
         away = game["teams"]["away"]["name"]
@@ -175,32 +215,78 @@ def main():
         home_score = game["scores"]["home"]["total"]
         away_score = game["scores"]["away"]["total"]
 
+        favorite = state["favorites"].get(game_id)
+
+        print(
+            f"\nDEBUG PARTITA: {home} vs {away}"
+            f" | ID={game_id}"
+            f" | stato={status}"
+            f" | punteggio={home_score}-{away_score}"
+            f" | favorita={favorite}"
+        )
+
+        if not favorite:
+            live_without_favorite += 1
+            print(
+                "DEBUG ESCLUSIONE: favorita non salvata."
+            )
+            continue
+
+        live_with_favorite += 1
+
+        if game_id in state["alerts"]:
+            print(
+                "DEBUG ESCLUSIONE: alert gia inviato."
+            )
+            continue
+
         if home_score is None or away_score is None:
+            print(
+                "DEBUG ESCLUSIONE: punteggio mancante."
+            )
             continue
 
         losing = (
-            favorite == "home" and home_score < away_score
+            favorite == "home"
+            and home_score < away_score
         ) or (
-            favorite == "away" and away_score < home_score
+            favorite == "away"
+            and away_score < home_score
         )
 
-        if losing:
-            favorite_name = (
-                home if favorite == "home" else away
+        if not losing:
+            print(
+                "DEBUG ESCLUSIONE: favorita non in svantaggio."
             )
+            continue
 
-            message = (
-                "🏀 BASKET - FAVORITA IN SVANTAGGIO!\n\n"
-                f"{home} {home_score} - {away_score} {away}\n"
-                f"Favorita pre-match: {favorite_name}\n"
-                f"Periodo: {status}"
-            )
+        losing_count += 1
 
-            send_telegram(message)
-            state["alerts"].append(game_id)
-            print("Avviso inviato:", game_id)
+        favorite_name = (
+            home if favorite == "home" else away
+        )
 
-    # Cerca le partite di oggi non ancora iniziate.
+        print(
+            "DEBUG ALERT: favorita in svantaggio:",
+            favorite_name
+        )
+
+        message = (
+            "🏀 BASKET - FAVORITA IN SVANTAGGIO!\n\n"
+            f"{home} {home_score} - {away_score} {away}\n"
+            f"Favorita pre-match: {favorite_name}\n"
+            f"Periodo: {status}"
+        )
+
+        send_telegram(message)
+
+        state["alerts"].append(game_id)
+        alerts_sent += 1
+
+        print("Avviso inviato:", game_id)
+
+    print("\n=== DEBUG PARTITE DA INIZIARE ===")
+
     upcoming = []
 
     for game in games:
@@ -217,36 +303,70 @@ def main():
 
         upcoming.append(game)
 
-    # Prima le partite che iniziano più presto.
     upcoming.sort(
         key=lambda game: game.get("timestamp") or 0
     )
 
+    print(
+        "DEBUG: partite candidate alle quote:",
+        len(upcoming)
+    )
+
     for game in upcoming:
         if requests_used >= MAX_REQUESTS_PER_RUN:
+            print(
+                "DEBUG: raggiunto limite richieste."
+            )
             break
 
         if (
             requests_remaining is not None
             and requests_remaining <= MIN_REQUESTS_REMAINING
         ):
+            print(
+                "DEBUG: raggiunto limite sicurezza API."
+            )
             break
 
         game_id = str(game["id"])
+
         favorite = get_favorite(game_id)
 
         state["attempted"][game_id] = now.isoformat()
 
         if favorite:
             state["favorites"][game_id] = favorite
+
             print(
                 "Favorita salvata:",
                 game_id,
-                favorite,
+                favorite
+            )
+        else:
+            print(
+                "DEBUG: favorita non disponibile:",
+                game_id
             )
 
     save_state(state)
 
+    print("\n=== RIEPILOGO DEBUG BASKET ===")
+    print("Partite totali:", len(games))
+    print("Partite LIVE:", live_count)
+    print(
+        "LIVE con favorita salvata:",
+        live_with_favorite
+    )
+    print(
+        "LIVE senza favorita salvata:",
+        live_without_favorite
+    )
+    print(
+        "Favorite in svantaggio:",
+        losing_count
+    )
+    print("Nuovi alert inviati:", alerts_sent)
+    print("Favorite salvate:", len(state["favorites"]))
     print("Richieste API utilizzate:", requests_used)
     print("Richieste API rimaste:", requests_remaining)
 
