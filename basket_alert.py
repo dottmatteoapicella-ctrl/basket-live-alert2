@@ -248,12 +248,35 @@ def main():
             home if favorite == "home" else away
         )
 
+
+        league = game.get("league", {}).get("name", "Non disponibile")
+        country = game.get("country", {}).get("name", "Non disponibile")
+
+        difference = abs(home_score - away_score)
+
+        periods = {
+            "Q1": "Primo quarto",
+            "Q2": "Secondo quarto",
+            "Q3": "Terzo quarto",
+            "Q4": "Quarto quarto",
+            "HT": "Intervallo",
+            "OT": "Supplementari",
+        }
+
+        period_name = periods.get(status, status)
+
         message = (
-            "🏀 BASKET - FAVORITA IN SVANTAGGIO!\n\n"
-            f"{home} {home_score} - {away_score} {away}\n"
-            f"Favorita pre-match: {favorite_name}\n"
-            f"Periodo: {status}"
+            "🚨🏀 FAVORITA IN SVANTAGGIO!\n\n"
+            f"🏆 Campionato: {league}\n"
+            f"🌍 Paese: {country}\n\n"
+            f"🏠 {home}\n"
+            f"✈️ {away}\n\n"
+            f"📊 Risultato: {home_score} - {away_score}\n"
+            f"⏱ Periodo: {period_name}\n\n"
+            f"⭐ Favorita pre-match: {favorite_name}\n"
+            f"📉 Svantaggio: {difference} punti"
         )
+
 
         send_telegram(message)
 
