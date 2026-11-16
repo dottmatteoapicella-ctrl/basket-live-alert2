@@ -132,23 +132,17 @@ def main():
     now = datetime.now(timezone.utc)
     today = now.date()
 
-    # Alterna le partite di oggi e domani.
-    target_date = (
-        today
-        if now.minute < 30
-        else today + timedelta(days=1)
-    )
-
+    # Controlla sempre le partite di oggi.
     games = api_get(
         "games",
-        {"date": target_date.isoformat()},
+        {"date": today.isoformat()},
     )
 
     if games is None:
         print("Impossibile recuperare le partite.")
         return
 
-    print("Data controllata:", target_date)
+    print("Data controllata:", today)
     print("Partite trovate:", len(games))
 
     # Rimuove i tentativi di quote più vecchi di 24 ore.
@@ -160,13 +154,14 @@ def main():
         if timestamp >= cutoff
     }
 
-    # Controlla le partite in corso.
-    for item in games:
-        game = item
+    # Controlla le partite in diretta.
+    live_statuses = ("Q1", "Q2", "Q3", "Q4", "HT", "OT")
+
+    for game in games:
         game_id = str(game["id"])
         status = game["status"]["short"]
 
-        if status not in ("Q1", "Q2", "Q3", "Q4", "HT", "OT"):
+        if status not in live_statuses:
             continue
 
         favorite = state["favorites"].get(game_id)
@@ -205,11 +200,10 @@ def main():
             state["alerts"].append(game_id)
             print("Avviso inviato:", game_id)
 
-    # Cerca le partite non ancora iniziate.
+    # Cerca le partite di oggi non ancora iniziate.
     upcoming = []
 
-    for item in games:
-        game = item
+    for game in games:
         game_id = str(game["id"])
 
         if game["status"]["short"] != "NS":
@@ -223,7 +217,7 @@ def main():
 
         upcoming.append(game)
 
-    # Controlla prima le partite con inizio più vicino.
+    # Prima le partite che iniziano più presto.
     upcoming.sort(
         key=lambda game: game.get("timestamp") or 0
     )
@@ -232,8 +226,13 @@ def main():
         if requests_used >= MAX_REQUESTS_PER_RUN:
             break
 
-        game_id = str(game["id"])
+        if (
+            requests_remaining is not None
+            and requests_remaining <= MIN_REQUESTS_REMAINING
+        ):
+            break
 
+        game_id = str(game["id"])
         favorite = get_favorite(game_id)
 
         state["attempted"][game_id] = now.isoformat()
