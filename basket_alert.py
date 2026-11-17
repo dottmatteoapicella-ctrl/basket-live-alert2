@@ -1,382 +1,270 @@
-
-import os
 import json
-from datetime import datetime, timezone, timedelta
+import os
+import re
+import unicodedata
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
 
-API_KEY = os.environ["BASKET_API_KEY"]
+SPORTSTATS_API_KEY = os.environ["SPORTSTATS_API_KEY"]
+ODDS_API_KEY = os.environ["ODDS_API_KEY"]
 TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-
-BASE_URL = "https://v1.basketball.api-sports.io"
 STATE_FILE = Path("basket_state.json")
 
-MAX_REQUESTS_PER_RUN = 3
-MIN_REQUESTS_REMAINING = 10
+# Una richiesta live ogni 20 minuti = circa 72 richieste SportStats al giorno.
+# The Odds API: 5 campionati x 1 aggiornamento al giorno = circa 150 crediti/mese.
+ODDS_SPORTS = (
+    "basketball_nba",
+    "basketball_euroleague",
+    "basketball_nbl",
+    "basketball_ncaab",
+    "basketball_wncaab",
+)
+ODDS_REFRESH_HOURS = 24
+MAX_START_DIFFERENCE_HOURS = 6
 
-# Cerca le quote delle partite che iniziano
-# entro le prossime 3 ore.
-UPCOMING_WINDOW_MINUTES = 180
 
-requests_used = 0
-requests_remaining = None
+def utc_now():
+    return datetime.now(timezone.utc)
 
 
-def api_get(endpoint, params):
-    global requests_used, requests_remaining
-
-    if requests_used >= MAX_REQUESTS_PER_RUN:
-        print("DEBUG API: limite per esecuzione raggiunto.")
+def parse_time(value):
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+    except (ValueError, TypeError):
         return None
 
-    if (
-        requests_remaining is not None
-        and requests_remaining <= MIN_REQUESTS_REMAINING
-    ):
-        print("DEBUG API: limite giornaliero di sicurezza.")
-        return None
 
+def normalize(name):
+    name = unicodedata.normalize("NFKD", name or "")
+    name = "".join(c for c in name if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]", "", name.casefold())
+
+
+def load_state():
+    if STATE_FILE.exists():
+        state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+    else:
+        state = {}
+    state.setdefault("favorites", {})
+    state.setdefault("alerts", [])
+    state.setdefault("attempted", {})
+    state.setdefault("odds_games", {})
+    state.setdefault("odds_refreshed", {})
+    return state
+
+
+def save_state(state):
+    STATE_FILE.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def fetch_odds(sport):
     response = requests.get(
-        f"{BASE_URL}/{endpoint}",
-        headers={"x-apisports-key": API_KEY},
-        params=params,
-        timeout=20,
+        f"https://api.the-odds-api.com/v4/sports/{sport}/odds/",
+        params={
+            "apiKey": ODDS_API_KEY,
+            "regions": "eu",
+            "markets": "h2h",
+            "oddsFormat": "decimal",
+        },
+        timeout=25,
     )
+    print("ODDS:", sport, "HTTP", response.status_code,
+          "crediti rimasti:", response.headers.get("x-requests-remaining"))
     response.raise_for_status()
-    requests_used += 1
+    return response.json()
 
-    remaining = response.headers.get(
-        "x-ratelimit-requests-remaining"
-    )
 
-    if remaining is not None:
+def update_odds(state, now):
+    for sport in ODDS_SPORTS:
+        last = parse_time(state["odds_refreshed"].get(sport))
+        if last and now - last < timedelta(hours=ODDS_REFRESH_HOURS):
+            continue
         try:
-            requests_remaining = int(remaining)
-        except ValueError:
-            print("DEBUG API: limite non interpretabile.")
+            games = fetch_odds(sport)
+        except (requests.RequestException, ValueError) as exc:
+            print("ERRORE QUOTE:", sport, str(exc))
+            continue
 
-    data = response.json()
+        count = 0
+        for game in games:
+            start = parse_time(game.get("commence_time"))
+            # Mai considerare quote recuperate a partita iniziata come pre-match.
+            if not start or start <= now + timedelta(minutes=5):
+                continue
+            home = game.get("home_team", "")
+            away = game.get("away_team", "")
+            if not home or not away:
+                continue
+            favorite = None
+            for bookmaker in game.get("bookmakers", []):
+                market = next((m for m in bookmaker.get("markets", [])
+                               if m.get("key") == "h2h"), None)
+                if not market:
+                    continue
+                prices = {}
+                for outcome in market.get("outcomes", []):
+                    if outcome.get("name") in (home, away):
+                        try:
+                            prices[outcome["name"]] = float(outcome["price"])
+                        except (ValueError, TypeError, KeyError):
+                            pass
+                if home in prices and away in prices and prices[home] != prices[away]:
+                    favorite = "home" if prices[home] < prices[away] else "away"
+                    break
+            if not favorite:
+                continue
+            event_id = str(game.get("id") or f"{sport}:{start.isoformat()}:{home}:{away}")
+            state["odds_games"][event_id] = {
+                "sport": sport,
+                "home": home,
+                "away": away,
+                "start": start.isoformat(),
+                "favorite": favorite,
+                "captured_at": now.isoformat(),
+            }
+            count += 1
+        state["odds_refreshed"][sport] = now.isoformat()
+        save_state(state)
+        print("Favorite pre-match memorizzate:", sport, count)
 
-    if data.get("errors"):
-        print("Errore API:", data["errors"])
+    # Elimina soltanto la cache delle quote vecchie; non toccare lo storico API-Sports.
+    cutoff = now - timedelta(days=3)
+    state["odds_games"] = {
+        key: value for key, value in state["odds_games"].items()
+        if (parse_time(value.get("start")) or cutoff - timedelta(seconds=1)) >= cutoff
+    }
+
+
+def fetch_live():
+    response = requests.get(
+        "https://api.sportstatsapi.com/api/v1/basketball/matches/live",
+        headers={"Authorization": f"Bearer {SPORTSTATS_API_KEY}"},
+        timeout=25,
+    )
+    print("SPORTSTATS HTTP:", response.status_code)
+    response.raise_for_status()
+    payload = response.json()
+    if not payload.get("success", False):
+        raise RuntimeError("SportStatsAPI non ha confermato la risposta")
+    return payload.get("data", [])
+
+
+def find_prematch_favorite(match, state):
+    home = normalize((match.get("home_team") or {}).get("name"))
+    away = normalize((match.get("away_team") or {}).get("name"))
+    start = parse_time(match.get("start_at"))
+    if not home or not away or not start:
         return None
-
-    return data.get("response", [])
+    candidates = []
+    for item in state["odds_games"].values():
+        odds_start = parse_time(item.get("start"))
+        if not odds_start or abs((start - odds_start).total_seconds()) > MAX_START_DIFFERENCE_HOURS * 3600:
+            continue
+        if home == normalize(item.get("home")) and away == normalize(item.get("away")):
+            candidates.append((abs((start - odds_start).total_seconds()), item))
+    if not candidates:
+        return None
+    return min(candidates, key=lambda pair: pair[0])[1]["favorite"]
 
 
 def send_telegram(message):
     response = requests.post(
         f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-        data={
-            "chat_id": TELEGRAM_CHAT_ID,
-            "text": message,
-        },
-        timeout=20,
+        data={"chat_id": TELEGRAM_CHAT_ID, "text": message},
+        timeout=25,
     )
     response.raise_for_status()
-
     if not response.json().get("ok"):
-        raise RuntimeError("Telegram non ha confermato l'invio.")
-
-
-def load_state():
-    if STATE_FILE.exists():
-        print("DEBUG STATO: file trovato.")
-        return json.loads(
-            STATE_FILE.read_text(encoding="utf-8")
-        )
-
-    print("DEBUG STATO: file non trovato.")
-    return {
-        "favorites": {},
-        "alerts": [],
-        "attempted": {},
-    }
-
-
-def save_state(state):
-    STATE_FILE.write_text(
-        json.dumps(state, indent=2),
-        encoding="utf-8",
-    )
-
-
-def get_favorite(game_id):
-    print("DEBUG QUOTE: richiesta", game_id)
-
-    odds_data = api_get("odds", {"game": game_id})
-
-    if not odds_data:
-        print("DEBUG QUOTE: nessuna quota disponibile.")
-        return None
-
-    for result in odds_data:
-        for bookmaker in result.get("bookmakers", []):
-            for bet in bookmaker.get("bets", []):
-                if bet.get("name") != "Home/Away":
-                    continue
-
-                values = {}
-
-                for item in bet.get("values", []):
-                    if item.get("value") in ("Home", "Away"):
-                        try:
-                            values[item["value"]] = float(
-                                item["odd"]
-                            )
-                        except (ValueError, TypeError, KeyError):
-                            pass
-
-                if "Home" in values and "Away" in values:
-                    print("DEBUG QUOTE:", values)
-
-                    if values["Home"] == values["Away"]:
-                        return None
-
-                    return (
-                        "home"
-                        if values["Home"] < values["Away"]
-                        else "away"
-                    )
-
-    print("DEBUG QUOTE: mercato Home/Away assente.")
-    return None
+        raise RuntimeError("Telegram non ha confermato l'invio")
 
 
 def main():
-    print("=== BASKET LIVE ALERT ===")
-
+    print("=== BASKET LIVE ALERT / SPORTSTATS + ODDS ===")
     state = load_state()
-    state.setdefault("favorites", {})
-    state.setdefault("alerts", [])
-    state.setdefault("attempted", {})
+    now = utc_now()
+    update_odds(state, now)
+    save_state(state)
 
-    print("Favorite salvate:", len(state["favorites"]))
-    print("Alert gia inviati:", len(state["alerts"]))
-    print("Tentativi salvati:", len(state["attempted"]))
-
-    now = datetime.now(timezone.utc)
-    today = now.date()
-
-    games = api_get(
-        "games",
-        {"date": today.isoformat()},
-    )
-
-    if games is None:
-        print("Impossibile recuperare le partite.")
+    try:
+        matches = fetch_live()
+    except (requests.RequestException, ValueError, RuntimeError) as exc:
+        print("ERRORE SPORTSTATS:", str(exc))
         return
+    print("Partite live:", len(matches))
+    sent = 0
+    skipped_stale = 0
+    with_favorite = 0
 
-    print("Data controllata:", today)
-    print("Partite trovate:", len(games))
-
-    cutoff = (now - timedelta(days=1)).isoformat()
-
-    state["attempted"] = {
-        game_id: timestamp
-        for game_id, timestamp in state["attempted"].items()
-        if timestamp >= cutoff
-    }
-
-    live_statuses = ("Q1", "Q2", "Q3", "Q4", "HT", "OT")
-
-    live_count = 0
-    live_with_favorite = 0
-    live_without_favorite = 0
-    losing_count = 0
-    alerts_sent = 0
-
-    print("\n=== DEBUG PARTITE LIVE ===")
-
-    for game in games:
-        game_id = str(game["id"])
-        status = game["status"]["short"]
-
-        if status not in live_statuses:
+    for match in matches:
+        if match.get("status_code") != "live":
             continue
-
-        live_count += 1
-
-        home = game["teams"]["home"]["name"]
-        away = game["teams"]["away"]["name"]
-
-        home_score = game["scores"]["home"]["total"]
-        away_score = game["scores"]["away"]["total"]
+        if (match.get("freshness") or {}).get("stale") is True:
+            skipped_stale += 1
+            continue
+        home_data = match.get("home_team") or {}
+        away_data = match.get("away_team") or {}
+        home = home_data.get("name", "")
+        away = away_data.get("name", "")
+        home_score = home_data.get("score")
+        away_score = away_data.get("score")
+        if not home or not away or home_score is None or away_score is None:
+            continue
+        game_code = match.get("code")
+        if not game_code:
+            continue
+        game_id = f"sportstats:{game_code}"
+        if game_id in state["alerts"]:
+            continue
 
         favorite = state["favorites"].get(game_id)
-
-        print(
-            f"DEBUG LIVE: {home} vs {away}"
-            f" | ID={game_id}"
-            f" | stato={status}"
-            f" | risultato={home_score}-{away_score}"
-            f" | favorita={favorite}"
-        )
-
+        if favorite not in ("home", "away"):
+            favorite = find_prematch_favorite(match, state)
+            if favorite:
+                state["favorites"][game_id] = favorite
+                save_state(state)
         if not favorite:
-            live_without_favorite += 1
-            print("DEBUG: favorita non conosciuta.")
             continue
-
-        live_with_favorite += 1
-
-        if game_id in state["alerts"]:
-            print("DEBUG: alert gia inviato.")
+        with_favorite += 1
+        try:
+            home_score = int(home_score)
+            away_score = int(away_score)
+        except (ValueError, TypeError):
             continue
-
-        if home_score is None or away_score is None:
-            print("DEBUG: punteggio mancante.")
-            continue
-
-        losing = (
-            favorite == "home"
-            and home_score < away_score
-        ) or (
-            favorite == "away"
-            and away_score < home_score
-        )
-
+        losing = ((favorite == "home" and home_score < away_score) or
+                  (favorite == "away" and away_score < home_score))
         if not losing:
-            print("DEBUG: favorita non in svantaggio.")
             continue
 
-        losing_count += 1
-
-        favorite_name = (
-            home if favorite == "home" else away
-        )
-
-
-        league = game.get("league", {}).get("name", "Non disponibile")
-        country = game.get("country", {}).get("name", "Non disponibile")
-
-        difference = abs(home_score - away_score)
-
-        periods = {
-            "Q1": "Primo quarto",
-            "Q2": "Secondo quarto",
-            "Q3": "Terzo quarto",
-            "Q4": "Quarto quarto",
-            "HT": "Intervallo",
-            "OT": "Supplementari",
-        }
-
-        period_name = periods.get(status, status)
-
+        favorite_name = home if favorite == "home" else away
         message = (
             "🚨🏀 FAVORITA IN SVANTAGGIO!\n\n"
-            f"🏆 Campionato: {league}\n"
-            f"🌍 Paese: {country}\n\n"
+            f"🏆 Campionato: {match.get('league_name') or 'Non disponibile'}\n\n"
             f"🏠 {home}\n"
             f"✈️ {away}\n\n"
             f"📊 Risultato: {home_score} - {away_score}\n"
-            f"⏱ Periodo: {period_name}\n\n"
+            "⏱ Periodo: partita in corso\n\n"
             f"⭐ Favorita pre-match: {favorite_name}\n"
-            f"📉 Svantaggio: {difference} punti"
+            f"📉 Svantaggio: {abs(home_score - away_score)} punti\n\n"
+            "Dati: Stadiro / SportStatsAPI (sportstatsapi.com)"
         )
-
-
         send_telegram(message)
-
         state["alerts"].append(game_id)
         save_state(state)
-
-        alerts_sent += 1
+        sent += 1
         print("ALERT INVIATO:", game_id)
 
-    print("\n=== DEBUG PARTITE DA INIZIARE ===")
-
-    upcoming = []
-    window_end = now + timedelta(
-        minutes=UPCOMING_WINDOW_MINUTES
-    )
-
-    for game in games:
-        game_id = str(game["id"])
-
-        if game["status"]["short"] != "NS":
-            continue
-
-        if game_id in state["favorites"]:
-            continue
-
-        if game_id in state["attempted"]:
-            continue
-
-        timestamp = game.get("timestamp")
-
-        if timestamp is None:
-            continue
-
-        try:
-            start_time = datetime.fromtimestamp(
-                int(timestamp),
-                tz=timezone.utc
-            )
-        except (ValueError, TypeError, OverflowError):
-            continue
-
-        # Solo partite future entro le prossime 3 ore.
-        if not (now <= start_time <= window_end):
-            continue
-
-        upcoming.append(game)
-
-    upcoming.sort(
-        key=lambda game: int(game["timestamp"])
-    )
-
-    print(
-        "Partite candidate entro 3 ore:",
-        len(upcoming)
-    )
-
-    for game in upcoming:
-        if requests_used >= MAX_REQUESTS_PER_RUN:
-            print("DEBUG: limite richieste raggiunto.")
-            break
-
-        if (
-            requests_remaining is not None
-            and requests_remaining <= MIN_REQUESTS_REMAINING
-        ):
-            print("DEBUG: limite sicurezza API.")
-            break
-
-        game_id = str(game["id"])
-
-        favorite = get_favorite(game_id)
-
-        state["attempted"][game_id] = now.isoformat()
-
-        if favorite:
-            state["favorites"][game_id] = favorite
-
-            print(
-                "Favorita salvata:",
-                game_id,
-                favorite
-            )
-        else:
-            print(
-                "DEBUG: favorita non disponibile:",
-                game_id
-            )
-
     save_state(state)
-
-    print("\n=== RIEPILOGO DEBUG BASKET ===")
-    print("Partite totali:", len(games))
-    print("Partite LIVE:", live_count)
-    print("LIVE con favorita:", live_with_favorite)
-    print("LIVE senza favorita:", live_without_favorite)
-    print("Favorite in svantaggio:", losing_count)
-    print("Nuovi alert inviati:", alerts_sent)
-    print("Favorite salvate:", len(state["favorites"]))
-    print("Richieste API utilizzate:", requests_used)
-    print("Richieste API rimaste:", requests_remaining)
+    print("Live con favorita nota:", with_favorite)
+    print("Live ignorate per dati stale:", skipped_stale)
+    print("Nuovi alert:", sent)
+    print("Quote pre-match in cache:", len(state["odds_games"]))
 
 
 if __name__ == "__main__":
