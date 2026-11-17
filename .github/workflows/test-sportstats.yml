@@ -1,0 +1,30 @@
+
+name: Test SportStats Basket API
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-basket:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Scarica repository
+        uses: actions/checkout@v4
+
+      - name: Installa Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installa requests
+        run: pip install requests
+
+      - name: Test connessione SportStats
+        env:
+          SPORTSTATS_API_KEY: ${{ secrets.SPORTSTATS_API_KEY }}
+        run: python test_sportstats.py
