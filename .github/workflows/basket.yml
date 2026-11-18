@@ -27,7 +27,19 @@ jobs:
       - name: Installa requests
         run: pip install requests
 
+      - name: Controlla orario italiano
+        id: orario
+        shell: bash
+        run: |
+          ORA=$(TZ=Europe/Rome date +%H%M)
+          if [[ "$ORA" > "0759" && "$ORA" < "2400" ]]; then
+            echo "attivo=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "attivo=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Esegui bot Basket
+        if: steps.orario.outputs.attivo == 'true'
         env:
           SPORTSTATS_API_KEY: ${{ secrets.SPORTSTATS_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -36,6 +48,7 @@ jobs:
         run: python basket_alert.py
 
       - name: Salva quote e avvisi
+        if: steps.orario.outputs.attivo == 'true'
         run: |
           if [ -f basket_state.json ]; then
             git config user.name "github-actions[bot]"
