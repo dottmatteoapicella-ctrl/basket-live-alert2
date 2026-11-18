@@ -174,6 +174,26 @@ def find_prematch_favorite(match, state):
     return min(candidates, key=lambda pair: pair[0])[1]["favorite"]
 
 
+def current_quarter(match):
+    """Rileva Q1-Q4 solo da indicazioni esplicite del periodo corrente."""
+    live = match.get("live")
+    period = live.get("period") if isinstance(live, dict) else None
+    status = match.get("status")
+    for value in (period, status):
+        if value is None:
+            continue
+        label = str(value).strip().lower()
+        if label in ("1", "2", "3", "4"):
+            return int(label)
+        found = re.fullmatch(
+            r"(?:q\s*([1-4])|([1-4])(?:st|nd|rd|th)?\s*(?:quarter|qtr))",
+            label,
+        )
+        if found:
+            return int(found.group(1) or found.group(2))
+    return None
+
+
 def send_telegram(message):
     response = requests.post(
         f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
@@ -220,7 +240,11 @@ def main():
         if not game_code:
             continue
         game_id = f"sportstats:{game_code}"
-        if game_id in state["alerts"]:
+        quarter = current_quarter(match)
+        if quarter is None:
+            continue
+        alert_id = f"{game_id}:Q{quarter}"
+        if alert_id in state["alerts"]:
             continue
 
         favorite = state["favorites"].get(game_id)
@@ -249,16 +273,16 @@ def main():
             f"🏠 {home}\n"
             f"✈️ {away}\n\n"
             f"📊 Risultato: {home_score} - {away_score}\n"
-            "⏱ Periodo: partita in corso\n\n"
+            f"⏱ Periodo: {quarter}° quarto\n\n"
             f"⭐ Favorita pre-match: {favorite_name}\n"
             f"📉 Svantaggio: {abs(home_score - away_score)} punti\n\n"
             "Dati: Stadiro / SportStatsAPI (sportstatsapi.com)"
         )
         send_telegram(message)
-        state["alerts"].append(game_id)
+        state["alerts"].append(alert_id)
         save_state(state)
         sent += 1
-        print("ALERT INVIATO:", game_id)
+        print("ALERT INVIATO:", alert_id)
 
     save_state(state)
     print("Live con favorita nota:", with_favorite)
