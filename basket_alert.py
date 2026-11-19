@@ -66,7 +66,7 @@ def team_key(name):
     value = "".join(c for c in value if not unicodedata.combining(c))
     value = value.casefold().replace("&", " and ")
     # Abbreviazioni editoriali frequenti, senza rimuovere citta' o nomi.
-    value = re.sub(r"\\b(?:basketball|basket|bc|bk|b c)\\b", " ", value)
+    value = re.sub(r"\b(?:basketball|basket|bc|bk|b c)\b", " ", value)
     key = re.sub(r"[^a-z0-9]", "", value)
     return TEAM_ALIASES.get(key, key)
 
