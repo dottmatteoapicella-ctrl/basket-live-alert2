@@ -347,7 +347,7 @@ def main():
                 home_odd = float(prices["home"])
                 away_odd = float(prices["away"])
                 odds_text = (f"📈 Quote pre-match: {home} {home_odd:.2f} | "
-                             f"{away} {away_odd:.2f}\\n")
+                             f"{away} {away_odd:.2f}\n")
             except (KeyError, TypeError, ValueError):
                 pass
         message = (
