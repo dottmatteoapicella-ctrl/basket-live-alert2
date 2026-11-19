@@ -53,7 +53,8 @@
     "sportstats:moajf": "home",
     "sportstats:moajg": "home",
     "sportstats:moaji": "home",
-    "sportstats:moajh": "home"
+    "sportstats:moajh": "home",
+    "sportstats:mofka": "away"
   },
   "alerts": [
     "516757",
@@ -79,7 +80,8 @@
     "sportstats:moajf",
     "sportstats:moajg",
     "sportstats:moaji",
-    "sportstats:moajh"
+    "sportstats:moajh",
+    "sportstats:mofka:Q3"
   ],
   "attempted": {
     "519328": "2026-11-16T14:09:56.807826+00:00",
