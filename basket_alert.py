@@ -167,11 +167,21 @@ def find_prematch_favorite(match, state):
         odds_start = parse_time(item.get("start"))
         if not odds_start or abs((start - odds_start).total_seconds()) > MAX_START_DIFFERENCE_HOURS * 3600:
             continue
-        if home == normalize(item.get("home")) and away == normalize(item.get("away")):
-            candidates.append((abs((start - odds_start).total_seconds()), item))
+        odds_home, odds_away = normalize(item.get("home")), normalize(item.get("away"))
+        difference = abs((start - odds_start).total_seconds())
+        if home == odds_home and away == odds_away:
+            candidates.append((difference, item["favorite"]))
+        elif home == odds_away and away == odds_home:
+            # La sorgente live puo' invertire casa/trasferta: inverti anche la favorita.
+            inverted = "away" if item["favorite"] == "home" else "home"
+            candidates.append((difference, inverted))
     if not candidates:
         return None
-    return min(candidates, key=lambda pair: pair[0])[1]["favorite"]
+    candidates.sort(key=lambda pair: pair[0])
+    # Evita di attribuire quote a un'altra partita con nomi simili.
+    if len(candidates) > 1 and candidates[0][0] == candidates[1][0] and candidates[0][1] != candidates[1][1]:
+        return None
+    return candidates[0][1]
 
 
 def current_quarter(match):
@@ -221,6 +231,9 @@ def main():
     sent = 0
     skipped_stale = 0
     with_favorite = 0
+    skipped_period = 0
+    skipped_no_favorite = 0
+    skipped_incomplete = 0
 
     for match in matches:
         if match.get("status_code") != "live":
@@ -235,6 +248,7 @@ def main():
         home_score = home_data.get("score")
         away_score = away_data.get("score")
         if not home or not away or home_score is None or away_score is None:
+            skipped_incomplete += 1
             continue
         game_code = match.get("code")
         if not game_code:
@@ -242,6 +256,7 @@ def main():
         game_id = f"sportstats:{game_code}"
         quarter = current_quarter(match)
         if quarter is None:
+            skipped_period += 1
             continue
         alert_id = f"{game_id}:Q{quarter}"
         if alert_id in state["alerts"]:
@@ -254,6 +269,7 @@ def main():
                 state["favorites"][game_id] = favorite
                 save_state(state)
         if not favorite:
+            skipped_no_favorite += 1
             continue
         with_favorite += 1
         try:
@@ -286,6 +302,9 @@ def main():
 
     save_state(state)
     print("Live con favorita nota:", with_favorite)
+    print("Scartate senza periodo riconosciuto:", skipped_period)
+    print("Scartate senza favorita associata:", skipped_no_favorite)
+    print("Scartate con dati incompleti:", skipped_incomplete)
     print("Live ignorate per dati stale:", skipped_stale)
     print("Nuovi alert:", sent)
     print("Quote pre-match in cache:", len(state["odds_games"]))
