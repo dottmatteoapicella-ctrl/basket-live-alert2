@@ -23,6 +23,8 @@ ODDS_SPORTS = (
     "basketball_wncaab",
 )
 ODDS_REFRESH_HOURS = 24
+# EuroLeague: seconda acquisizione giornaliera per ridurre i match persi.
+EUROLEAGUE_REFRESH_HOURS = 12
 MAX_START_DIFFERENCE_HOURS = 6
 
 
@@ -45,6 +47,20 @@ def normalize(name):
     return re.sub(r"[^a-z0-9]", "", name.casefold())
 
 
+TEAM_ALIASES = {
+    # Nomi brevi SportStats e denominazioni ufficiali nei mercati quote.
+    "bayern": "bayernmunich",
+    "fcbayernmuenchen": "bayernmunich",
+    "fcbayernmunich": "bayernmunich",
+    "bayernmuenchen": "bayernmunich",
+    "bayernmunich": "bayernmunich",
+    "baskonia": "baskonia",
+    "saski baskonia": "baskonia",
+    "saskibaskonia": "baskonia",
+    "baskoniavitoriagasteiz": "baskonia",
+}
+
+
 def team_key(name):
     """Normalizza solo varianti editoriali sicure, senza indovinare squadre."""
     value = unicodedata.normalize("NFKD", name or "")
@@ -52,7 +68,8 @@ def team_key(name):
     value = value.casefold().replace("&", " and ")
     # Abbreviazioni editoriali frequenti, senza rimuovere citta' o nomi.
     value = re.sub(r"\\b(?:basketball|basket|bc|bk|b c)\\b", " ", value)
-    return re.sub(r"[^a-z0-9]", "", value)
+    key = re.sub(r"[^a-z0-9]", "", value)
+    return TEAM_ALIASES.get(key, key)
 
 
 def load_state():
@@ -94,7 +111,8 @@ def fetch_odds(sport):
 def update_odds(state, now):
     for sport in ODDS_SPORTS:
         last = parse_time(state["odds_refreshed"].get(sport))
-        if last and now - last < timedelta(hours=ODDS_REFRESH_HOURS):
+        refresh_hours = EUROLEAGUE_REFRESH_HOURS if sport == "basketball_euroleague" else ODDS_REFRESH_HOURS
+        if last and now - last < timedelta(hours=refresh_hours):
             continue
         try:
             games = fetch_odds(sport)
@@ -335,6 +353,7 @@ def main():
     print("Live ignorate per dati stale:", skipped_stale)
     print("Nuovi alert:", sent)
     print("Quote pre-match in cache:", len(state["odds_games"]))
+    print("Campionati quote configurati:", ", ".join(ODDS_SPORTS))
 
 
 if __name__ == "__main__":
