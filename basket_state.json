@@ -258,7 +258,7 @@
       "away": "ASVEL Lyon Villeurbanne",
       "start": "2026-11-20T17:30:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
     },
     "b9e7c3066f4c22b555b3ceef964c0e9c": {
       "sport": "basketball_euroleague",
@@ -266,7 +266,7 @@
       "away": "Real Madrid",
       "start": "2026-11-20T19:15:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
     },
     "55491171f930de0bcb5382613ad27746": {
       "sport": "basketball_euroleague",
@@ -274,7 +274,7 @@
       "away": "KK Crvena zvezda",
       "start": "2026-11-20T19:30:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
     },
     "4036e139e287445bad9b5705a7edfe7c": {
       "sport": "basketball_euroleague",
@@ -282,7 +282,7 @@
       "away": "Beşiktaş J.K.",
       "start": "2026-11-20T19:45:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
     },
     "0afe2ea850539074dc949e28eecfd35e": {
       "sport": "basketball_nbl",
@@ -1499,11 +1499,59 @@
       "start": "2026-11-19T01:00:00+00:00",
       "favorite": "home",
       "captured_at": "2026-11-18T22:27:18.871293+00:00"
+    },
+    "3e065ed32915a4afefae3a851f6df12a": {
+      "sport": "basketball_euroleague",
+      "home": "Beşiktaş J.K.",
+      "away": "Paris Basketball",
+      "start": "2026-11-24T17:00:00+00:00",
+      "favorite": "home",
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+    },
+    "d563569f19780b306d14d3c29b67f3bf": {
+      "sport": "basketball_euroleague",
+      "home": "KK Crvena zvezda",
+      "away": "Virtus Segafredo Bologna",
+      "start": "2026-11-24T18:00:00+00:00",
+      "favorite": "home",
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+    },
+    "6bcef0e5f7b2a021b7e07514cdfa6493": {
+      "sport": "basketball_euroleague",
+      "home": "FC Bayern München",
+      "away": "Maccabi Tel Aviv",
+      "start": "2026-11-24T19:00:00+00:00",
+      "favorite": "home",
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+    },
+    "767cda572a9aefe0c057a4fe3199dfa4": {
+      "sport": "basketball_euroleague",
+      "home": "Valencia Basket",
+      "away": "Panathinaikos",
+      "start": "2026-11-24T19:30:00+00:00",
+      "favorite": "away",
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+    },
+    "1707b8c728b9116472624aa8178ebfce": {
+      "sport": "basketball_euroleague",
+      "home": "ASVEL Lyon Villeurbanne",
+      "away": "Pallacanestro Olimpia Milano",
+      "start": "2026-11-24T19:45:00+00:00",
+      "favorite": "away",
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+    },
+    "0f9b0defd0a6c9603d7c70e7962bb628": {
+      "sport": "basketball_euroleague",
+      "home": "FC Barcelona Bàsquet",
+      "away": "Fenerbahce SK",
+      "start": "2026-11-24T20:00:00+00:00",
+      "favorite": "away",
+      "captured_at": "2026-11-19T20:47:19.741695+00:00"
     }
   },
   "odds_refreshed": {
     "basketball_nba": "2026-11-18T22:27:18.871293+00:00",
-    "basketball_euroleague": "2026-11-18T22:27:18.871293+00:00",
+    "basketball_euroleague": "2026-11-19T20:47:19.741695+00:00",
     "basketball_nbl": "2026-11-18T22:27:18.871293+00:00",
     "basketball_ncaab": "2026-11-18T22:27:18.871293+00:00",
     "basketball_wncaab": "2026-11-18T22:27:18.871293+00:00"
