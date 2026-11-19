@@ -13,8 +13,8 @@ TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 STATE_FILE = Path("basket_state.json")
 
-# Una richiesta live ogni 20 minuti = circa 72 richieste SportStats al giorno.
-# The Odds API: 5 campionati x 1 aggiornamento al giorno = circa 150 crediti/mese.
+# I controlli live sono programmati ogni 10 minuti (circa 96 al giorno tra le 08 e le 24).
+# Quote: 5 campionati ogni 24h e EuroLeague ogni 12h (circa 180 crediti/mese, se disponibili).
 ODDS_SPORTS = (
     "basketball_nba",
     "basketball_euroleague",
@@ -55,7 +55,6 @@ TEAM_ALIASES = {
     "bayernmuenchen": "bayernmunich",
     "bayernmunich": "bayernmunich",
     "baskonia": "baskonia",
-    "saski baskonia": "baskonia",
     "saskibaskonia": "baskonia",
     "baskoniavitoriagasteiz": "baskonia",
 }
