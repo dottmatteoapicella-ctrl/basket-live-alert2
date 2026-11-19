@@ -77,6 +77,7 @@ def load_state():
     else:
         state = {}
     state.setdefault("favorites", {})
+    state.setdefault("favorite_prices", {})
     state.setdefault("alerts", [])
     state.setdefault("attempted", {})
     state.setdefault("odds_games", {})
@@ -130,6 +131,7 @@ def update_odds(state, now):
             if not home or not away:
                 continue
             favorite = None
+            selected_prices = None
             for bookmaker in game.get("bookmakers", []):
                 market = next((m for m in bookmaker.get("markets", [])
                                if m.get("key") == "h2h"), None)
@@ -144,6 +146,7 @@ def update_odds(state, now):
                             pass
                 if home in prices and away in prices and prices[home] != prices[away]:
                     favorite = "home" if prices[home] < prices[away] else "away"
+                    selected_prices = {"home": prices[home], "away": prices[away]}
                     break
             if not favorite:
                 continue
@@ -154,6 +157,7 @@ def update_odds(state, now):
                 "away": away,
                 "start": start.isoformat(),
                 "favorite": favorite,
+                "prices": selected_prices,
                 "captured_at": now.isoformat(),
             }
             count += 1
@@ -207,17 +211,21 @@ def find_prematch_favorite(match, state):
                           team_key((match.get("home_team") or {}).get("name")) == team_key(item.get("away")) and
                           team_key((match.get("away_team") or {}).get("name")) == team_key(item.get("home")))
         if exact or loose:
-            candidates.append((0 if exact else 1, difference, item["favorite"]))
+            candidates.append((0 if exact else 1, difference, item["favorite"], item.get("prices"), False))
         elif reversed_exact or reversed_loose:
             inverted = "away" if item["favorite"] == "home" else "home"
-            candidates.append((0 if reversed_exact else 1, difference, inverted))
+            candidates.append((0 if reversed_exact else 1, difference, inverted, item.get("prices"), True))
     if not candidates:
         return None
     candidates.sort(key=lambda pair: (pair[0], pair[1]))
     # Evita di attribuire quote a un'altra partita con nomi simili.
     if len(candidates) > 1 and candidates[0][:2] == candidates[1][:2] and candidates[0][2] != candidates[1][2]:
         return None
-    return candidates[0][2]
+    best = candidates[0]
+    prices = best[3]
+    if isinstance(prices, dict) and best[4]:
+        prices = {"home": prices.get("away"), "away": prices.get("home")}
+    return {"favorite": best[2], "prices": prices}
 
 
 def current_quarter(match):
@@ -300,10 +308,17 @@ def main():
             continue
 
         favorite = state["favorites"].get(game_id)
-        if favorite not in ("home", "away"):
-            favorite = find_prematch_favorite(match, state)
-            if favorite:
-                state["favorites"][game_id] = favorite
+        prices = state["favorite_prices"].get(game_id)
+        if favorite not in ("home", "away") or not prices:
+            matched = find_prematch_favorite(match, state)
+            if matched:
+                # Non cambiare una favorita gia' memorizzata.
+                if favorite not in ("home", "away"):
+                    favorite = matched["favorite"]
+                    state["favorites"][game_id] = favorite
+                if matched["favorite"] == favorite and matched.get("prices"):
+                    prices = matched["prices"]
+                    state["favorite_prices"][game_id] = prices
                 save_state(state)
         if not favorite:
             skipped_no_favorite += 1
@@ -326,6 +341,15 @@ def main():
             continue
 
         favorite_name = home if favorite == "home" else away
+        odds_text = ""
+        if isinstance(prices, dict):
+            try:
+                home_odd = float(prices["home"])
+                away_odd = float(prices["away"])
+                odds_text = (f"📈 Quote pre-match: {home} {home_odd:.2f} | "
+                             f"{away} {away_odd:.2f}\\n")
+            except (KeyError, TypeError, ValueError):
+                pass
         message = (
             "🚨🏀 FAVORITA IN SVANTAGGIO!\n\n"
             f"🏆 Campionato: {match.get('league_name') or 'Non disponibile'}\n\n"
@@ -334,6 +358,7 @@ def main():
             f"📊 Risultato: {home_score} - {away_score}\n"
             f"⏱ Periodo: {quarter}° quarto\n\n"
             f"⭐ Favorita pre-match: {favorite_name}\n"
+            f"{odds_text}"
             f"📉 Svantaggio: {abs(home_score - away_score)} punti\n\n"
             "Dati: Stadiro / SportStatsAPI (sportstatsapi.com)"
         )
