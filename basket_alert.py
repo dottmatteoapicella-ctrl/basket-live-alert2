@@ -45,6 +45,16 @@ def normalize(name):
     return re.sub(r"[^a-z0-9]", "", name.casefold())
 
 
+def team_key(name):
+    """Normalizza solo varianti editoriali sicure, senza indovinare squadre."""
+    value = unicodedata.normalize("NFKD", name or "")
+    value = "".join(c for c in value if not unicodedata.combining(c))
+    value = value.casefold().replace("&", " and ")
+    # Abbreviazioni editoriali frequenti, senza rimuovere citta' o nomi.
+    value = re.sub(r"\\b(?:basketball|basket|bc|bk|b c)\\b", " ", value)
+    return re.sub(r"[^a-z0-9]", "", value)
+
+
 def load_state():
     if STATE_FILE.exists():
         state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
@@ -169,19 +179,28 @@ def find_prematch_favorite(match, state):
             continue
         odds_home, odds_away = normalize(item.get("home")), normalize(item.get("away"))
         difference = abs((start - odds_start).total_seconds())
-        if home == odds_home and away == odds_away:
-            candidates.append((difference, item["favorite"]))
-        elif home == odds_away and away == odds_home:
-            # La sorgente live puo' invertire casa/trasferta: inverti anche la favorita.
+        exact = home == odds_home and away == odds_away
+        reversed_exact = home == odds_away and away == odds_home
+        # Varianti innocue come "BC" / "Basketball": solo se entrambe le squadre
+        # coincidono e l'orario e' entro 90 minuti.
+        loose = (difference <= 90 * 60 and
+                 team_key((match.get("home_team") or {}).get("name")) == team_key(item.get("home")) and
+                 team_key((match.get("away_team") or {}).get("name")) == team_key(item.get("away")))
+        reversed_loose = (difference <= 90 * 60 and
+                          team_key((match.get("home_team") or {}).get("name")) == team_key(item.get("away")) and
+                          team_key((match.get("away_team") or {}).get("name")) == team_key(item.get("home")))
+        if exact or loose:
+            candidates.append((0 if exact else 1, difference, item["favorite"]))
+        elif reversed_exact or reversed_loose:
             inverted = "away" if item["favorite"] == "home" else "home"
-            candidates.append((difference, inverted))
+            candidates.append((0 if reversed_exact else 1, difference, inverted))
     if not candidates:
         return None
-    candidates.sort(key=lambda pair: pair[0])
+    candidates.sort(key=lambda pair: (pair[0], pair[1]))
     # Evita di attribuire quote a un'altra partita con nomi simili.
-    if len(candidates) > 1 and candidates[0][0] == candidates[1][0] and candidates[0][1] != candidates[1][1]:
+    if len(candidates) > 1 and candidates[0][:2] == candidates[1][:2] and candidates[0][2] != candidates[1][2]:
         return None
-    return candidates[0][1]
+    return candidates[0][2]
 
 
 def current_quarter(match):
@@ -234,6 +253,7 @@ def main():
     skipped_period = 0
     skipped_no_favorite = 0
     skipped_incomplete = 0
+    missing_favorite_examples = []
 
     for match in matches:
         if match.get("status_code") != "live":
@@ -270,6 +290,12 @@ def main():
                 save_state(state)
         if not favorite:
             skipped_no_favorite += 1
+            if len(missing_favorite_examples) < 8:
+                missing_favorite_examples.append({
+                    "home": home, "away": away,
+                    "start": match.get("start_at"),
+                    "league": match.get("league_name"),
+                })
             continue
         with_favorite += 1
         try:
@@ -304,6 +330,7 @@ def main():
     print("Live con favorita nota:", with_favorite)
     print("Scartate senza periodo riconosciuto:", skipped_period)
     print("Scartate senza favorita associata:", skipped_no_favorite)
+    print("Esempi partite senza favorita:", json.dumps(missing_favorite_examples, ensure_ascii=False))
     print("Scartate con dati incompleti:", skipped_incomplete)
     print("Live ignorate per dati stale:", skipped_stale)
     print("Nuovi alert:", sent)
