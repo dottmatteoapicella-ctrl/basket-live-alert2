@@ -261,7 +261,11 @@
       "away": "ASVEL Lyon Villeurbanne",
       "start": "2026-11-20T17:30:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.2,
+        "away": 3.25
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "b9e7c3066f4c22b555b3ceef964c0e9c": {
       "sport": "basketball_euroleague",
@@ -269,7 +273,11 @@
       "away": "Real Madrid",
       "start": "2026-11-20T19:15:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.7,
+        "away": 2.15
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "55491171f930de0bcb5382613ad27746": {
       "sport": "basketball_euroleague",
@@ -277,7 +285,11 @@
       "away": "KK Crvena zvezda",
       "start": "2026-11-20T19:30:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.67,
+        "away": 2.2
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "4036e139e287445bad9b5705a7edfe7c": {
       "sport": "basketball_euroleague",
@@ -285,7 +297,11 @@
       "away": "Beşiktaş J.K.",
       "start": "2026-11-20T19:45:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.32,
+        "away": 2.6
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "0afe2ea850539074dc949e28eecfd35e": {
       "sport": "basketball_nbl",
@@ -1569,7 +1585,11 @@
       "away": "Paris Basketball",
       "start": "2026-11-24T17:00:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.45,
+        "away": 2.88
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "d563569f19780b306d14d3c29b67f3bf": {
       "sport": "basketball_euroleague",
@@ -1577,7 +1597,11 @@
       "away": "Virtus Segafredo Bologna",
       "start": "2026-11-24T18:00:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.33,
+        "away": 3.54
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "6bcef0e5f7b2a021b7e07514cdfa6493": {
       "sport": "basketball_euroleague",
@@ -1585,7 +1609,11 @@
       "away": "Maccabi Tel Aviv",
       "start": "2026-11-24T19:00:00+00:00",
       "favorite": "home",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.8,
+        "away": 2.08
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "767cda572a9aefe0c057a4fe3199dfa4": {
       "sport": "basketball_euroleague",
@@ -1593,7 +1621,11 @@
       "away": "Panathinaikos",
       "start": "2026-11-24T19:30:00+00:00",
       "favorite": "away",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.92,
+        "away": 1.8
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "1707b8c728b9116472624aa8178ebfce": {
       "sport": "basketball_euroleague",
@@ -1601,7 +1633,11 @@
       "away": "Pallacanestro Olimpia Milano",
       "start": "2026-11-24T19:45:00+00:00",
       "favorite": "away",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.99,
+        "away": 1.87
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "0f9b0defd0a6c9603d7c70e7962bb628": {
       "sport": "basketball_euroleague",
@@ -1609,7 +1645,11 @@
       "away": "Fenerbahce SK",
       "start": "2026-11-24T20:00:00+00:00",
       "favorite": "away",
-      "captured_at": "2026-11-19T20:47:19.741695+00:00"
+      "prices": {
+        "home": 1.86,
+        "away": 1.6
+      },
+      "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
     "3c082b72aa002131c276ff5e24bada1b": {
       "sport": "basketball_nba",
@@ -2346,7 +2386,7 @@
   },
   "odds_refreshed": {
     "basketball_nba": "2026-11-19T22:47:20.806067+00:00",
-    "basketball_euroleague": "2026-11-19T20:47:19.741695+00:00",
+    "basketball_euroleague": "2026-11-20T08:47:26.147281+00:00",
     "basketball_nbl": "2026-11-19T22:47:20.806067+00:00",
     "basketball_ncaab": "2026-11-19T22:47:20.806067+00:00",
     "basketball_wncaab": "2026-11-19T22:47:20.806067+00:00"
