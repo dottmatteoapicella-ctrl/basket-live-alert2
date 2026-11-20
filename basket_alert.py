@@ -228,6 +228,41 @@ def find_prematch_favorite(match, state):
     return {"favorite": best[2], "prices": prices}
 
 
+
+def diagnose_missing_odds(match, state):
+    """Diagnostica senza modificare favorite, quote o inviare alert."""
+    start = parse_time(match.get("start_at"))
+    home = (match.get("home_team") or {}).get("name", "")
+    away = (match.get("away_team") or {}).get("name", "")
+    if not start:
+        return {"reason": "orario_live_mancante"}
+    nearby = []
+    for item in state["odds_games"].values():
+        odds_start = parse_time(item.get("start"))
+        if not odds_start:
+            continue
+        minutes = round(abs((start - odds_start).total_seconds()) / 60)
+        if minutes > MAX_START_DIFFERENCE_HOURS * 60:
+            continue
+        home_key, away_key = team_key(home), team_key(away)
+        odds_home, odds_away = team_key(item.get("home")), team_key(item.get("away"))
+        overlap = int(home_key in (odds_home, odds_away)) + int(away_key in (odds_home, odds_away))
+        nearby.append((overlap, minutes, item))
+    if not nearby:
+        return {"reason": "nessuna_quota_in_finestra_oraria"}
+    nearby.sort(key=lambda x: (-x[0], x[1]))
+    overlap, minutes, item = nearby[0]
+    return {
+        "reason": "squadre_non_corrispondenti" if overlap == 0 else
+                  "corrispondenza_parziale_o_orario" if overlap == 1 else
+                  "abbinamento_ambiguo_o_orario",
+        "overlap_squadre": overlap,
+        "differenza_minuti": minutes,
+        "campionato_quote": item.get("sport"),
+        "squadre_quote": [item.get("home"), item.get("away")],
+    }
+
+
 def current_quarter(match):
     """Rileva Q1-Q4 solo da indicazioni esplicite del periodo corrente."""
     live = match.get("live")
@@ -279,6 +314,7 @@ def main():
     skipped_no_favorite = 0
     skipped_incomplete = 0
     missing_favorite_examples = []
+    missing_favorite_reasons = {}
 
     for match in matches:
         if match.get("status_code") != "live":
@@ -322,11 +358,15 @@ def main():
                 save_state(state)
         if not favorite:
             skipped_no_favorite += 1
+            diagnostic = diagnose_missing_odds(match, state)
+            reason = diagnostic["reason"]
+            missing_favorite_reasons[reason] = missing_favorite_reasons.get(reason, 0) + 1
             if len(missing_favorite_examples) < 8:
                 missing_favorite_examples.append({
                     "home": home, "away": away,
                     "start": match.get("start_at"),
                     "league": match.get("league_name"),
+                    "diagnostica": diagnostic,
                 })
             continue
         with_favorite += 1
@@ -372,11 +412,17 @@ def main():
     print("Live con favorita nota:", with_favorite)
     print("Scartate senza periodo riconosciuto:", skipped_period)
     print("Scartate senza favorita associata:", skipped_no_favorite)
+    print("Motivi mancata associazione favorita:", json.dumps(missing_favorite_reasons, ensure_ascii=False))
     print("Esempi partite senza favorita:", json.dumps(missing_favorite_examples, ensure_ascii=False))
     print("Scartate con dati incompleti:", skipped_incomplete)
     print("Live ignorate per dati stale:", skipped_stale)
     print("Nuovi alert:", sent)
     print("Quote pre-match in cache:", len(state["odds_games"]))
+    cached_by_sport = {}
+    for item in state["odds_games"].values():
+        sport = item.get("sport", "sconosciuto")
+        cached_by_sport[sport] = cached_by_sport.get(sport, 0) + 1
+    print("Quote in cache per campionato:", json.dumps(cached_by_sport, ensure_ascii=False))
     print("Campionati quote configurati:", ", ".join(ODDS_SPORTS))
 
 
