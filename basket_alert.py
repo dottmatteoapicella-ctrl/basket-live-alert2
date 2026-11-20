@@ -311,6 +311,7 @@ def main():
     skipped_stale = 0
     with_favorite = 0
     skipped_period = 0
+    missing_period_examples = []
     skipped_no_favorite = 0
     skipped_incomplete = 0
     missing_favorite_examples = []
@@ -338,6 +339,16 @@ def main():
         quarter = current_quarter(match)
         if quarter is None:
             skipped_period += 1
+            if len(missing_period_examples) < 8:
+                live_data = match.get("live")
+                missing_period_examples.append({
+                    "home": home, "away": away,
+                    "league": match.get("league_name"),
+                    "status": match.get("status"),
+                    "status_code": match.get("status_code"),
+                    "live_period": live_data.get("period") if isinstance(live_data, dict) else None,
+                    "live_keys": sorted(live_data.keys()) if isinstance(live_data, dict) else [],
+                })
             continue
         alert_id = f"{game_id}:Q{quarter}"
         if alert_id in state["alerts"]:
@@ -411,6 +422,7 @@ def main():
     save_state(state)
     print("Live con favorita nota:", with_favorite)
     print("Scartate senza periodo riconosciuto:", skipped_period)
+    print("Esempi periodo non riconosciuto:", json.dumps(missing_period_examples, ensure_ascii=False))
     print("Scartate senza favorita associata:", skipped_no_favorite)
     print("Motivi mancata associazione favorita:", json.dumps(missing_favorite_reasons, ensure_ascii=False))
     print("Esempi partite senza favorita:", json.dumps(missing_favorite_examples, ensure_ascii=False))
