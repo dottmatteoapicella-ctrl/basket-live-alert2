@@ -230,37 +230,55 @@ def find_prematch_favorite(match, state):
 
 
 def diagnose_missing_odds(match, state):
-    """Diagnostica senza modificare favorite, quote o inviare alert."""
+    """Diagnostica prudente: non associare mai quote di incontri estranei."""
+    league = (match.get("league_name") or "").casefold()
+    known_leagues = {
+        "basketball_nba": ("nba",),
+        "basketball_euroleague": ("euroleague", "euro league"),
+        "basketball_nbl": ("australia: nbl", "australian nbl"),
+        "basketball_ncaab": ("ncaa", "ncaab"),
+        "basketball_wncaab": ("wncaa", "ncaa women"),
+    }
+    supported = [sport for sport, labels in known_leagues.items()
+                 if any(label in league for label in labels)]
+    if not supported:
+        return {"reason": "campionato_non_coperto_dalle_quote_configurate",
+                "league": match.get("league_name")}
+
     start = parse_time(match.get("start_at"))
-    home = (match.get("home_team") or {}).get("name", "")
-    away = (match.get("away_team") or {}).get("name", "")
     if not start:
         return {"reason": "orario_live_mancante"}
+    home = team_key((match.get("home_team") or {}).get("name"))
+    away = team_key((match.get("away_team") or {}).get("name"))
+    same_league = [item for item in state["odds_games"].values()
+                   if item.get("sport") in supported]
+    if not same_league:
+        return {"reason": "nessuna_quota_memorizzata_per_campionato",
+                "sport": supported}
     nearby = []
-    for item in state["odds_games"].values():
+    for item in same_league:
         odds_start = parse_time(item.get("start"))
         if not odds_start:
             continue
         minutes = round(abs((start - odds_start).total_seconds()) / 60)
         if minutes > MAX_START_DIFFERENCE_HOURS * 60:
             continue
-        home_key, away_key = team_key(home), team_key(away)
         odds_home, odds_away = team_key(item.get("home")), team_key(item.get("away"))
-        overlap = int(home_key in (odds_home, odds_away)) + int(away_key in (odds_home, odds_away))
+        overlap = int(home in (odds_home, odds_away)) + int(away in (odds_home, odds_away))
         nearby.append((overlap, minutes, item))
     if not nearby:
-        return {"reason": "nessuna_quota_in_finestra_oraria"}
+        return {"reason": "nessuna_quota_in_finestra_oraria", "sport": supported}
     nearby.sort(key=lambda x: (-x[0], x[1]))
     overlap, minutes, item = nearby[0]
-    return {
-        "reason": "squadre_non_corrispondenti" if overlap == 0 else
-                  "corrispondenza_parziale_o_orario" if overlap == 1 else
-                  "abbinamento_ambiguo_o_orario",
-        "overlap_squadre": overlap,
-        "differenza_minuti": minutes,
-        "campionato_quote": item.get("sport"),
-        "squadre_quote": [item.get("home"), item.get("away")],
-    }
+    result = {"reason": ("nomi_squadre_non_corrispondenti" if overlap == 0 else
+                         "solo_una_squadra_corrisponde" if overlap == 1 else
+                         "possibile_disallineamento_orario_o_ambiguita"),
+              "sport": item.get("sport"), "overlap_squadre": overlap}
+    # Mostra dettagli soltanto quando almeno una squadra coincide.
+    if overlap:
+        result.update({"differenza_minuti": minutes,
+                       "squadre_quote": [item.get("home"), item.get("away")]})
+    return result
 
 
 def current_quarter(match):
