@@ -3,9 +3,6 @@ name: Basket Live Alert
 
 on:
   workflow_dispatch:
-  schedule:
-    # Ogni 10 minuti; GitHub puo' ritardare qualche esecuzione.
-    - cron: '3,13,23,33,43,53 * * * *'
 
 permissions:
   contents: write
