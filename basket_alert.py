@@ -6,6 +6,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
+import api_monitor
+api_monitor.install()
 
 SPORTSTATS_API_KEY = os.environ["SPORTSTATS_API_KEY"]
 ODDS_API_KEY = os.environ["ODDS_API_KEY"]
