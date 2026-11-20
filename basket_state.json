@@ -54,7 +54,8 @@
     "sportstats:moajg": "home",
     "sportstats:moaji": "home",
     "sportstats:moajh": "home",
-    "sportstats:mofka": "away"
+    "sportstats:mofka": "away",
+    "sportstats:mofkd": "home"
   },
   "alerts": [
     "516757",
@@ -2391,5 +2392,10 @@
     "basketball_ncaab": "2026-11-19T22:47:20.806067+00:00",
     "basketball_wncaab": "2026-11-19T22:47:20.806067+00:00"
   },
-  "favorite_prices": {}
+  "favorite_prices": {
+    "sportstats:mofkd": {
+      "home": 1.7,
+      "away": 2.15
+    }
+  }
 }
