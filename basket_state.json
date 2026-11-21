@@ -57,7 +57,8 @@
     "sportstats:mofka": "away",
     "sportstats:mofkd": "home",
     "sportstats:mofgr": "home",
-    "sportstats:mofgs": "home"
+    "sportstats:mofgs": "home",
+    "sportstats:moajz": "home"
   },
   "alerts": [
     "516757",
@@ -85,7 +86,8 @@
     "sportstats:moaji",
     "sportstats:moajh",
     "sportstats:mofka:Q3",
-    "sportstats:mofka:Q4"
+    "sportstats:mofka:Q4",
+    "sportstats:moajz:Q1"
   ],
   "attempted": {
     "519328": "2026-11-16T14:09:56.807826+00:00",
@@ -2610,6 +2612,10 @@
     "sportstats:mofgs": {
       "home": 1.25,
       "away": 2.7
+    },
+    "sportstats:moajz": {
+      "home": 1.11,
+      "away": 4.2
     }
   }
 }
