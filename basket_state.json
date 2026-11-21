@@ -162,14 +162,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "15e35a72dec4007e37710032d620bea6": {
-      "sport": "basketball_euroleague",
-      "home": "Beşiktaş J.K.",
-      "away": "Real Madrid",
-      "start": "2026-11-18T17:00:00+00:00",
-      "favorite": "away",
-      "captured_at": "2026-11-17T22:13:09.133418+00:00"
-    },
     "4b4d96b108c8fc648a218e196ff50814": {
       "sport": "basketball_euroleague",
       "home": "Maccabi Tel Aviv",
