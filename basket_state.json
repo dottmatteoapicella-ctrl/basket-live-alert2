@@ -56,7 +56,8 @@
     "sportstats:moajh": "home",
     "sportstats:mofka": "away",
     "sportstats:mofkd": "home",
-    "sportstats:mofgr": "home"
+    "sportstats:mofgr": "home",
+    "sportstats:mofgs": "home"
   },
   "alerts": [
     "516757",
@@ -2613,6 +2614,10 @@
     "sportstats:mofgr": {
       "home": 1.38,
       "away": 2.15
+    },
+    "sportstats:mofgs": {
+      "home": 1.25,
+      "away": 2.7
     }
   }
 }
