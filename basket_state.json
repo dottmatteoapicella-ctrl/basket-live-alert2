@@ -166,14 +166,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "4b4d96b108c8fc648a218e196ff50814": {
-      "sport": "basketball_euroleague",
-      "home": "Maccabi Tel Aviv",
-      "away": "Dubai Basketball",
-      "start": "2026-11-19T17:15:00+00:00",
-      "favorite": "away",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
-    },
     "fd0b8dc548a91d28204f77e383c2b820": {
       "sport": "basketball_euroleague",
       "home": "Žalgiris",
