@@ -166,22 +166,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "0c64e1972e0525f5cf28265902eb43ab": {
-      "sport": "basketball_euroleague",
-      "home": "Pallacanestro Olimpia Milano",
-      "away": "Fenerbahce SK",
-      "start": "2026-11-19T19:30:00+00:00",
-      "favorite": "away",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
-    },
-    "9d00df6643ed2590c76cbf57c8d8b714": {
-      "sport": "basketball_euroleague",
-      "home": "Paris Basketball",
-      "away": "Hapoel Tel Aviv",
-      "start": "2026-11-19T19:45:00+00:00",
-      "favorite": "away",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
-    },
     "c65d74c382bec5dc7dacdb62b641728b": {
       "sport": "basketball_euroleague",
       "home": "Valencia Basket",
