@@ -166,14 +166,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "c65d74c382bec5dc7dacdb62b641728b": {
-      "sport": "basketball_euroleague",
-      "home": "Valencia Basket",
-      "away": "Virtus Segafredo Bologna",
-      "start": "2026-11-19T20:00:00+00:00",
-      "favorite": "home",
-      "captured_at": "2026-11-18T22:27:18.871293+00:00"
-    },
     "1a5b5e46f5c64363a212730f36e943e0": {
       "sport": "basketball_euroleague",
       "home": "Anadolu Efes",
