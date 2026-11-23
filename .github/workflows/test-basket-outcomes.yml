@@ -1,0 +1,18 @@
+name: Test basket Telegram outcomes
+on:
+  push:
+    paths:
+      - 'basket_telegram_outcomes.py'
+      - 'test_basket_telegram_outcomes.py'
+      - '.github/workflows/test-basket-outcomes.yml'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - run: python -m unittest -v test_basket_telegram_outcomes
