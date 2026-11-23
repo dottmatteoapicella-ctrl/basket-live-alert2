@@ -2017,14 +2017,602 @@
         "away": 2.49
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
+    },
+    "35ca45d3e548dc7207fd7f1696ab16f5": {
+      "sport": "basketball_nba",
+      "home": "Charlotte Hornets",
+      "away": "Memphis Grizzlies",
+      "start": "2026-11-24T00:10:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.4,
+        "away": 1.62
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "ac6fb079d66ef35a2a77e22b5e94ef8d": {
+      "sport": "basketball_nba",
+      "home": "Philadelphia 76ers",
+      "away": "Portland Trail Blazers",
+      "start": "2026-11-24T00:10:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.61,
+        "away": 2.3
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "a72a1703f7a92b80768255d1d977a761": {
+      "sport": "basketball_nba",
+      "home": "Minnesota Timberwolves",
+      "away": "Brooklyn Nets",
+      "start": "2026-11-24T00:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.16,
+        "away": 5.61
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "c9b6c9f77fd3628308dd34f50854a9c0": {
+      "sport": "basketball_nba",
+      "home": "Indiana Pacers",
+      "away": "Oklahoma City Thunder",
+      "start": "2026-11-24T00:40:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.5,
+        "away": 1.41
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "a5184238c27b9c3bfca29220f9d5d14a": {
+      "sport": "basketball_nba",
+      "home": "Toronto Raptors",
+      "away": "Milwaukee Bucks",
+      "start": "2026-11-24T00:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.2,
+        "away": 4.9
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "b8dfee1fca57ec870528a14c792ad73a": {
+      "sport": "basketball_nba",
+      "home": "Chicago Bulls",
+      "away": "Cleveland Cavaliers",
+      "start": "2026-11-24T01:10:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.6,
+        "away": 1.29
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "6caeb7cce7c8340fed588f3badd83fe0": {
+      "sport": "basketball_nba",
+      "home": "New Orleans Pelicans",
+      "away": "Phoenix Suns",
+      "start": "2026-11-24T01:10:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.2,
+        "away": 1.67
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "db2311c331296d3328d71b842167dea4": {
+      "sport": "basketball_nba",
+      "home": "Houston Rockets",
+      "away": "Los Angeles Clippers",
+      "start": "2026-11-24T01:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.12,
+        "away": 6.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "3e9dc52cb055c0154839c4aec417955b": {
+      "sport": "basketball_nba",
+      "home": "Los Angeles Lakers",
+      "away": "Utah Jazz",
+      "start": "2026-11-24T03:10:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.11,
+        "away": 6.5
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "17f31499f145cd9d3232819395d29448": {
+      "sport": "basketball_nba",
+      "home": "Sacramento Kings",
+      "away": "San Antonio Spurs",
+      "start": "2026-11-24T03:10:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 4.5,
+        "away": 1.2
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "435ce8aaf2de67393a436fc9bf8c956e": {
+      "sport": "basketball_ncaab",
+      "home": "Appalachian St Mountaineers",
+      "away": "St. Bonaventure Bonnies",
+      "start": "2026-11-23T16:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.86,
+        "away": 1.45
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "98a0b4549739cc028ffa9665d77d7ffd": {
+      "sport": "basketball_ncaab",
+      "home": "Davidson Wildcats",
+      "away": "Northern Iowa Panthers",
+      "start": "2026-11-23T16:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.45,
+        "away": 2.86
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "e4496b83963ca2f24052c8779d91cbeb": {
+      "sport": "basketball_ncaab",
+      "home": "East Carolina Pirates",
+      "away": "Indiana St Sycamores",
+      "start": "2026-11-23T17:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.65,
+        "away": 2.33
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "037aac2cff7aea7fec09fbb5a3dcf04b": {
+      "sport": "basketball_ncaab",
+      "home": "Florida Int'l Golden Panthers",
+      "away": "Long Beach St 49ers",
+      "start": "2026-11-23T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.19,
+        "away": 4.96
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "03914af0d22bba6c22c326407049444a": {
+      "sport": "basketball_ncaab",
+      "home": "Wright St Raiders",
+      "away": "Akron Zips",
+      "start": "2026-11-23T18:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.8,
+        "away": 2.05
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "276deab7d659366b50ff0608d1501b6e": {
+      "sport": "basketball_ncaab",
+      "home": "Florida Gulf Coast Eagles",
+      "away": "Charlotte 49ers",
+      "start": "2026-11-23T18:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.0,
+        "away": 1.35
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "7672e3ae078a7b505b50f15e46208e4f": {
+      "sport": "basketball_ncaab",
+      "home": "Oregon St Beavers",
+      "away": "Tulsa Golden Hurricane",
+      "start": "2026-11-23T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.36,
+        "away": 3.3
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "f6407650f13adaa2fc13d17570ef3327": {
+      "sport": "basketball_ncaab",
+      "home": "Clemson Tigers",
+      "away": "Ole Miss Rebels",
+      "start": "2026-11-23T19:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.09,
+        "away": 1.4
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "f1dad846a15c864b10f3cf4914c7cbd5": {
+      "sport": "basketball_ncaab",
+      "home": "Southern Illinois Salukis",
+      "away": "Middle Tennessee Blue Raiders",
+      "start": "2026-11-23T20:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.72,
+        "away": 2.18
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "b1abd9ff77f5dc5c376c08041fae20ea": {
+      "sport": "basketball_ncaab",
+      "home": "Southern Utah Thunderbirds",
+      "away": "Arkansas St Red Wolves",
+      "start": "2026-11-23T20:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.56,
+        "away": 1.32
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "aee64daab1ceefa09aaf0260ed750d53": {
+      "sport": "basketball_ncaab",
+      "home": "IUPUI Jaguars",
+      "away": "William & Mary Tribe",
+      "start": "2026-11-23T20:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.6,
+        "away": 1.53
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "c26aa1b5cbdc588ee415a259da2c6bf4": {
+      "sport": "basketball_ncaab",
+      "home": "Belmont Bruins",
+      "away": "Yale Bulldogs",
+      "start": "2026-11-23T21:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.65,
+        "away": 2.34
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "dd58df55a7af85441c65eee7310a71f5": {
+      "sport": "basketball_ncaab",
+      "home": "Georgia St Panthers",
+      "away": "Tulane Green Wave",
+      "start": "2026-11-23T21:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.81,
+        "away": 2.04
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "8705fa29b81b3f96d689da909e406bff": {
+      "sport": "basketball_ncaab",
+      "home": "San Francisco Dons",
+      "away": "Nevada Wolf Pack",
+      "start": "2026-11-23T21:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.41,
+        "away": 1.34
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "fc86a54f6abd13932c62fa66b82a3e28": {
+      "sport": "basketball_ncaab",
+      "home": "BYU Cougars",
+      "away": "Washington Huskies",
+      "start": "2026-11-23T22:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.12,
+        "away": 6.74
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "c247dff2509498dedc2b2408ad1d5dd4": {
+      "sport": "basketball_ncaab",
+      "home": "Tenn-Martin Skyhawks",
+      "away": "Temple Owls",
+      "start": "2026-11-23T22:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.75,
+        "away": 1.4
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "8234af74a35d1a31b73854d4fd191c64": {
+      "sport": "basketball_ncaab",
+      "home": "Youngstown St Penguins",
+      "away": "Maryland-Eastern Shore Hawks",
+      "start": "2026-11-23T23:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.08,
+        "away": 7.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "1af3a5acedbb908ecc006767d288d16b": {
+      "sport": "basketball_ncaab",
+      "home": "North Florida Ospreys",
+      "away": "Central Arkansas Bears",
+      "start": "2026-11-24T00:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 4.5,
+        "away": 1.17
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "c6b930f2b10901f7c145736cde09fd95": {
+      "sport": "basketball_ncaab",
+      "home": "Iona Gaels",
+      "away": "Fairleigh Dickinson Knights",
+      "start": "2026-11-24T00:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.22,
+        "away": 4.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "120e2421c480efcf51c1aa27d4973187": {
+      "sport": "basketball_ncaab",
+      "home": "Northern Kentucky Norse",
+      "away": "Georgia Southern Eagles",
+      "start": "2026-11-24T00:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.62,
+        "away": 2.4
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "a711d8899fd6dad91337247433157f87": {
+      "sport": "basketball_ncaab",
+      "home": "Santa Clara Broncos",
+      "away": "Illinois St Redbirds",
+      "start": "2026-11-24T00:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.48,
+        "away": 2.8
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "f35ec8dcc1ab5e6f04bdb796a46b1524": {
+      "sport": "basketball_ncaab",
+      "home": "South Carolina St Bulldogs",
+      "away": "North Carolina A&T Aggies",
+      "start": "2026-11-24T00:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.2,
+        "away": 1.61
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "9fd23b7824675dff70bd989ae6fe4967": {
+      "sport": "basketball_ncaab",
+      "home": "Wichita St Shockers",
+      "away": "Texas A&M-CC Islanders",
+      "start": "2026-11-24T00:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.03,
+        "away": 11.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "11782e330b7215a8e2f0e3e4e9a27404": {
+      "sport": "basketball_ncaab",
+      "home": "Kansas Jayhawks",
+      "away": "Denver Pioneers",
+      "start": "2026-11-24T01:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.0,
+        "away": 100.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "5a237fcf6422f6a245d462ba2a6835dc": {
+      "sport": "basketball_ncaab",
+      "home": "North Carolina Tar Heels",
+      "away": "Monmouth Hawks",
+      "start": "2026-11-24T01:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.02,
+        "away": 16.92
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "aed6a97f577438479f8716801fd3d3f9": {
+      "sport": "basketball_ncaab",
+      "home": "Stephen F. Austin Lumberjacks",
+      "away": "Utah Valley Wolverines",
+      "start": "2026-11-24T01:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.38,
+        "away": 1.53
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "bd51dcc9b4ceb556e17992c7f5fe7f75": {
+      "sport": "basketball_ncaab",
+      "home": "Providence Friars",
+      "away": "VCU Rams",
+      "start": "2026-11-24T02:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.85,
+        "away": 1.98
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "69e165166aa1f48345e5bdd45029fb18": {
+      "sport": "basketball_ncaab",
+      "home": "Pepperdine Waves",
+      "away": "UNC Greensboro Spartans",
+      "start": "2026-11-24T02:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.15,
+        "away": 5.88
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "b7a4f6e90eb128b0d569dacbfe487e80": {
+      "sport": "basketball_ncaab",
+      "home": "California Golden Bears",
+      "away": "Alabama St Hornets",
+      "start": "2026-11-24T03:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 15.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "8236efa27962bd6d4b110bb43e861b07": {
+      "sport": "basketball_ncaab",
+      "home": "UNLV Rebels",
+      "away": "Eastern Washington Eagles",
+      "start": "2026-11-24T03:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.29,
+        "away": 3.74
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "b45e9d96ab3298d614e74c19902f3998": {
+      "sport": "basketball_ncaab",
+      "home": "Arizona Wildcats",
+      "away": "Colorado St Rams",
+      "start": "2026-11-24T04:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.04,
+        "away": 12.56
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "38c575bb916b4b6634ccbc1d442b53a2": {
+      "sport": "basketball_ncaab",
+      "home": "Maryland Terrapins",
+      "away": "Tennessee Volunteers",
+      "start": "2026-11-24T20:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.66,
+        "away": 1.43
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "4168db6bc271ba612901506cd74e1c9b": {
+      "sport": "basketball_ncaab",
+      "home": "TCU Horned Frogs",
+      "away": "Miami Hurricanes",
+      "start": "2026-11-24T20:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.25,
+        "away": 1.33
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "0dbbfc6c0ffe4c7d2c9b65eb8ab96cb3": {
+      "sport": "basketball_ncaab",
+      "home": "Iowa State Cyclones",
+      "away": "San Diego St Aztecs",
+      "start": "2026-11-24T22:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.22,
+        "away": 4.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "7e24a7f74f41134d9a72a537af4cc663": {
+      "sport": "basketball_ncaab",
+      "home": "Michigan Wolverines",
+      "away": "Creighton Bluejays",
+      "start": "2026-11-24T22:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.4,
+        "away": 2.75
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "712c581bb2dc9c3072e5280bd6ccecc4": {
+      "sport": "basketball_ncaab",
+      "home": "Louisville Cardinals",
+      "away": "Texas Tech Red Raiders",
+      "start": "2026-11-25T01:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.75,
+        "away": 1.4
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "23775e1487fe2f2a91b9572fafb704a0": {
+      "sport": "basketball_ncaab",
+      "home": "Alabama Crimson Tide",
+      "away": "Baylor Bears",
+      "start": "2026-11-25T03:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.73,
+        "away": 2.0
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "4b220aa94adc3b0fd23d9d892a130646": {
+      "sport": "basketball_ncaab",
+      "home": "St. John's Red Storm",
+      "away": "Oregon Ducks",
+      "start": "2026-11-25T03:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.29,
+        "away": 3.35
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
+    },
+    "62f11de81607e09d5edea5c4e1b26feb": {
+      "sport": "basketball_ncaab",
+      "home": "Kansas St Wildcats",
+      "away": "Gonzaga Bulldogs",
+      "start": "2026-11-25T05:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 5.8,
+        "away": 1.1
+      },
+      "captured_at": "2026-11-23T07:27:24.063663+00:00"
     }
   },
   "odds_refreshed": {
-    "basketball_nba": "2026-11-22T07:27:20.827081+00:00",
+    "basketball_nba": "2026-11-23T07:27:24.063663+00:00",
     "basketball_euroleague": "2026-11-22T21:27:22.480620+00:00",
-    "basketball_nbl": "2026-11-22T07:27:20.827081+00:00",
-    "basketball_ncaab": "2026-11-22T07:27:20.827081+00:00",
-    "basketball_wncaab": "2026-11-22T07:27:20.827081+00:00"
+    "basketball_nbl": "2026-11-23T07:27:24.063663+00:00",
+    "basketball_ncaab": "2026-11-23T07:27:24.063663+00:00",
+    "basketball_wncaab": "2026-11-23T07:27:24.063663+00:00"
   },
   "favorite_prices": {
     "sportstats:mofkd": {
