@@ -290,18 +290,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "9d327abf7311461d1cfaeb835057b5db": {
-      "sport": "basketball_ncaab",
-      "home": "Liberty Flames",
-      "away": "Rhode Island Rams",
-      "start": "2026-11-20T21:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.2,
-        "away": 1.61
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "86aad9e9d1093833464eac0c88635a2c": {
       "sport": "basketball_ncaab",
       "home": "Miami Hurricanes",
