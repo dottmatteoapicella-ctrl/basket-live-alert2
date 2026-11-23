@@ -290,30 +290,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "e1804fe8283327513088eada01a00c7e": {
-      "sport": "basketball_ncaab",
-      "home": "Utah Utes",
-      "away": "Dayton Flyers",
-      "start": "2026-11-20T22:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.73,
-        "away": 2.0
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
-    "18bce8d38273bd5b44a6768f1d5aa1d6": {
-      "sport": "basketball_ncaab",
-      "home": "Southern Illinois Salukis",
-      "away": "Tenn-Martin Skyhawks",
-      "start": "2026-11-20T22:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.73,
-        "away": 2.0
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "eaa7e563508f83b89da51b138fda7d0b": {
       "sport": "basketball_ncaab",
       "home": "CSU Northridge Matadors",
