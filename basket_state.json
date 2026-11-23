@@ -338,18 +338,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "d6615873be75fcb42a72a8f14c93dd53": {
-      "sport": "basketball_ncaab",
-      "home": "Florida St Seminoles",
-      "away": "Green Bay Phoenix",
-      "start": "2026-11-20T17:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.0,
-        "away": 21.0
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "79e05f83b74f5df0385955f0d3f3cdcb": {
       "sport": "basketball_ncaab",
       "home": "Middle Tennessee Blue Raiders",
