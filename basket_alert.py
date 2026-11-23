@@ -7,6 +7,7 @@ from pathlib import Path
 
 import requests
 import api_monitor
+import basket_telegram_outcomes
 api_monitor.install()
 
 SPORTSTATS_API_KEY = os.environ["SPORTSTATS_API_KEY"]
@@ -84,6 +85,7 @@ def load_state():
     state.setdefault("attempted", {})
     state.setdefault("odds_games", {})
     state.setdefault("odds_refreshed", {})
+    state.setdefault("telegram_alerts", {})
     return state
 
 
@@ -310,8 +312,10 @@ def send_telegram(message):
         timeout=25,
     )
     response.raise_for_status()
-    if not response.json().get("ok"):
+    payload = response.json()
+    if not payload.get("ok"):
         raise RuntimeError("Telegram non ha confermato l'invio")
+    return (payload.get("result") or {}).get("message_id")
 
 
 def main():
@@ -327,6 +331,24 @@ def main():
         print("ERRORE SPORTSTATS:", str(exc))
         return
     print("Partite live:", len(matches))
+    # Never infer a final from a game disappearing from the live feed.
+    basket_telegram_outcomes.update(state, matches, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+    if any(not r.get("finalized") for r in state["telegram_alerts"].values()):
+        try:
+            response = requests.get(
+                "https://api.sportstatsapi.com/api/v1/basketball/matches/finished",
+                headers={"Authorization": f"Bearer {SPORTSTATS_API_KEY}"},
+                timeout=25,
+            )
+            print("SPORTSTATS FINISHED HTTP:", response.status_code)
+            response.raise_for_status()
+            payload = response.json()
+            finished = payload.get("data", []) if payload.get("success") else []
+            if isinstance(finished, list):
+                basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+        except (requests.RequestException, ValueError, TypeError) as exc:
+            print("Risultati basket conclusi non disponibili:", type(exc).__name__)
+    save_state(state)
     sent = 0
     skipped_stale = 0
     with_favorite = 0
@@ -433,7 +455,17 @@ def main():
             f"📉 Svantaggio: {abs(home_score - away_score)} punti\n\n"
             "Dati: Stadiro / SportStatsAPI (sportstatsapi.com)"
         )
-        send_telegram(message)
+        message_id = send_telegram(message)
+        if message_id is not None:
+            state["telegram_alerts"][alert_id] = {
+                "game_code": str(game_code),
+                "message_id": message_id,
+                "text": message,
+                "teams": [home, away],
+                "favorite": favorite,
+                "created_at": now.isoformat(),
+                "finalized": False,
+            }
         state["alerts"].append(alert_id)
         save_state(state)
         sent += 1
