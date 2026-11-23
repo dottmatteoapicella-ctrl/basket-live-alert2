@@ -170,18 +170,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "b9e7c3066f4c22b555b3ceef964c0e9c": {
-      "sport": "basketball_euroleague",
-      "home": "Olympiacos",
-      "away": "Real Madrid",
-      "start": "2026-11-20T19:15:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.7,
-        "away": 2.15
-      },
-      "captured_at": "2026-11-20T08:47:26.147281+00:00"
-    },
     "55491171f930de0bcb5382613ad27746": {
       "sport": "basketball_euroleague",
       "home": "FC Barcelona Bàsquet",
