@@ -2503,5 +2503,6 @@
       "home": 2.15,
       "away": 1.7
     }
-  }
+  },
+  "telegram_alerts": {}
 }
