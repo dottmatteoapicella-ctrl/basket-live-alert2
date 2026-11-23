@@ -290,30 +290,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "c42a6f010c505da91cae91ba184692fa": {
-      "sport": "basketball_ncaab",
-      "home": "Stephen F. Austin Lumberjacks",
-      "away": "Indiana St Sycamores",
-      "start": "2026-11-20T20:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.6,
-        "away": 2.25
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
-    "8f88d57c43c67df9c1beb816e0c11d5c": {
-      "sport": "basketball_ncaab",
-      "home": "Virginia Tech Hokies",
-      "away": "Northwestern Wildcats",
-      "start": "2026-11-20T20:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.12,
-        "away": 5.5
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "58fd00286fe702703270602ff058da8b": {
       "sport": "basketball_ncaab",
       "home": "Idaho State Bengals",
