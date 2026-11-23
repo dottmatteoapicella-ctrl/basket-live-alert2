@@ -290,18 +290,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "58fd00286fe702703270602ff058da8b": {
-      "sport": "basketball_ncaab",
-      "home": "Idaho State Bengals",
-      "away": "South Dakota St Jackrabbits",
-      "start": "2026-11-20T21:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.0,
-        "away": 1.36
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "9d327abf7311461d1cfaeb835057b5db": {
       "sport": "basketball_ncaab",
       "home": "Liberty Flames",
