@@ -326,18 +326,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "d6250787bbbfa6483fa5032b6f00a3ac": {
-      "sport": "basketball_ncaab",
-      "home": "GW Revolutionaries",
-      "away": "UAB Blazers",
-      "start": "2026-11-20T19:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.15,
-        "away": 4.75
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "c42a6f010c505da91cae91ba184692fa": {
       "sport": "basketball_ncaab",
       "home": "Stephen F. Austin Lumberjacks",
