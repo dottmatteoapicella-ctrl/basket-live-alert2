@@ -218,18 +218,6 @@
       },
       "captured_at": "2026-11-20T08:47:26.147281+00:00"
     },
-    "a0b8e760e2f015b53fb85a31cf6876a8": {
-      "sport": "basketball_nbl",
-      "home": "Cairns Taipans",
-      "away": "Perth Wildcats",
-      "start": "2026-11-20T08:36:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.65,
-        "away": 1.78
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
     "77281db085b0b37254afb377a842eb55": {
       "sport": "basketball_nbl",
       "home": "Brisbane Bullets",
