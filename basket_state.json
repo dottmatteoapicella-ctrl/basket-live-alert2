@@ -170,30 +170,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "55491171f930de0bcb5382613ad27746": {
-      "sport": "basketball_euroleague",
-      "home": "FC Barcelona Bàsquet",
-      "away": "KK Crvena zvezda",
-      "start": "2026-11-20T19:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.67,
-        "away": 2.2
-      },
-      "captured_at": "2026-11-20T08:47:26.147281+00:00"
-    },
-    "4036e139e287445bad9b5705a7edfe7c": {
-      "sport": "basketball_euroleague",
-      "home": "KK Partizan NIS",
-      "away": "Beşiktaş J.K.",
-      "start": "2026-11-20T19:45:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.32,
-        "away": 2.6
-      },
-      "captured_at": "2026-11-20T08:47:26.147281+00:00"
-    },
     "77281db085b0b37254afb377a842eb55": {
       "sport": "basketball_nbl",
       "home": "Brisbane Bullets",
