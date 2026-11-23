@@ -333,7 +333,14 @@ def main():
     print("Partite live:", len(matches))
     # Never infer a final from a game disappearing from the live feed.
     basket_telegram_outcomes.update(state, matches, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
-    if any(not r.get("finalized") for r in state["telegram_alerts"].values()):
+    # Limit final-result lookups to recent alerts, avoiding perpetual API calls.
+    recent_pending = [
+        r for r in state["telegram_alerts"].values()
+        if not r.get("finalized") and
+        (parse_time(r.get("created_at")) is not None) and
+        timedelta(0) <= now - parse_time(r["created_at"]) <= timedelta(days=2)
+    ]
+    if recent_pending:
         try:
             response = requests.get(
                 "https://api.sportstatsapi.com/api/v1/basketball/matches/finished",
