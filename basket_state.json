@@ -170,18 +170,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "1a5b5e46f5c64363a212730f36e943e0": {
-      "sport": "basketball_euroleague",
-      "home": "Anadolu Efes",
-      "away": "ASVEL Lyon Villeurbanne",
-      "start": "2026-11-20T17:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.2,
-        "away": 3.25
-      },
-      "captured_at": "2026-11-20T08:47:26.147281+00:00"
-    },
     "b9e7c3066f4c22b555b3ceef964c0e9c": {
       "sport": "basketball_euroleague",
       "home": "Olympiacos",
@@ -337,30 +325,6 @@
         "away": 2.7
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "79e05f83b74f5df0385955f0d3f3cdcb": {
-      "sport": "basketball_ncaab",
-      "home": "Middle Tennessee Blue Raiders",
-      "away": "Temple Owls",
-      "start": "2026-11-20T17:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.38,
-        "away": 1.53
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
-    },
-    "2c61b23dd09630b92c98ca00c4e8dad1": {
-      "sport": "basketball_ncaab",
-      "home": "Minnesota Golden Gophers",
-      "away": "Oklahoma St Cowboys",
-      "start": "2026-11-20T17:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.0,
-        "away": 1.73
-      },
-      "captured_at": "2026-11-19T22:47:20.806067+00:00"
     },
     "d6250787bbbfa6483fa5032b6f00a3ac": {
       "sport": "basketball_ncaab",
