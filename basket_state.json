@@ -97,7 +97,8 @@
     "sportstats:moak5:Q2",
     "sportstats:moak5:Q4",
     "sportstats:mofki:Q3",
-    "sportstats:mofki:Q4"
+    "sportstats:mofki:Q4",
+    "sportstats:mofkj:Q4"
   ],
   "attempted": {
     "519328": "2026-11-16T14:09:56.807826+00:00",
@@ -375,66 +376,6 @@
       "prices": {
         "home": 1.6,
         "away": 1.81
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "343eb2e0f080f6c844094408141efe87": {
-      "sport": "basketball_ncaab",
-      "home": "Canisius Golden Griffins",
-      "away": "Albany Great Danes",
-      "start": "2026-11-21T21:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.0,
-        "away": 1.73
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "0355b02b6389cbbb3326e2ed70b031c9": {
-      "sport": "basketball_ncaab",
-      "home": "Jacksonville Dolphins",
-      "away": "Central Arkansas Bears",
-      "start": "2026-11-21T21:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.25,
-        "away": 1.6
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "0547585c4affb18dcbcc337074462c31": {
-      "sport": "basketball_ncaab",
-      "home": "East Tennessee St Buccaneers",
-      "away": "Longwood Lancers",
-      "start": "2026-11-21T21:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.4,
-        "away": 2.75
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "306af7e6892625ac626354ebcdefe1ba": {
-      "sport": "basketball_ncaab",
-      "home": "George Mason Patriots",
-      "away": "South Florida Bulls",
-      "start": "2026-11-21T21:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.67,
-        "away": 2.3
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "b21de9c914b929255529918fffaa1efb": {
-      "sport": "basketball_ncaab",
-      "home": "La Salle Explorers",
-      "away": "Pennsylvania Quakers",
-      "start": "2026-11-21T21:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.8,
-        "away": 2.05
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
@@ -2827,6 +2768,18 @@
       ],
       "favorite": "home",
       "created_at": "2026-11-24T20:47:20.176053+00:00",
+      "finalized": false
+    },
+    "sportstats:mofkj:Q4": {
+      "game_code": "mofkj",
+      "message_id": 1008,
+      "text": "🚨🏀 FAVORITA IN SVANTAGGIO!\n\n🏆 Campionato: Europe: Euroleague\n\n🏠 Valencia\n✈️ Panathinaikos\n\n📊 Risultato: 66 - 70\n⏱ Periodo: 4° quarto\n\n⭐ Favorita pre-match: Valencia\n📈 Quote pre-match: Valencia 1.80 | Panathinaikos 2.05\n📉 Svantaggio: 4 punti\n\nDati: Stadiro / SportStatsAPI (sportstatsapi.com)",
+      "teams": [
+        "Valencia",
+        "Panathinaikos"
+      ],
+      "favorite": "home",
+      "created_at": "2026-11-24T21:07:19.762878+00:00",
       "finalized": false
     }
   }
