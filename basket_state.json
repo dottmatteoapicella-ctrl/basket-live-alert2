@@ -302,18 +302,6 @@
       },
       "captured_at": "2026-11-24T10:07:29.957863+00:00"
     },
-    "6cd4587453e4da55317b2c1e3576e75b": {
-      "sport": "basketball_nba",
-      "home": "Philadelphia 76ers",
-      "away": "Milwaukee Bucks",
-      "start": "2026-11-21T18:10:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.11,
-        "away": 4.2
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "232f705eea406644ff14ad17bcf9aea6": {
       "sport": "basketball_nba",
       "home": "New York Knicks",
