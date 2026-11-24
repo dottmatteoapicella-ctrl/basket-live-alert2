@@ -60,7 +60,8 @@
     "sportstats:mofgs": "home",
     "sportstats:moajz": "home",
     "sportstats:moak5": "away",
-    "sportstats:mofkj": "home"
+    "sportstats:mofkj": "home",
+    "sportstats:mofki": "home"
   },
   "alerts": [
     "516757",
@@ -94,7 +95,8 @@
     "sportstats:moajz:Q3",
     "sportstats:moak5:Q1",
     "sportstats:moak5:Q2",
-    "sportstats:moak5:Q4"
+    "sportstats:moak5:Q4",
+    "sportstats:mofki:Q3"
   ],
   "attempted": {
     "519328": "2026-11-16T14:09:56.807826+00:00",
@@ -372,42 +374,6 @@
       "prices": {
         "home": 1.6,
         "away": 1.81
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "2b15ead6a4087a68d986d3ec08373d14": {
-      "sport": "basketball_ncaab",
-      "home": "Missouri St Bears",
-      "away": "Drake Bulldogs",
-      "start": "2026-11-21T20:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.4,
-        "away": 1.62
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "e8da92986a48fdfe244d61eee9036ced": {
-      "sport": "basketball_ncaab",
-      "home": "Indiana St Sycamores",
-      "away": "Middle Tennessee Blue Raiders",
-      "start": "2026-11-21T20:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.2,
-        "away": 1.71
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "800f544706a95dd11ec63acbf95fc7ca": {
-      "sport": "basketball_ncaab",
-      "home": "Milwaukee Panthers",
-      "away": "St. Thomas (MN) Tommies",
-      "start": "2026-11-21T20:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.05,
-        "away": 1.8
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
@@ -2843,7 +2809,24 @@
     "sportstats:mofkj": {
       "home": 1.8,
       "away": 2.05
+    },
+    "sportstats:mofki": {
+      "home": 1.58,
+      "away": 2.48
     }
   },
-  "telegram_alerts": {}
+  "telegram_alerts": {
+    "sportstats:mofki:Q3": {
+      "game_code": "mofki",
+      "message_id": 991,
+      "text": "🚨🏀 FAVORITA IN SVANTAGGIO!\n\n🏆 Campionato: Europe: Euroleague\n\n🏠 Bayern\n✈️ Maccabi Tel Aviv\n\n📊 Risultato: 48 - 50\n⏱ Periodo: 3° quarto\n\n⭐ Favorita pre-match: Bayern\n📈 Quote pre-match: Bayern 1.58 | Maccabi Tel Aviv 2.48\n📉 Svantaggio: 2 punti\n\nDati: Stadiro / SportStatsAPI (sportstatsapi.com)",
+      "teams": [
+        "Bayern",
+        "Maccabi Tel Aviv"
+      ],
+      "favorite": "home",
+      "created_at": "2026-11-24T20:07:19.647870+00:00",
+      "finalized": false
+    }
+  }
 }
