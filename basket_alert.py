@@ -54,6 +54,13 @@ TEAM_ALIASES = {
     # Nomi brevi SportStats e denominazioni ufficiali nei mercati quote.
     "bayern": "bayernmunich",
     "fcbayernmuenchen": "bayernmunich",
+    "fcbayernmunchen": "bayernmunich",
+    "bayernmunchen": "bayernmunich",
+    "crvenazvezdameridianbet": "crvenazvezda",
+    "crvenazvezda": "crvenazvezda",
+    "redstarbelgrade": "crvenazvezda",
+    "virtusbologna": "virtusbologna",
+    "virtussegafredobologna": "virtusbologna",
     "fcbayernmunich": "bayernmunich",
     "bayernmuenchen": "bayernmunich",
     "bayernmunich": "bayernmunich",
