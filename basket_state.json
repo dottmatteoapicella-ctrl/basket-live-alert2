@@ -386,30 +386,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "934d69fc4e080af297a4f91987ad87f0": {
-      "sport": "basketball_ncaab",
-      "home": "Bucknell Bison",
-      "away": "Siena Saints",
-      "start": "2026-11-21T16:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.0,
-        "away": 1.36
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "b346f6555c1055ecaf0494e0a23d08dc": {
-      "sport": "basketball_ncaab",
-      "home": "UNC Greensboro Spartans",
-      "away": "South Carolina Upstate Spartans",
-      "start": "2026-11-21T16:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.29,
-        "away": 3.5
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "78595a04d81f88f96e1045a0c36edf26": {
       "sport": "basketball_ncaab",
       "home": "Boston Univ. Terriers",
