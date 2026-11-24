@@ -59,7 +59,8 @@
     "sportstats:mofgr": "home",
     "sportstats:mofgs": "home",
     "sportstats:moajz": "home",
-    "sportstats:moak5": "away"
+    "sportstats:moak5": "away",
+    "sportstats:mofkj": "home"
   },
   "alerts": [
     "516757",
@@ -2838,6 +2839,10 @@
     "sportstats:moak5": {
       "home": 2.15,
       "away": 1.7
+    },
+    "sportstats:mofkj": {
+      "home": 1.8,
+      "away": 2.05
     }
   },
   "telegram_alerts": {}
