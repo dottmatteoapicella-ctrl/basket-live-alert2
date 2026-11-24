@@ -386,54 +386,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "32314571b0ef6ac30a06778a1d5c1cc1": {
-      "sport": "basketball_ncaab",
-      "home": "Cleveland St Vikings",
-      "away": "Kent State Golden Flashes",
-      "start": "2026-11-21T18:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.53,
-        "away": 1.57
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "b3fab0afee75218dc01cdc6679c9ad17": {
-      "sport": "basketball_ncaab",
-      "home": "Eastern Michigan Eagles",
-      "away": "Denver Pioneers",
-      "start": "2026-11-21T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.32,
-        "away": 3.56
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "46f732d3eef66ef6e78bb2a0f31c1ebb": {
-      "sport": "basketball_ncaab",
-      "home": "LSU Tigers",
-      "away": "Queens University Royals",
-      "start": "2026-11-21T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.0,
-        "away": 29.0
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "23caa88d308de07ac04fa745540ab35f": {
-      "sport": "basketball_ncaab",
-      "home": "New Haven Chargers",
-      "away": "New Hampshire Wildcats",
-      "start": "2026-11-21T18:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.2,
-        "away": 1.61
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "fd01d6bd019da1ef030bd2214291558c": {
       "sport": "basketball_ncaab",
       "home": "Western Illinois Leathernecks",
