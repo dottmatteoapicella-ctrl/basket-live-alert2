@@ -2,6 +2,8 @@ name: Test basket Telegram outcomes
 on:
   push:
     paths:
+      - 'basket_alert.py'
+      - 'test_basket_team_aliases.py'
       - 'basket_telegram_outcomes.py'
       - 'test_basket_telegram_outcomes.py'
       - '.github/workflows/test-basket-outcomes.yml'
@@ -15,4 +17,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests
-      - run: python -m unittest -v test_basket_telegram_outcomes
+      - run: python -m unittest -v test_basket_telegram_outcomes test_basket_team_aliases
