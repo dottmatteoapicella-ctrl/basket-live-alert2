@@ -60,6 +60,9 @@ TEAM_ALIASES = {
     "baskonia": "baskonia",
     "saskibaskonia": "baskonia",
     "baskoniavitoriagasteiz": "baskonia",
+    "besiktas": "besiktas",
+    "besiktasjk": "besiktas",
+    "besiktasistanbul": "besiktas",
 }
 
 
