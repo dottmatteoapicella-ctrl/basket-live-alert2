@@ -254,18 +254,6 @@
       },
       "captured_at": "2026-11-23T22:07:23.232145+00:00"
     },
-    "3de652d2815550e88c9e775f6036a771": {
-      "sport": "basketball_nbl",
-      "home": "Melbourne United",
-      "away": "New Zealand Breakers",
-      "start": "2026-11-21T08:36:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.25,
-        "away": 2.7
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "40589eed5e6894d5b8598ee721b9d57b": {
       "sport": "basketball_euroleague",
       "home": "Dubai Basketball",
