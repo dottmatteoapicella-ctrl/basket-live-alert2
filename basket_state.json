@@ -374,18 +374,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "fd01d6bd019da1ef030bd2214291558c": {
-      "sport": "basketball_ncaab",
-      "home": "Western Illinois Leathernecks",
-      "away": "Mercyhurst Lakers",
-      "start": "2026-11-21T18:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.0,
-        "away": 1.36
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "fb773220f5132a61b708f5d7ed605b9f": {
       "sport": "basketball_ncaab",
       "home": "North Florida Ospreys",
