@@ -379,54 +379,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "a25c47368079760e1df98f700e9cda49": {
-      "sport": "basketball_ncaab",
-      "home": "UTSA Roadrunners",
-      "away": "Air Force Falcons",
-      "start": "2026-11-21T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.36,
-        "away": 3.26
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "6ed855b5052c6914a70d4c336653271e": {
-      "sport": "basketball_ncaab",
-      "home": "Southern Miss Golden Eagles",
-      "away": "Nicholls St Colonels",
-      "start": "2026-11-21T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.53,
-        "away": 2.38
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "e7d59ea4f2c81294a88a46cc63628713": {
-      "sport": "basketball_ncaab",
-      "home": "Stonehill Skyhawks",
-      "away": "Northeastern Huskies",
-      "start": "2026-11-21T22:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.5,
-        "away": 1.29
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "7522960fbb3bcea978fbb1291c8c866b": {
-      "sport": "basketball_ncaab",
-      "home": "Wofford Terriers",
-      "away": "Winthrop Eagles",
-      "start": "2026-11-21T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.4,
-        "away": 2.75
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "fa6a6d717b7ee026ba18c92b10e5e36e": {
       "sport": "basketball_ncaab",
       "home": "East Carolina Pirates",
