@@ -15,6 +15,11 @@ class TeamAliasesTest(unittest.TestCase):
         self.assertEqual(team_key("Besiktas"), team_key("Beşiktaş J.K."))
         self.assertEqual(team_key("Paris"), team_key("Paris Basketball"))
 
+    def test_euroleague_variants(self):
+        self.assertEqual(team_key("Bayern"), team_key("FC Bayern München"))
+        self.assertEqual(team_key("Crvena Zvezda Meridianbet"), team_key("Red Star Belgrade"))
+        self.assertEqual(team_key("Virtus Bologna"), team_key("Virtus Segafredo Bologna"))
+
     def test_distinct_teams(self):
         self.assertNotEqual(team_key("Besiktas"), team_key("Besiktas Women"))
         self.assertNotEqual(team_key("Paris"), team_key("Paris 2"))
