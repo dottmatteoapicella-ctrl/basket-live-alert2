@@ -379,18 +379,6 @@
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
-    "089763b58d06f84ae9546c2037e7d941": {
-      "sport": "basketball_ncaab",
-      "home": "San Diego Toreros",
-      "away": "UC Irvine Anteaters",
-      "start": "2026-11-21T21:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.8,
-        "away": 1.48
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
     "a25c47368079760e1df98f700e9cda49": {
       "sport": "basketball_ncaab",
       "home": "UTSA Roadrunners",
