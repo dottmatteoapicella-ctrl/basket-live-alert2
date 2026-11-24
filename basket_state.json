@@ -269,7 +269,7 @@
         "home": 1.36,
         "away": 3.2
       },
-      "captured_at": "2026-11-24T10:07:29.957863+00:00"
+      "captured_at": "2026-11-24T22:27:18.255848+00:00"
     },
     "a1ee21718811e522957cf904fb3ec31f": {
       "sport": "basketball_euroleague",
@@ -281,7 +281,7 @@
         "home": 1.3,
         "away": 3.5
       },
-      "captured_at": "2026-11-24T10:07:29.957863+00:00"
+      "captured_at": "2026-11-24T22:27:18.255848+00:00"
     },
     "c9a675960fa0ad6070fe3e6b378809a0": {
       "sport": "basketball_euroleague",
@@ -290,10 +290,10 @@
       "start": "2026-11-25T19:30:00+00:00",
       "favorite": "away",
       "prices": {
-        "home": 2.0,
-        "away": 1.8
+        "home": 2.15,
+        "away": 1.7
       },
-      "captured_at": "2026-11-24T10:07:29.957863+00:00"
+      "captured_at": "2026-11-24T22:27:18.255848+00:00"
     },
     "b9ad9b132e4fd83592ee6cb62ea5cd46": {
       "sport": "basketball_euroleague",
@@ -302,10 +302,10 @@
       "start": "2026-11-25T19:45:00+00:00",
       "favorite": "home",
       "prices": {
-        "home": 1.29,
-        "away": 3.6
+        "home": 1.37,
+        "away": 3.26
       },
-      "captured_at": "2026-11-24T10:07:29.957863+00:00"
+      "captured_at": "2026-11-24T22:27:18.255848+00:00"
     },
     "232f705eea406644ff14ad17bcf9aea6": {
       "sport": "basketball_nba",
@@ -2650,7 +2650,7 @@
   },
   "odds_refreshed": {
     "basketball_nba": "2026-11-24T07:47:19.613407+00:00",
-    "basketball_euroleague": "2026-11-24T10:07:29.957863+00:00",
+    "basketball_euroleague": "2026-11-24T22:27:18.255848+00:00",
     "basketball_nbl": "2026-11-24T07:47:19.613407+00:00",
     "basketball_ncaab": "2026-11-24T07:47:19.613407+00:00",
     "basketball_wncaab": "2026-11-24T07:47:19.613407+00:00"
