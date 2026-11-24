@@ -369,18 +369,28 @@ def main():
         timedelta(0) <= now - parse_time(r["created_at"]) <= timedelta(days=2)
     ]
     if recent_pending:
+        dates = sorted({parse_time(r["created_at"]).date().isoformat() for r in recent_pending})
         try:
-            response = requests.get(
-                "https://api.sportstatsapi.com/api/v1/basketball/matches/finished",
-                headers={"Authorization": f"Bearer {SPORTSTATS_API_KEY}"},
-                timeout=25,
-            )
-            print("SPORTSTATS FINISHED HTTP:", response.status_code)
-            response.raise_for_status()
-            payload = response.json()
-            finished = payload.get("data", []) if payload.get("success") else []
-            if isinstance(finished, list):
-                basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+            for day in dates:
+                for offset in range(0, 300, 100):
+                    response = requests.get(
+                        "https://api.sportstatsapi.com/api/v1/basketball/matches",
+                        headers={"Authorization": f"Bearer {SPORTSTATS_API_KEY}"},
+                        params={"date": day, "status": "FT", "limit": 100, "offset": offset},
+                        timeout=25,
+                    )
+                    print("SPORTSTATS FINISHED HTTP:", response.status_code)
+                    response.raise_for_status()
+                    payload = response.json()
+                    finished = payload.get("data", []) if payload.get("success") else []
+                    if not isinstance(finished, list):
+                        break
+                    basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+                    save_state(state)
+                    if len(finished) < 100 or all(r.get("finalized") for r in recent_pending):
+                        break
+                if all(r.get("finalized") for r in recent_pending):
+                    break
         except (requests.RequestException, ValueError, TypeError) as exc:
             print("Risultati basket conclusi non disponibili:", type(exc).__name__)
     save_state(state)
