@@ -96,7 +96,8 @@
     "sportstats:moak5:Q1",
     "sportstats:moak5:Q2",
     "sportstats:moak5:Q4",
-    "sportstats:mofki:Q3"
+    "sportstats:mofki:Q3",
+    "sportstats:mofki:Q4"
   ],
   "attempted": {
     "519328": "2026-11-16T14:09:56.807826+00:00",
@@ -374,18 +375,6 @@
       "prices": {
         "home": 1.6,
         "away": 1.81
-      },
-      "captured_at": "2026-11-21T07:07:24.101157+00:00"
-    },
-    "83bb160a038344276c3b40967726065c": {
-      "sport": "basketball_ncaab",
-      "home": "Binghamton Bearcats",
-      "away": "Army Knights",
-      "start": "2026-11-21T20:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.0,
-        "away": 1.73
       },
       "captured_at": "2026-11-21T07:07:24.101157+00:00"
     },
@@ -2826,6 +2815,18 @@
       ],
       "favorite": "home",
       "created_at": "2026-11-24T20:07:19.647870+00:00",
+      "finalized": false
+    },
+    "sportstats:mofki:Q4": {
+      "game_code": "mofki",
+      "message_id": 1000,
+      "text": "🚨🏀 FAVORITA IN SVANTAGGIO!\n\n🏆 Campionato: Europe: Euroleague\n\n🏠 Bayern\n✈️ Maccabi Tel Aviv\n\n📊 Risultato: 74 - 81\n⏱ Periodo: 4° quarto\n\n⭐ Favorita pre-match: Bayern\n📈 Quote pre-match: Bayern 1.58 | Maccabi Tel Aviv 2.48\n📉 Svantaggio: 7 punti\n\nDati: Stadiro / SportStatsAPI (sportstatsapi.com)",
+      "teams": [
+        "Bayern",
+        "Maccabi Tel Aviv"
+      ],
+      "favorite": "home",
+      "created_at": "2026-11-24T20:47:20.176053+00:00",
       "finalized": false
     }
   }
