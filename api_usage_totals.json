@@ -91,7 +91,7 @@
     },
     "2026-11-24": {
       "api.sportstatsapi.com": {
-        "requests": 52,
+        "requests": 54,
         "http_errors": 10,
         "rate_limits": 0,
         "reported_credits_charged": 0,
@@ -99,12 +99,12 @@
         "last_reported_remaining": null
       },
       "api.the-odds-api.com": {
-        "requests": 5,
+        "requests": 6,
         "http_errors": 0,
         "rate_limits": 0,
-        "reported_credits_charged": 3,
-        "credit_charge_observations": 5,
-        "last_reported_remaining": 465
+        "reported_credits_charged": 4,
+        "credit_charge_observations": 6,
+        "last_reported_remaining": 464
       },
       "telegram": {
         "requests": 3,
@@ -119,7 +119,7 @@
   "monthly": {
     "2026-11": {
       "api.sportstatsapi.com": {
-        "requests": 217,
+        "requests": 219,
         "http_errors": 14,
         "rate_limits": 0,
         "reported_credits_charged": 0,
@@ -127,12 +127,12 @@
         "last_reported_remaining": null
       },
       "api.the-odds-api.com": {
-        "requests": 24,
+        "requests": 25,
         "http_errors": 0,
         "rate_limits": 0,
-        "reported_credits_charged": 18,
-        "credit_charge_observations": 24,
-        "last_reported_remaining": 465
+        "reported_credits_charged": 19,
+        "credit_charge_observations": 25,
+        "last_reported_remaining": 464
       },
       "telegram": {
         "requests": 9,
@@ -355,7 +355,8 @@
     "45487808720",
     "45491239800",
     "45494566380",
-    "45497832901"
+    "45497832901",
+    "45501067267"
   ],
-  "updated_utc": "2026-11-24T22:07:22.709121+00:00"
+  "updated_utc": "2026-11-24T22:27:21.152113+00:00"
 }
