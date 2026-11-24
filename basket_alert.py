@@ -54,12 +54,22 @@ TEAM_ALIASES = {
     # Nomi brevi SportStats e denominazioni ufficiali nei mercati quote.
     "bayern": "bayernmunich",
     "fcbayernmuenchen": "bayernmunich",
+    "fcbayernmunchen": "bayernmunich",
+    "bayernmunchen": "bayernmunich",
+    "crvenazvezdameridianbet": "crvenazvezda",
+    "crvenazvezda": "crvenazvezda",
+    "redstarbelgrade": "crvenazvezda",
+    "virtusbologna": "virtusbologna",
+    "virtussegafredobologna": "virtusbologna",
     "fcbayernmunich": "bayernmunich",
     "bayernmuenchen": "bayernmunich",
     "bayernmunich": "bayernmunich",
     "baskonia": "baskonia",
     "saskibaskonia": "baskonia",
     "baskoniavitoriagasteiz": "baskonia",
+    "besiktas": "besiktas",
+    "besiktasjk": "besiktas",
+    "besiktasistanbul": "besiktas",
 }
 
 
@@ -197,8 +207,26 @@ def find_prematch_favorite(match, state):
     start = parse_time(match.get("start_at"))
     if not home or not away or not start:
         return None
+    league = (match.get("league_name") or "").casefold()
+    league_sports = {
+        "euroleague": "basketball_euroleague",
+        "euro league": "basketball_euroleague",
+        "nba": "basketball_nba",
+        "australia: nbl": "basketball_nbl",
+        "australian nbl": "basketball_nbl",
+        "wncaa": "basketball_wncaab",
+        "ncaa women": "basketball_wncaab",
+        "ncaa": "basketball_ncaab",
+        "ncaab": "basketball_ncaab",
+    }
+    expected_sport = next((sport for label, sport in league_sports.items() if label in league), None)
     candidates = []
     for item in state["odds_games"].values():
+        if expected_sport and item.get("sport") != expected_sport:
+            continue
+        captured = parse_time(item.get("captured_at"))
+        if captured and captured >= start:
+            continue
         odds_start = parse_time(item.get("start"))
         if not odds_start or abs((start - odds_start).total_seconds()) > MAX_START_DIFFERENCE_HOURS * 3600:
             continue
