@@ -367,18 +367,6 @@
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
     },
-    "4d57a3b1bd68b12004210b45e6627108": {
-      "sport": "basketball_ncaab",
-      "home": "Stephen F. Austin Lumberjacks",
-      "away": "Temple Owls",
-      "start": "2026-11-22T22:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.04,
-        "away": 1.81
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
     "c176d337261bbb0fe334d3bf7f270ba6": {
       "sport": "basketball_ncaab",
       "home": "Minnesota Golden Gophers",
