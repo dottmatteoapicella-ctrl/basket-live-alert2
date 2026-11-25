@@ -379,42 +379,6 @@
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
     },
-    "a8fa96ce1e2424029c99737ae7278b45": {
-      "sport": "basketball_ncaab",
-      "home": "Troy Trojans",
-      "away": "Nicholls St Colonels",
-      "start": "2026-11-22T20:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.4,
-        "away": 2.75
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "7badad13b09c40df6ad6bed5dd5aa18f": {
-      "sport": "basketball_ncaab",
-      "home": "South Alabama Jaguars",
-      "away": "West Florida Argonauts",
-      "start": "2026-11-22T20:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.36,
-        "away": 3.25
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "ce609d312c528c91d20e80577d8feee5": {
-      "sport": "basketball_ncaab",
-      "home": "Texas Longhorns",
-      "away": "Southern Indiana Screaming Eagles",
-      "start": "2026-11-22T20:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.0,
-        "away": 100.0
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
     "9c6b98805955f109fb5038074601ddb3": {
       "sport": "basketball_ncaab",
       "home": "Albany Great Danes",
