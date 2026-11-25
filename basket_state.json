@@ -367,54 +367,6 @@
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
     },
-    "a156f22faa101eae5a832cfc5de4fbca": {
-      "sport": "basketball_ncaab",
-      "home": "Boston College Eagles",
-      "away": "NJIT Highlanders",
-      "start": "2026-11-22T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.01,
-        "away": 17.0
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "2a7854aaf3f39f696f8f72e8b4d719be": {
-      "sport": "basketball_ncaab",
-      "home": "Portland St Vikings",
-      "away": "CSU Fullerton Titans",
-      "start": "2026-11-22T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.55,
-        "away": 2.59
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "27c34c0d38a26b69a06b6a3d3c374ab9": {
-      "sport": "basketball_ncaab",
-      "home": "Rice Owls",
-      "away": "Lamar Cardinals",
-      "start": "2026-11-22T22:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.2,
-        "away": 1.61
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "68135c1bcc1b47562304fe94b69c18ff": {
-      "sport": "basketball_ncaab",
-      "home": "Samford Bulldogs",
-      "away": "UNC Asheville Bulldogs",
-      "start": "2026-11-22T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.22,
-        "away": 4.0
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
     "4d57a3b1bd68b12004210b45e6627108": {
       "sport": "basketball_ncaab",
       "home": "Stephen F. Austin Lumberjacks",
