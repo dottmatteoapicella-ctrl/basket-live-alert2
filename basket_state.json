@@ -379,18 +379,6 @@
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
     },
-    "5269b87b9d1db58e870998a3d05f42eb": {
-      "sport": "basketball_ncaab",
-      "home": "New Mexico St Aggies",
-      "away": "Robert Morris Colonials",
-      "start": "2026-11-22T19:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.83,
-        "away": 2.01
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
     "a8fa96ce1e2424029c99737ae7278b45": {
       "sport": "basketball_ncaab",
       "home": "Troy Trojans",
