@@ -382,7 +382,9 @@ def main():
                     print("SPORTSTATS FINISHED HTTP:", response.status_code)
                     response.raise_for_status()
                     payload = response.json()
+                    print("Diagnostica basket risposta success:", int(bool(payload.get("success"))))
                     finished = payload.get("data", []) if payload.get("success") else []
+                    print("Diagnostica basket elenco valido:", int(isinstance(finished, list)))
                     if not isinstance(finished, list):
                         break
                     basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)

@@ -22,21 +22,28 @@ def verified_final(match):
 def update(state, matches, token, chat_id):
     by_code = {str(m["code"]): m for m in matches if isinstance(m, dict) and m.get("code") is not None}
     updated = 0
+    counts = dict(pending=0, missing_code=0, teams_mismatch=0, invalid_final=0, invalid_favorite=0, edit_failed=0)
+    print("Diagnostica basket risultati ricevuti:", len(matches))
     for record in state.get("telegram_alerts", {}).values():
         if record.get("finalized") or not record.get("message_id"):
             continue
+        counts["pending"] += 1
         match = by_code.get(str(record.get("game_code")))
         if not match:
+            counts["missing_code"] += 1
             continue
         home = (match.get("home_team") or {}).get("name")
         away = (match.get("away_team") or {}).get("name")
         if [home, away] != record.get("teams"):
+            counts["teams_mismatch"] += 1
             continue
         scores = verified_final(match)
         if scores is None:
+            counts["invalid_final"] += 1
             continue
         favorite = record.get("favorite")
         if favorite not in ("home", "away"):
+            counts["invalid_favorite"] += 1
             continue
         favorite_lost = scores[0] < scores[1] if favorite == "home" else scores[1] < scores[0]
         marker = "✅ FAVORITA SCONFITTA" if favorite_lost else "❌ FAVORITA VINCENTE"
@@ -54,10 +61,13 @@ def update(state, matches, token, chat_id):
             if not response.json().get("ok"):
                 raise ValueError("Telegram edit not confirmed")
         except (requests.RequestException, ValueError) as exc:
-            print("Modifica Telegram basket fallita:", record.get("game_code"), type(exc).__name__)
+            counts["edit_failed"] += 1
+            print("Modifica Telegram basket fallita:", type(exc).__name__)
             continue
         record["finalized"] = True
         record["marker"] = marker
         updated += 1
+    for key, value in counts.items():
+        print("Diagnostica basket", key + ":", value)
     print("Alert basket aggiornati con finale:", updated)
     return updated
