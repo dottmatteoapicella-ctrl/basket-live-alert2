@@ -367,42 +367,6 @@
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
     },
-    "4ab6cb0c13c713f3c78fe051d94f32e5": {
-      "sport": "basketball_ncaab",
-      "home": "IUPUI Jaguars",
-      "away": "Maryland-Eastern Shore Hawks",
-      "start": "2026-11-22T21:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.15,
-        "away": 4.75
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "05c828d73504c939e026a844ffcabd3c": {
-      "sport": "basketball_ncaab",
-      "home": "Richmond Spiders",
-      "away": "Liberty Flames",
-      "start": "2026-11-22T21:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.04,
-        "away": 1.81
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "42e47ef758f2c16dcf1cc64806373809": {
-      "sport": "basketball_ncaab",
-      "home": "Loyola Marymount Lions",
-      "away": "UC Irvine Anteaters",
-      "start": "2026-11-22T21:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.35,
-        "away": 1.65
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
     "a156f22faa101eae5a832cfc5de4fbca": {
       "sport": "basketball_ncaab",
       "home": "Boston College Eagles",
