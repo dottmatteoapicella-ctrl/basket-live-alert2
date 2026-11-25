@@ -379,66 +379,6 @@
       },
       "captured_at": "2026-11-22T07:27:20.827081+00:00"
     },
-    "0e691de1e271a81490db7c766b779288": {
-      "sport": "basketball_ncaab",
-      "home": "American Eagles",
-      "away": "Towson Tigers",
-      "start": "2026-11-22T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.83,
-        "away": 1.9
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "6720f59950e8e460d7daf76bc09897e6": {
-      "sport": "basketball_ncaab",
-      "home": "Canisius Golden Griffins",
-      "away": "Western Illinois Leathernecks",
-      "start": "2026-11-22T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.59,
-        "away": 2.49
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "d3ff354cf7590632c2f875f2c49fa5e1": {
-      "sport": "basketball_ncaab",
-      "home": "Marquette Golden Eagles",
-      "away": "Chicago St Cougars",
-      "start": "2026-11-22T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.0,
-        "away": 13.5
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "a4479cbdb9666b13f2c1f33e93f6e281": {
-      "sport": "basketball_ncaab",
-      "home": "Northwestern Wildcats",
-      "away": "Dayton Flyers",
-      "start": "2026-11-22T18:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.4,
-        "away": 1.62
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
-    "b8b8c26c46c395035dbe4fd1d013d5ec": {
-      "sport": "basketball_ncaab",
-      "home": "LIU Sharks",
-      "away": "Fairfield Stags",
-      "start": "2026-11-22T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.6,
-        "away": 2.25
-      },
-      "captured_at": "2026-11-22T07:27:20.827081+00:00"
-    },
     "8973c989f9e6975bd343485eade0a1dc": {
       "sport": "basketball_ncaab",
       "home": "Cincinnati Bearcats",
