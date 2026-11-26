@@ -72,6 +72,10 @@ TEAM_ALIASES = {
     "besiktas": "besiktas",
     "besiktasjk": "besiktas",
     "besiktasistanbul": "besiktas",
+    "slbenficaw": "benficaw",
+    "sportlisboaebenficaw": "benficaw",
+    "zkkstudentnisw": "studentnisw",
+    "studentnis": "studentnis",
     "panathinaikoswomen": "panathinaikosw",
     "panathinaikosfemale": "panathinaikosw",
 }
@@ -82,7 +86,7 @@ def team_key(name):
     value = unicodedata.normalize("NFKD", name or "")
     value = "".join(c for c in value if not unicodedata.combining(c))
     value = value.casefold().replace("&", " and ")
-    value = re.sub(r"\b(?:women|female)\b", "w", value)
+    value = re.sub(r"\b(?:women|female|ladies)\b", "w", value)
     # Abbreviazioni editoriali frequenti, senza rimuovere citta' o nomi.
     value = re.sub(r"\b(?:basketball|basket|bc|bk|b c)\b", " ", value)
     key = re.sub(r"[^a-z0-9]", "", value)
@@ -390,14 +394,22 @@ def find_prematch_favorite(match, state):
         hoops_sport = None
     if hoops_sport == "hoops_italy_a1" and "a2" in league:
         hoops_sport = None
+    extra_labels = {"basketball_eurocup": ("eurocup", "euro cup"), "basketball_spain_acb": ("acb", "liga endesa"), "basketball_italy_lega_basket": ("italy: serie a", "lega basket"), "basketball_germany_bbl": ("germany: bbl", "basketball bundesliga"), "basketball_france_lnb": ("lnb", "betclic elite"), "basketball_wnba": ("wnba",)}
+    extra = {sport for sport, labels in extra_labels.items() if sport in state.get("odds_extra", []) and any(label in league for label in labels)}
+    if any(x in league for x in ("women", "female", "femmin")):
+        extra.discard("basketball_eurocup")
+    if "a2" in league:
+        extra.discard("basketball_italy_lega_basket")
+    if "wnba" in league:
+        expected_sport = None
     candidates = []
     for item in state["odds_games"].values():
         item_sport = item.get("sport", "")
         if item_sport.startswith("hoops_") and item_sport != hoops_sport:
             continue
-        if not (expected_sport or hoops_sport):
+        if not (expected_sport or hoops_sport or extra):
             continue
-        if item_sport not in (expected_sport, hoops_sport):
+        if item_sport not in (expected_sport, hoops_sport) and item_sport not in extra:
             continue
         captured = parse_time(item.get("captured_at"))
         if not captured or captured >= start:
