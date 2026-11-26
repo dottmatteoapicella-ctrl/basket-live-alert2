@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "7672e3ae078a7b505b50f15e46208e4f": {
-      "sport": "basketball_ncaab",
-      "home": "Oregon St Beavers",
-      "away": "Tulsa Golden Hurricane",
-      "start": "2026-11-23T19:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.36,
-        "away": 3.3
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "f6407650f13adaa2fc13d17570ef3327": {
       "sport": "basketball_ncaab",
       "home": "Clemson Tigers",
@@ -3071,10 +3059,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 39
+    "requests": 41
   },
-  "finished_slot": "2026-11-26:9",
-  "finished_cursor": 4,
+  "finished_slot": "2026-11-26:10",
+  "finished_cursor": 6,
   "odds_catalog_at": "2026-11-26T15:27:18.755546+00:00",
   "odds_extra": [],
   "odds_remaining": 459,
