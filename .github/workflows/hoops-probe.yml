@@ -1,0 +1,47 @@
+name: HoopsAPI coverage probe
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/hoops-probe.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check authentication and upcoming competitions
+        env:
+          HOOPS_API_KEY: ${{ secrets.HOOPS_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os, json, urllib.request, urllib.error, urllib.parse
+          key = os.environ.get("HOOPS_API_KEY")
+          if not key:
+              raise SystemExit("Missing HOOPS_API_KEY")
+          def get(path):
+              req = urllib.request.Request("https://hoopsapi.com/api/v1/" + path, headers={"Authorization": "Bearer " + key})
+              try:
+                  with urllib.request.urlopen(req, timeout=25) as response:
+                      print("HTTP", response.status)
+                      return json.load(response)
+              except urllib.error.HTTPError as error:
+                  raise SystemExit("HoopsAPI HTTP " + str(error.code))
+          data = get("competitions")
+          print("Catalog shape:", type(data).__name__)
+          entries = data.get("competitions", []) if isinstance(data, dict) else data
+          names = []
+          for item in entries:
+              name = item if isinstance(item, str) else item.get("name", item.get("competition", "")) if isinstance(item, dict) else ""
+              if isinstance(name, str) and name:
+                  names.append(name)
+          candidates = [name for name in names if any(x in name.casefold() for x in ("italy", "italia", "serie a", "lega a"))]
+          print("Italian competitions:", candidates)
+          print("European candidates:", [n for n in names if any(x in n.casefold() for x in ("acb", "bundesliga", "eurocup", "euro cup"))])
+          if candidates:
+              name = next((n for n in candidates if "serie a" in n.casefold() or "lega a" in n.casefold()), candidates[0])
+              result = get("games?" + urllib.parse.urlencode({"competition": name}))
+              games = result.get("games", [])
+              valid = sum(1 for g in games if any(isinstance(v.get("moneyline"), dict) and v["moneyline"].get("home") and v["moneyline"].get("away") for v in g.get("periods", {}).get("ft", {}).values() if isinstance(v, dict)))
+              print("Competition:", name, "games:", len(games), "with full-time moneyline:", valid)
+          PY
