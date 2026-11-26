@@ -66,8 +66,30 @@ def update(state, matches, token, chat_id):
             continue
         record["finalized"] = True
         record["marker"] = marker
+        record["final_score"] = scores
+        from datetime import datetime, timezone
+        record["verified_at"] = datetime.now(timezone.utc).isoformat()
         updated += 1
     for key, value in counts.items():
         print("Diagnostica basket", key + ":", value)
     print("Alert basket aggiornati con finale:", updated)
     return updated
+
+
+def report(state):
+    rows = list(state.get("telegram_alerts", {}).values())
+    def summarize(items):
+        wins = sum(r.get("finalized") is True and str(r.get("marker","")).startswith("✅") for r in items)
+        losses = sum(r.get("finalized") is True and str(r.get("marker","")).startswith("❌") for r in items)
+        verified = wins + losses
+        return dict(alerts=len(items), verified=verified, favorite_lost=wins,
+                    favorite_won=losses, pending=sum(not r.get("finalized") for r in items),
+                    unknown=len(items)-verified-sum(not r.get("finalized") for r in items),
+                    success_pct=round(100*wins/verified,2) if verified else None)
+    def grouped(key):
+        groups = {}
+        for r in rows:
+            groups.setdefault(str(r.get(key) if r.get(key) is not None else "unknown"), []).append(r)
+        return {k:summarize(v) for k,v in groups.items()}
+    return dict(total=summarize(rows), by_league=grouped("league"), by_quarter=grouped("quarter"),
+                by_deficit=grouped("deficit"), by_favorite_odds=grouped("favorite_odds"))
