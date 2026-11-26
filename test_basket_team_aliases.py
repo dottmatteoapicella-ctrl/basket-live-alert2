@@ -24,6 +24,11 @@ class TeamAliasesTest(unittest.TestCase):
         self.assertEqual(team_key("Panathinaikos W"), team_key("Panathinaikos Women"))
         self.assertNotEqual(team_key("Panathinaikos W"), team_key("Panathinaikos"))
 
+    def test_eurocup_women_aliases(self):
+        self.assertEqual(team_key('Benfica W'), team_key('SL Benfica Women'))
+        self.assertEqual(team_key('Student Nis W'), team_key('ZKK Student Niš Women'))
+        self.assertNotEqual(team_key('Benfica W'), team_key('SL Benfica'))
+
     def test_distinct_teams(self):
         self.assertNotEqual(team_key("Besiktas"), team_key("Besiktas Women"))
         self.assertNotEqual(team_key("Paris"), team_key("Paris 2"))
