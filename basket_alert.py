@@ -106,6 +106,35 @@ def save_state(state):
     )
 
 
+EXTRA_ODDS_KEYS = ("basketball_eurocup", "basketball_spain_acb",
+                   "basketball_italy_lega_basket", "basketball_germany_bbl",
+                   "basketball_france_lnb", "basketball_wnba")
+ODDS_RESERVE = 100
+
+
+def discover_odds(state, now):
+    last = parse_time(state.get("odds_catalog_at"))
+    if last and now - last < timedelta(hours=24):
+        return
+    state["odds_catalog_at"] = now.isoformat()
+    try:
+        response = requests.get("https://api.the-odds-api.com/v4/sports/",
+                                params={"apiKey": ODDS_API_KEY}, timeout=25)
+        response.raise_for_status()
+        games = response.json()
+        if not isinstance(games, list):
+            raise ValueError("Invalid catalog")
+        active = {item.get("key") for item in games
+                  if isinstance(item, dict) and item.get("active") is True}
+        state["odds_extra"] = [key for key in EXTRA_ODDS_KEYS if key in active][:3]
+        state["odds_remaining"] = int(response.headers["x-requests-remaining"])
+        print("Campionati quote aggiuntivi:", state["odds_extra"])
+    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+        state["odds_remaining"] = None
+        print("Catalogo quote non disponibile:", type(exc).__name__)
+    save_state(state)
+
+
 def fetch_odds(sport):
     response = requests.get(
         f"https://api.the-odds-api.com/v4/sports/{sport}/odds/",
@@ -120,20 +149,29 @@ def fetch_odds(sport):
     print("ODDS:", sport, "HTTP", response.status_code,
           "crediti rimasti:", response.headers.get("x-requests-remaining"))
     response.raise_for_status()
-    return response.json()
+    return response.json(), response.headers.get("x-requests-remaining")
 
 
 def update_odds(state, now):
-    for sport in ODDS_SPORTS:
+    discover_odds(state, now)
+    for sport in (*ODDS_SPORTS, *state.get("odds_extra", [])):
+        remaining = state.get("odds_remaining")
+        if not isinstance(remaining, int) or remaining <= ODDS_RESERVE:
+            print("Quote sospese: riserva crediti o saldo non disponibile")
+            break
         last = parse_time(state["odds_refreshed"].get(sport))
         refresh_hours = EUROLEAGUE_REFRESH_HOURS if sport == "basketball_euroleague" else ODDS_REFRESH_HOURS
         if last and now - last < timedelta(hours=refresh_hours):
             continue
         try:
-            games = fetch_odds(sport)
+            games, remaining = fetch_odds(sport)
+            state["odds_remaining"] = int(remaining) if remaining is not None else None
+            save_state(state)
         except (requests.RequestException, ValueError) as exc:
-            print("ERRORE QUOTE:", sport, str(exc))
-            continue
+            print("ERRORE QUOTE:", sport, type(exc).__name__)
+            state["odds_remaining"] = None
+            save_state(state)
+            break
 
         count = 0
         for game in games:
@@ -266,6 +304,12 @@ def diagnose_missing_odds(match, state):
     """Diagnostica prudente: non associare mai quote di incontri estranei."""
     league = (match.get("league_name") or "").casefold()
     known_leagues = {
+        "basketball_wnba": ("wnba",),
+        "basketball_eurocup": ("eurocup", "euro cup"),
+        "basketball_spain_acb": ("acb", "liga endesa"),
+        "basketball_italy_lega_basket": ("lega basket", "italy: serie a"),
+        "basketball_germany_bbl": ("germany: bbl", "basketball bundesliga"),
+        "basketball_france_lnb": ("lnb", "betclic elite"),
         "basketball_nba": ("nba",),
         "basketball_euroleague": ("euroleague", "euro league"),
         "basketball_nbl": ("australia: nbl", "australian nbl"),
@@ -274,6 +318,9 @@ def diagnose_missing_odds(match, state):
     }
     supported = [sport for sport, labels in known_leagues.items()
                  if any(label in league for label in labels)]
+    supported = [sport for sport in supported if sport in (*ODDS_SPORTS, *state.get("odds_extra", []))]
+    if "basketball_wnba" in supported:
+        supported = ["basketball_wnba"]
     if "basketball_wncaab" in supported:
         supported = ["basketball_wncaab"]
     if not supported:
