@@ -571,9 +571,10 @@ def main():
     print("Partite live:", len(matches))
     # Never infer a final from a game disappearing from the live feed.
     basket_telegram_outcomes.update(state, matches, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+    basket_telegram_outcomes.settle_q3(state, matches)
     # Limit final-result lookups to recent alerts, avoiding perpetual API calls.
     recent_pending = [
-        r for r in state["telegram_alerts"].values()
+        r for r in list(state["telegram_alerts"].values()) + list(state.get("shadow_q3", {}).values())
         if not r.get("finalized") and
         (parse_time(r.get("created_at")) is not None) and
         timedelta(0) <= now - parse_time(r["created_at"]) <= timedelta(days=7)
@@ -606,6 +607,7 @@ def main():
             if isinstance(finished, list):
                 print("SPORTSTATS final recovery:", day, "offset:", offset, "rows:", len(finished))
                 basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+                basket_telegram_outcomes.settle_q3(state, finished)
                 if len(finished) < 100:
                     state["finished_cursor"] = (cursor // 3 + 1) * 3
         except (requests.RequestException, ValueError, TypeError) as exc:
@@ -657,6 +659,12 @@ def main():
                 })
             continue
         alert_id = f"{game_id}:Q{quarter}"
+        if quarter == 4:
+            shadow_favorite = state["favorites"].get(game_id)
+            if shadow_favorite not in ("home", "away"):
+                shadow_match = find_prematch_favorite(match, state)
+                shadow_favorite = shadow_match["favorite"] if shadow_match else None
+            basket_telegram_outcomes.observe_q3(state, match, quarter, shadow_favorite, now)
         if alert_id in state["alerts"]:
             continue
 
@@ -749,6 +757,7 @@ def main():
     print("Scartate con dati incompleti:", skipped_incomplete)
     print("Live ignorate per dati stale:", skipped_stale)
     print("Nuovi alert:", sent)
+    print("BASKET_SHADOW_Q3:", json.dumps(basket_telegram_outcomes.shadow_report(state)))
     print("BASKET_OUTCOME_REPORT:", json.dumps(basket_telegram_outcomes.report(state), ensure_ascii=False))
     print("Quote pre-match in cache:", len(state["odds_games"]))
     cached_by_sport = {}
