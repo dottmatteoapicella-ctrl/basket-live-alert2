@@ -41,3 +41,15 @@ class Tests(unittest.TestCase):
 
 if __name__=="__main__":
     unittest.main()
+
+
+class ReportTest(__import__("unittest").TestCase):
+    def test_verified_denominator(self):
+        from basket_telegram_outcomes import report
+        rows = {"a":{"finalized":True,"marker":"✅ FAVORITA SCONFITTA","quarter":2},
+                "b":{"finalized":True,"marker":"❌ FAVORITA VINCENTE","quarter":2},
+                "c":{"finalized":False}}
+        result = report({"telegram_alerts":rows})
+        self.assertEqual(result["total"]["success_pct"],50)
+        self.assertEqual(result["total"]["pending"],1)
+        self.assertEqual(result["by_quarter"]["2"]["verified"],2)
