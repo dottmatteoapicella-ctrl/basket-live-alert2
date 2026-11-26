@@ -231,6 +231,14 @@ def update_odds(state, now):
 
 
 HOOPS_LEAGUES = {
+    "Lithuania - National Basketball League": ("hoops_lithuania_nkl", ("lithuania: nkl",)),
+    "Bosnia and Herzegovina - Prvenstvo BIH": ("hoops_bosnia_bih", ("bosnia and herzegovina: prvenstvo bih",)),
+    "Russia - Super League": ("hoops_russia_super", ("russia: super league",)),
+    "Israel - National League": ("hoops_israel_national", ("israel: national league",)),
+    "Australia - WNBL": ("hoops_australia_wnbl", ("australia: wnbl",)),
+    "NBA": ("hoops_nba", ("usa: nba",)),
+    "NCAA": ("hoops_ncaa", ("usa: ncaa",)),
+    "Europe - Euroleague": ("hoops_euroleague", ("europe: euroleague", "euroleague")),
     "Italy - Serie A2": ("hoops_italy_a2", ("serie a2", "lega a2")),
     "Europe - Eurocup Women": ("hoops_eurocup_women", ("eurocup women", "eurocup femminile", "euro cup women")),
     "Italy - Serie A": ("hoops_italy_a1", ("italy: serie a", "lega a", "italy: lba")),
@@ -251,6 +259,28 @@ def update_hoops(state, now):
     state["hoops_attempt_at"] = now.isoformat()
     save_state(state)
     headers = {"Authorization": "Bearer " + key}
+    # The legacy bot used the unfiltered games endpoint once per refresh.
+    try:
+        response = requests.get("https://hoopsapi.com/api/v1/games", headers=headers, timeout=25)
+        response.raise_for_status()
+        games = response.json()["games"]
+        if not isinstance(games, list):
+            raise ValueError("Invalid global games")
+        grouped = {}
+        for game in games:
+            if isinstance(game, dict) and isinstance(game.get("competition"), str):
+                grouped.setdefault(game["competition"], []).append(game)
+        print("HoopsAPI global games:", len(games), "competitions:", sorted(grouped))
+        for competition, rows in grouped.items():
+            if competition in HOOPS_LEAGUES:
+                store_hoops_games(state, now, competition, HOOPS_LEAGUES[competition][0], rows)
+        print("HoopsAPI unmapped global:", sorted(set(grouped) - set(HOOPS_LEAGUES)))
+        if any(isinstance(g, dict) and g.get("source") == "hoopsapi" and g.get("captured_at") == now.isoformat() for g in state["odds_games"].values()):
+            return
+    except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+        print("HoopsAPI global error:", type(exc).__name__)
+        if isinstance(exc, requests.HTTPError) and exc.response is not None and exc.response.status_code in (401, 403, 429):
+            return
     try:
         response = requests.get("https://hoopsapi.com/api/v1/competitions", headers=headers, timeout=25)
         response.raise_for_status()
@@ -352,6 +382,10 @@ def find_prematch_favorite(match, state):
     }
     expected_sport = next((sport for label, sport in league_sports.items() if label in league), None)
     hoops_sport = next((sport for sport, labels in HOOPS_LEAGUES.values() if any(label in league for label in labels)), None)
+    if hoops_sport == "hoops_ncaa" and any(x in league for x in ("women", "wncaa", "female")):
+        hoops_sport = None
+    if hoops_sport == "hoops_nba" and any(x in league for x in ("wnba", "g league", "summer")):
+        hoops_sport = None
     if hoops_sport == "hoops_eurocup" and any(x in league for x in ("women", "femmin", "female")):
         hoops_sport = None
     if hoops_sport == "hoops_italy_a1" and "a2" in league:
