@@ -72,6 +72,8 @@ TEAM_ALIASES = {
     "besiktas": "besiktas",
     "besiktasjk": "besiktas",
     "besiktasistanbul": "besiktas",
+    "panathinaikoswomen": "panathinaikosw",
+    "panathinaikosfemale": "panathinaikosw",
 }
 
 
@@ -80,6 +82,7 @@ def team_key(name):
     value = unicodedata.normalize("NFKD", name or "")
     value = "".join(c for c in value if not unicodedata.combining(c))
     value = value.casefold().replace("&", " and ")
+    value = re.sub(r"\b(?:women|female)\b", "w", value)
     # Abbreviazioni editoriali frequenti, senza rimuovere citta' o nomi.
     value = re.sub(r"\b(?:basketball|basket|bc|bk|b c)\b", " ", value)
     key = re.sub(r"[^a-z0-9]", "", value)
