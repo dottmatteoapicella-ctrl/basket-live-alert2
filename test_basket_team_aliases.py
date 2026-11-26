@@ -20,6 +20,10 @@ class TeamAliasesTest(unittest.TestCase):
         self.assertEqual(team_key("Crvena Zvezda Meridianbet"), team_key("Red Star Belgrade"))
         self.assertEqual(team_key("Virtus Bologna"), team_key("Virtus Segafredo Bologna"))
 
+    def test_womens_labels(self):
+        self.assertEqual(team_key("Panathinaikos W"), team_key("Panathinaikos Women"))
+        self.assertNotEqual(team_key("Panathinaikos W"), team_key("Panathinaikos"))
+
     def test_distinct_teams(self):
         self.assertNotEqual(team_key("Besiktas"), team_key("Besiktas Women"))
         self.assertNotEqual(team_key("Paris"), team_key("Paris 2"))
