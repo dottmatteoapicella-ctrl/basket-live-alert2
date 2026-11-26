@@ -227,29 +227,56 @@ def update_odds(state, now):
     }
 
 
+HOOPS_LEAGUES = {
+    "Italy - Serie A2": ("hoops_italy_a2", ("serie a2", "lega a2")),
+    "Europe - Eurocup Women": ("hoops_eurocup_women", ("eurocup women", "eurocup femminile", "euro cup women")),
+    "Italy - Serie A": ("hoops_italy_a1", ("italy: serie a", "lega a", "italy: lba")),
+    "Spain - ACB": ("hoops_spain_acb", ("acb", "liga endesa")),
+    "Germany - BBL": ("hoops_germany_bbl", ("germany: bbl", "basketball bundesliga")),
+    "France - LNB": ("hoops_france_lnb", ("betclic elite", "france: lnb")),
+    "Europe - Eurocup": ("hoops_eurocup", ("eurocup", "euro cup")),
+}
+
+
 def update_hoops(state, now):
     key = os.environ.get("HOOPS_API_KEY")
     if not key:
         return
     last = parse_time(state.get("hoops_attempt_at"))
-    if last and now - last < timedelta(hours=12):
+    if last and now - last < timedelta(hours=24):
         return
     state["hoops_attempt_at"] = now.isoformat()
     save_state(state)
+    headers = {"Authorization": "Bearer " + key}
     try:
-        response = requests.get("https://hoopsapi.com/api/v1/games",
-                                params={"competition": "Italy - Serie A2"},
-                                headers={"Authorization": "Bearer " + key}, timeout=25)
+        response = requests.get("https://hoopsapi.com/api/v1/competitions", headers=headers, timeout=25)
         response.raise_for_status()
-        games = response.json()["games"]
-        if not isinstance(games, list):
-            raise ValueError("Invalid games")
+        entries = response.json()["competitions"]
+        names = {x if isinstance(x, str) else x.get("name", x.get("competition", "")) for x in entries if isinstance(x, (str, dict))}
     except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
-        print("HoopsAPI error:", type(exc).__name__)
+        print("HoopsAPI catalog error:", type(exc).__name__)
         return
+    selected = [name for name in HOOPS_LEAGUES if name in names][:6]
+    print("HoopsAPI selected leagues:", selected)
+    for competition in selected:
+        try:
+            response = requests.get("https://hoopsapi.com/api/v1/games", params={"competition": competition}, headers=headers, timeout=25)
+            response.raise_for_status()
+            games = response.json()["games"]
+            if not isinstance(games, list):
+                raise ValueError("Invalid games")
+        except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
+            print("HoopsAPI error:", type(exc).__name__)
+            if isinstance(exc, requests.HTTPError) and exc.response is not None and exc.response.status_code in (401, 403, 429):
+                break
+            continue
+        store_hoops_games(state, now, competition, HOOPS_LEAGUES[competition][0], games)
+
+
+def store_hoops_games(state, now, competition, sport, games):
     count = 0
     for game in games:
-        if not isinstance(game, dict) or game.get("competition") != "Italy - Serie A2":
+        if not isinstance(game, dict) or game.get("competition") != competition:
             continue
         start = parse_time(game.get("start_time"))
         home, away = game.get("home"), game.get("away")
@@ -269,7 +296,7 @@ def update_hoops(state, now):
             if not all(math.isfinite(x) and x > 1 for x in (h, a)) or h == a:
                 continue
             state["odds_games"]["hoops:" + str(game.get("game_id") or f"{start}:{home}:{away}")] = {
-                "sport": "hoops_italy_a2", "home": home, "away": away,
+                "sport": sport, "home": home, "away": away,
                 "start": start.isoformat(), "favorite": "home" if h < a else "away",
                 "prices": {"home": h, "away": a}, "captured_at": now.isoformat(),
                 "source": "hoopsapi", "bookmaker": book,
@@ -277,7 +304,7 @@ def update_hoops(state, now):
             count += 1
             break
     save_state(state)
-    print("HoopsAPI Serie A2 pre-match:", count)
+    print("HoopsAPI pre-match:", competition, count)
 
 
 def fetch_live():
@@ -315,11 +342,17 @@ def find_prematch_favorite(match, state):
         "ncaab": "basketball_ncaab",
     }
     expected_sport = next((sport for label, sport in league_sports.items() if label in league), None)
+    hoops_sport = next((sport for sport, labels in HOOPS_LEAGUES.values() if any(label in league for label in labels)), None)
+    if hoops_sport == "hoops_eurocup" and any(x in league for x in ("women", "femmin", "female")):
+        hoops_sport = None
+    if hoops_sport == "hoops_italy_a1" and "a2" in league:
+        hoops_sport = None
     candidates = []
     for item in state["odds_games"].values():
-        if item.get("sport") == "hoops_italy_a2" and expected_sport != "hoops_italy_a2":
+        item_sport = item.get("sport", "")
+        if item_sport.startswith("hoops_") and item_sport != hoops_sport:
             continue
-        if expected_sport and item.get("sport") != expected_sport:
+        if expected_sport and item_sport not in (expected_sport, hoops_sport):
             continue
         captured = parse_time(item.get("captured_at"))
         if captured and captured >= start:
@@ -375,9 +408,10 @@ def diagnose_missing_odds(match, state):
         "basketball_ncaab": ("ncaa", "ncaab"),
         "basketball_wncaab": ("wncaa", "ncaa women"),
     }
+    known_leagues.update({sport: labels for sport, labels in HOOPS_LEAGUES.values()})
     supported = [sport for sport, labels in known_leagues.items()
                  if any(label in league for label in labels)]
-    supported = [sport for sport in supported if sport in (*ODDS_SPORTS, *state.get("odds_extra", []), "hoops_italy_a2")]
+    supported = [sport for sport in supported if sport in (*ODDS_SPORTS, *state.get("odds_extra", [])) or sport.startswith("hoops_")]
     if "basketball_wnba" in supported:
         supported = ["basketball_wnba"]
     if "basketball_wncaab" in supported:
