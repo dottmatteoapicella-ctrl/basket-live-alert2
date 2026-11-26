@@ -236,8 +236,8 @@ HOOPS_LEAGUES = {
     "Russia - Super League": ("hoops_russia_super", ("russia: super league",)),
     "Israel - National League": ("hoops_israel_national", ("israel: national league",)),
     "Australia - WNBL": ("hoops_australia_wnbl", ("australia: wnbl",)),
-    "NBA": ("hoops_nba", ("usa: nba", "nba")),
-    "NCAA": ("hoops_ncaa", ("usa: ncaa", "ncaa")),
+    "NBA": ("hoops_nba", ("usa: nba",)),
+    "NCAA": ("hoops_ncaa", ("usa: ncaa",)),
     "Europe - Euroleague": ("hoops_euroleague", ("europe: euroleague", "euroleague")),
     "Italy - Serie A2": ("hoops_italy_a2", ("serie a2", "lega a2")),
     "Europe - Eurocup Women": ("hoops_eurocup_women", ("eurocup women", "eurocup femminile", "euro cup women")),
@@ -275,7 +275,7 @@ def update_hoops(state, now):
             if competition in HOOPS_LEAGUES:
                 store_hoops_games(state, now, competition, HOOPS_LEAGUES[competition][0], rows)
         print("HoopsAPI unmapped global:", sorted(set(grouped) - set(HOOPS_LEAGUES)))
-        if games:
+        if any(isinstance(g, dict) and g.get("source") == "hoopsapi" and g.get("captured_at") == now.isoformat() for g in state["odds_games"].values()):
             return
     except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
         print("HoopsAPI global error:", type(exc).__name__)
