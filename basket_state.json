@@ -2905,8 +2905,8 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 25
+    "requests": 27
   },
-  "finished_slot": "2026-11-26:1",
-  "finished_cursor": 1
+  "finished_slot": "2026-11-26:2",
+  "finished_cursor": 3
 }
