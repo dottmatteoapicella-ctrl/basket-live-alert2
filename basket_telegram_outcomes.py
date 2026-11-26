@@ -93,3 +93,63 @@ def report(state):
         return {k:summarize(v) for k,v in groups.items()}
     return dict(total=summarize(rows), by_league=grouped("league"), by_quarter=grouped("quarter"),
                 by_deficit=grouped("deficit"), by_favorite_odds=grouped("favorite_odds"))
+
+
+def q3_score(match):
+    # Only explicit individual period scores; never substitute current totals.
+    scores = []
+    for side in ("home_team", "away_team"):
+        team = match.get(side) or {}
+        values = [team.get("period"+str(i)) for i in (1,2,3)]
+        if any(isinstance(v,bool) or not str(v).isdigit() for v in values):
+            return None
+        total = sum(int(v) for v in values)
+        if not str(team.get("score")).isdigit() or total > int(team["score"]):
+            return None
+        scores.append(total)
+    return scores
+
+
+def observe_q3(state, match, quarter, favorite, now):
+    if quarter != 4 or favorite not in ("home","away") or not match.get("code"):
+        return
+    if (match.get("freshness") or {}).get("stale") is True:
+        return
+    scores = q3_score(match)
+    if scores is None:
+        print("SHADOW_Q3 missing explicit period scores")
+        return
+    index = 0 if favorite == "home" else 1
+    if scores[index] >= scores[1-index]:
+        return
+    teams = [(match.get(k) or {}).get("name") for k in ("home_team","away_team")]
+    if not all(teams):
+        return
+    state.setdefault("shadow_q3", {}).setdefault(str(match["code"]), {
+        "game_code":str(match["code"]), "teams":teams, "favorite":favorite,
+        "q3_score":scores, "created_at":now.isoformat(), "finalized":False})
+
+
+def settle_q3(state, matches):
+    for match in matches:
+        if not isinstance(match,dict):
+            continue
+        row = state.get("shadow_q3",{}).get(str(match.get("code")))
+        if not row or row.get("finalized"):
+            continue
+        teams = [(match.get(k) or {}).get("name") for k in ("home_team","away_team")]
+        scores = verified_final(match)
+        if scores is None or teams != row["teams"]:
+            continue
+        index = 0 if row["favorite"] == "home" else 1
+        row.update(finalized=True, final_score=scores,
+                   favorite_lost=scores[index]<scores[1-index])
+
+
+def shadow_report(state):
+    rows = list(state.get("shadow_q3",{}).values())
+    verified = [r for r in rows if r.get("finalized")]
+    lost = sum(r.get("favorite_lost") is True for r in verified)
+    return dict(alerts=len(rows), verified=len(verified), pending=len(rows)-len(verified),
+                favorite_lost=lost, favorite_won=len(verified)-lost,
+                success_pct=round(100*lost/len(verified),2) if verified else None)
