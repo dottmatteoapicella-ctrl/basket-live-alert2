@@ -265,6 +265,7 @@ def update_hoops(state, now):
     state["hoops_league_cursor"] = cursor + len(selected)
     save_state(state)
     print("HoopsAPI supported catalog:", available)
+    print("HoopsAPI unmapped catalog:", sorted(names - set(HOOPS_LEAGUES)))
     print("HoopsAPI selected leagues:", selected)
     for competition in selected:
         try:
@@ -546,7 +547,9 @@ def main():
     local = now.astimezone(ZoneInfo("Europe/Rome"))
     slot = local.hour // 2
     slot_key = f"{local.date().isoformat()}:{slot}"
-    if recent_pending and budget["requests"] < 75 and state.get("finished_slot") != slot_key and reserve():
+    # Reserve one live request for every remaining 20-minute UTC slot.
+    remaining_live = 71 - (now.hour * 3 + now.minute // 20)
+    if recent_pending and budget["requests"] + remaining_live < 90 and state.get("finished_slot") != slot_key and reserve():
         state["finished_slot"] = slot_key
         save_state(state)
         dates = sorted({parse_time(r["created_at"]).date().isoformat() for r in recent_pending})
@@ -692,6 +695,10 @@ def main():
                 "favorite": favorite,
                 "created_at": now.isoformat(),
                 "finalized": False,
+                "league": match.get("league_name"),
+                "quarter": quarter,
+                "deficit": abs(home_score - away_score),
+                "favorite_odds": prices.get(favorite) if isinstance(prices, dict) else None,
             }
         state["alerts"].append(alert_id)
         save_state(state)
@@ -708,6 +715,7 @@ def main():
     print("Scartate con dati incompleti:", skipped_incomplete)
     print("Live ignorate per dati stale:", skipped_stale)
     print("Nuovi alert:", sent)
+    print("BASKET_OUTCOME_REPORT:", json.dumps(basket_telegram_outcomes.report(state), ensure_ascii=False))
     print("Quote pre-match in cache:", len(state["odds_games"]))
     cached_by_sport = {}
     for item in state["odds_games"].values():
