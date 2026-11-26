@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "fc86a54f6abd13932c62fa66b82a3e28": {
-      "sport": "basketball_ncaab",
-      "home": "BYU Cougars",
-      "away": "Washington Huskies",
-      "start": "2026-11-23T22:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.12,
-        "away": 6.74
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "c247dff2509498dedc2b2408ad1d5dd4": {
       "sport": "basketball_ncaab",
       "home": "Tenn-Martin Skyhawks",
@@ -2975,7 +2963,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 50
+    "requests": 51
   },
   "finished_slot": "2026-11-26:11",
   "finished_cursor": 7,
