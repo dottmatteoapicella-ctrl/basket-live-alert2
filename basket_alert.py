@@ -274,6 +274,8 @@ def diagnose_missing_odds(match, state):
     }
     supported = [sport for sport, labels in known_leagues.items()
                  if any(label in league for label in labels)]
+    if "basketball_wncaab" in supported:
+        supported = ["basketball_wncaab"]
     if not supported:
         return {"reason": "campionato_non_coperto_dalle_quote_configurate",
                 "league": match.get("league_name")}
@@ -319,14 +321,16 @@ def current_quarter(match):
     live = match.get("live")
     period = live.get("period") if isinstance(live, dict) else None
     status = match.get("status")
-    for value in (period, status):
+    for value in (period, live.get("quarter") if isinstance(live, dict) else None,
+                  match.get("current_quarter"), match.get("current_period"),
+                  match.get("quarter"), status, match.get("status_code")):
         if value is None:
             continue
         label = str(value).strip().lower()
         if label in ("1", "2", "3", "4"):
             return int(label)
         found = re.fullmatch(
-            r"(?:q\s*([1-4])|([1-4])(?:st|nd|rd|th)?\s*(?:quarter|qtr))",
+            r"(?:q(?:uarter|tr)?[ _-]*([1-4])|([1-4])(?:st|nd|rd|th)?[ _-]*(?:quarter|qtr|q))",
             label,
         )
         if found:
