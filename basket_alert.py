@@ -256,7 +256,12 @@ def update_hoops(state, now):
     except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
         print("HoopsAPI catalog error:", type(exc).__name__)
         return
-    selected = [name for name in HOOPS_LEAGUES if name in names][:6]
+    available = [name for name in HOOPS_LEAGUES if name in names]
+    cursor = state.get("hoops_league_cursor", 0) % max(1, len(available))
+    selected = (available[cursor:] + available[:cursor])[:6]
+    state["hoops_league_cursor"] = cursor + len(selected)
+    save_state(state)
+    print("HoopsAPI supported catalog:", available)
     print("HoopsAPI selected leagues:", selected)
     for competition in selected:
         try:
@@ -352,10 +357,12 @@ def find_prematch_favorite(match, state):
         item_sport = item.get("sport", "")
         if item_sport.startswith("hoops_") and item_sport != hoops_sport:
             continue
-        if expected_sport and item_sport not in (expected_sport, hoops_sport):
+        if not (expected_sport or hoops_sport):
+            continue
+        if item_sport not in (expected_sport, hoops_sport):
             continue
         captured = parse_time(item.get("captured_at"))
-        if captured and captured >= start:
+        if not captured or captured >= start:
             continue
         odds_start = parse_time(item.get("start"))
         if not odds_start or abs((start - odds_start).total_seconds()) > MAX_START_DIFFERENCE_HOURS * 3600:
@@ -531,12 +538,12 @@ def main():
         r for r in state["telegram_alerts"].values()
         if not r.get("finalized") and
         (parse_time(r.get("created_at")) is not None) and
-        timedelta(0) <= now - parse_time(r["created_at"]) <= timedelta(days=2)
+        timedelta(0) <= now - parse_time(r["created_at"]) <= timedelta(days=7)
     ]
     local = now.astimezone(ZoneInfo("Europe/Rome"))
-    slot = local.hour // 8
+    slot = local.hour // 2
     slot_key = f"{local.date().isoformat()}:{slot}"
-    if recent_pending and state.get("finished_slot") != slot_key and reserve():
+    if recent_pending and budget["requests"] < 75 and state.get("finished_slot") != slot_key and reserve():
         state["finished_slot"] = slot_key
         save_state(state)
         dates = sorted({parse_time(r["created_at"]).date().isoformat() for r in recent_pending})
@@ -557,6 +564,7 @@ def main():
             payload = response.json()
             finished = payload.get("data", []) if payload.get("success") else []
             if isinstance(finished, list):
+                print("SPORTSTATS final recovery:", day, "offset:", offset, "rows:", len(finished))
                 basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
                 if len(finished) < 100:
                     state["finished_cursor"] = (cursor // 3 + 1) * 3
