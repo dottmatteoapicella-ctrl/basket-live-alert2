@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "e4496b83963ca2f24052c8779d91cbeb": {
-      "sport": "basketball_ncaab",
-      "home": "East Carolina Pirates",
-      "away": "Indiana St Sycamores",
-      "start": "2026-11-23T17:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.65,
-        "away": 2.33
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "037aac2cff7aea7fec09fbb5a3dcf04b": {
       "sport": "basketball_ncaab",
       "home": "Florida Int'l Golden Panthers",
@@ -3119,7 +3107,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 35
+    "requests": 36
   },
   "finished_slot": "2026-11-26:9",
   "finished_cursor": 4,
