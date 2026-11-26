@@ -27,6 +27,12 @@ jobs:
                       return json.load(response)
               except urllib.error.HTTPError as error:
                   raise SystemExit("HoopsAPI HTTP " + str(error.code))
+          result = get("games?" + urllib.parse.urlencode({"competition": "Italy - Serie A2"}))
+          games = result.get("games", [])
+          print("Games:", len(games))
+          if games:
+              print("Sample public game:", json.dumps(games[0], ensure_ascii=True)[:12000])
+          raise SystemExit(0)
           data = get("competitions")
           print("Catalog shape:", type(data).__name__)
           entries = data.get("competitions", []) if isinstance(data, dict) else data
