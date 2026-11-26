@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "8705fa29b81b3f96d689da909e406bff": {
-      "sport": "basketball_ncaab",
-      "home": "San Francisco Dons",
-      "away": "Nevada Wolf Pack",
-      "start": "2026-11-23T21:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.41,
-        "away": 1.34
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "fc86a54f6abd13932c62fa66b82a3e28": {
       "sport": "basketball_ncaab",
       "home": "BYU Cougars",
@@ -2987,7 +2975,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 49
+    "requests": 50
   },
   "finished_slot": "2026-11-26:11",
   "finished_cursor": 7,
