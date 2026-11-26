@@ -415,30 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "b1abd9ff77f5dc5c376c08041fae20ea": {
-      "sport": "basketball_ncaab",
-      "home": "Southern Utah Thunderbirds",
-      "away": "Arkansas St Red Wolves",
-      "start": "2026-11-23T20:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.56,
-        "away": 1.32
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "aee64daab1ceefa09aaf0260ed750d53": {
-      "sport": "basketball_ncaab",
-      "home": "IUPUI Jaguars",
-      "away": "William & Mary Tribe",
-      "start": "2026-11-23T20:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.6,
-        "away": 1.53
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "c26aa1b5cbdc588ee415a259da2c6bf4": {
       "sport": "basketball_ncaab",
       "home": "Belmont Bruins",
@@ -3035,7 +3011,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 45
+    "requests": 46
   },
   "finished_slot": "2026-11-26:10",
   "finished_cursor": 6,
