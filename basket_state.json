@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "c247dff2509498dedc2b2408ad1d5dd4": {
-      "sport": "basketball_ncaab",
-      "home": "Tenn-Martin Skyhawks",
-      "away": "Temple Owls",
-      "start": "2026-11-23T22:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.75,
-        "away": 1.4
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "8234af74a35d1a31b73854d4fd191c64": {
       "sport": "basketball_ncaab",
       "home": "Youngstown St Penguins",
@@ -2963,7 +2951,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 52
+    "requests": 53
   },
   "finished_slot": "2026-11-26:11",
   "finished_cursor": 7,
