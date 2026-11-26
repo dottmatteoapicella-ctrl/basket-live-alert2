@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "037aac2cff7aea7fec09fbb5a3dcf04b": {
-      "sport": "basketball_ncaab",
-      "home": "Florida Int'l Golden Panthers",
-      "away": "Long Beach St 49ers",
-      "start": "2026-11-23T18:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.19,
-        "away": 4.96
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "03914af0d22bba6c22c326407049444a": {
       "sport": "basketball_ncaab",
       "home": "Wright St Raiders",
@@ -3107,7 +3095,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 36
+    "requests": 37
   },
   "finished_slot": "2026-11-26:9",
   "finished_cursor": 4,
