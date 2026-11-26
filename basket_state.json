@@ -415,30 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "435ce8aaf2de67393a436fc9bf8c956e": {
-      "sport": "basketball_ncaab",
-      "home": "Appalachian St Mountaineers",
-      "away": "St. Bonaventure Bonnies",
-      "start": "2026-11-23T16:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.86,
-        "away": 1.45
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "98a0b4549739cc028ffa9665d77d7ffd": {
-      "sport": "basketball_ncaab",
-      "home": "Davidson Wildcats",
-      "away": "Northern Iowa Panthers",
-      "start": "2026-11-23T16:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.45,
-        "away": 2.86
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "e4496b83963ca2f24052c8779d91cbeb": {
       "sport": "basketball_ncaab",
       "home": "East Carolina Pirates",
@@ -3143,7 +3119,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 29
+    "requests": 30
   },
   "finished_slot": "2026-11-26:2",
   "finished_cursor": 3,
