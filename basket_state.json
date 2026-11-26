@@ -415,30 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "03914af0d22bba6c22c326407049444a": {
-      "sport": "basketball_ncaab",
-      "home": "Wright St Raiders",
-      "away": "Akron Zips",
-      "start": "2026-11-23T18:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.8,
-        "away": 2.05
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "276deab7d659366b50ff0608d1501b6e": {
-      "sport": "basketball_ncaab",
-      "home": "Florida Gulf Coast Eagles",
-      "away": "Charlotte 49ers",
-      "start": "2026-11-23T18:30:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 3.0,
-        "away": 1.35
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "7672e3ae078a7b505b50f15e46208e4f": {
       "sport": "basketball_ncaab",
       "home": "Oregon St Beavers",
@@ -3095,7 +3071,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 38
+    "requests": 39
   },
   "finished_slot": "2026-11-26:9",
   "finished_cursor": 4,
