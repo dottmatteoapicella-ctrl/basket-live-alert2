@@ -4,6 +4,7 @@ import re
 import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 import api_monitor
@@ -16,7 +17,7 @@ TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 STATE_FILE = Path("basket_state.json")
 
-# I controlli live sono programmati ogni 10 minuti (circa 96 al giorno tra le 08 e le 24).
+# Monitoraggio H24 ogni 20 minuti; budget prudenziale 90 richieste UTC.
 # Quote: 5 campionati ogni 24h e EuroLeague ogni 12h (circa 180 crediti/mese, se disponibili).
 ODDS_SPORTS = (
     "basketball_nba",
@@ -353,9 +354,28 @@ def main():
     update_odds(state, now)
     save_state(state)
 
+    budget = state.setdefault("sportstats_budget", {})
+    day_key = now.date().isoformat()
+    if budget.get("day") != day_key:
+        budget.clear()
+        budget.update(day=day_key, requests=0)
+    def reserve():
+        if budget.get("blocked") or budget["requests"] >= 90:
+            return False
+        budget["requests"] += 1
+        save_state(state)
+        return True
+    def block_on_limit(exc):
+        if getattr(exc, "response", None) is not None and exc.response.status_code == 429:
+            budget["blocked"] = True
+            save_state(state)
+    if not reserve():
+        print("SPORTSTATS budget esaurito o bloccato:", budget["requests"])
+        return
     try:
         matches = fetch_live()
     except (requests.RequestException, ValueError, RuntimeError) as exc:
+        block_on_limit(exc)
         print("ERRORE SPORTSTATS:", str(exc))
         return
     print("Partite live:", len(matches))
@@ -368,33 +388,37 @@ def main():
         (parse_time(r.get("created_at")) is not None) and
         timedelta(0) <= now - parse_time(r["created_at"]) <= timedelta(days=2)
     ]
-    if recent_pending:
+    local = now.astimezone(ZoneInfo("Europe/Rome"))
+    slot = local.hour // 8
+    slot_key = f"{local.date().isoformat()}:{slot}"
+    if recent_pending and state.get("finished_slot") != slot_key and reserve():
+        state["finished_slot"] = slot_key
+        save_state(state)
         dates = sorted({parse_time(r["created_at"]).date().isoformat() for r in recent_pending})
+        cursor = state.get("finished_cursor", 0)
+        day = dates[(cursor // 3) % len(dates)]
+        offset = (cursor % 3) * 100
+        state["finished_cursor"] = cursor + 1
+        save_state(state)
         try:
-            for day in dates:
-                for offset in range(0, 300, 100):
-                    response = requests.get(
-                        "https://api.sportstatsapi.com/api/v1/basketball/matches",
-                        headers={"Authorization": f"Bearer {SPORTSTATS_API_KEY}"},
-                        params={"date": day, "status": "FT", "limit": 100, "offset": offset},
-                        timeout=25,
-                    )
-                    print("SPORTSTATS FINISHED HTTP:", response.status_code)
-                    response.raise_for_status()
-                    payload = response.json()
-                    print("Diagnostica basket risposta success:", int(bool(payload.get("success"))))
-                    finished = payload.get("data", []) if payload.get("success") else []
-                    print("Diagnostica basket elenco valido:", int(isinstance(finished, list)))
-                    if not isinstance(finished, list):
-                        break
-                    basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
-                    save_state(state)
-                    if len(finished) < 100 or all(r.get("finalized") for r in recent_pending):
-                        break
-                if all(r.get("finalized") for r in recent_pending):
-                    break
+            response = requests.get(
+                "https://api.sportstatsapi.com/api/v1/basketball/matches",
+                headers={"Authorization": f"Bearer {SPORTSTATS_API_KEY}"},
+                params={"date": day, "status": "FT", "limit": 100, "offset": offset},
+                timeout=25,
+            )
+            print("SPORTSTATS FINISHED HTTP:", response.status_code)
+            response.raise_for_status()
+            payload = response.json()
+            finished = payload.get("data", []) if payload.get("success") else []
+            if isinstance(finished, list):
+                basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
+                if len(finished) < 100:
+                    state["finished_cursor"] = (cursor // 3 + 1) * 3
         except (requests.RequestException, ValueError, TypeError) as exc:
+            block_on_limit(exc)
             print("Risultati basket conclusi non disponibili:", type(exc).__name__)
+    print("SPORTSTATS budget:", budget["requests"], "/ 90")
     save_state(state)
     sent = 0
     skipped_stale = 0
