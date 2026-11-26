@@ -2826,6 +2826,244 @@
         "away": 1.17
       },
       "captured_at": "2026-11-26T08:27:18.988388+00:00"
+    },
+    "hoops:1641079649": {
+      "sport": "hoops_italy_a2",
+      "home": "Rinascita Basket Rimini",
+      "away": "VL Pesaro",
+      "start": "2026-11-27T19:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.091,
+        "away": 6.76
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641079648": {
+      "sport": "hoops_italy_a2",
+      "home": "UEB Cividale",
+      "away": "Real Sebastiani Rieti",
+      "start": "2026-11-28T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.602,
+        "away": 2.35
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641079419": {
+      "sport": "hoops_italy_a2",
+      "home": "Urania Milano",
+      "away": "Benedetto XIV Cento",
+      "start": "2026-11-28T19:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.442,
+        "away": 2.77
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641079647": {
+      "sport": "hoops_italy_a2",
+      "home": "Basket Mestre 1958",
+      "away": "Del.Fes Avellino",
+      "start": "2026-11-28T19:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.23,
+        "away": 1.666
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641144316": {
+      "sport": "hoops_italy_a2",
+      "home": "New Basket Brindisi",
+      "away": "Elachem Vigevano 1955",
+      "start": "2026-11-29T16:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.306,
+        "away": 3.41
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641139861": {
+      "sport": "hoops_italy_a2",
+      "home": "Juvecaserta 2021",
+      "away": "Gema Montecatini",
+      "start": "2026-11-29T17:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.186,
+        "away": 4.53
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641139862": {
+      "sport": "hoops_italy_a2",
+      "home": "Fortitudo Bologna",
+      "away": "Juvi Cremona Ferraroni",
+      "start": "2026-11-29T17:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.123,
+        "away": 5.72
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641139864": {
+      "sport": "hoops_italy_a2",
+      "home": "Basket Torino",
+      "away": "Libertas Livorno",
+      "start": "2026-11-29T17:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.55,
+        "away": 1.515
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641144315": {
+      "sport": "hoops_italy_a2",
+      "home": "Dinamo Basket Sassari",
+      "away": "Pallacanestro 2.015 Forli",
+      "start": "2026-11-29T17:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.352,
+        "away": 3.15
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640723946": {
+      "sport": "hoops_eurocup_women",
+      "home": "Panathinaikos BC",
+      "away": "Polisportiva A Galli San Giovanni Valdarno",
+      "start": "2026-11-26T16:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.099,
+        "away": 5.38
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640720386": {
+      "sport": "hoops_eurocup_women",
+      "home": "TTT Riga",
+      "away": "CS Universitatea Cluj",
+      "start": "2026-11-26T17:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 10.0
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1640723953": {
+      "sport": "hoops_eurocup_women",
+      "home": "CBK Mersin Yenisehir Bld",
+      "away": "Ferrol",
+      "start": "2026-11-26T17:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.022,
+        "away": 11.7
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1640723967": {
+      "sport": "hoops_eurocup_women",
+      "home": "AZS AJP Gorzow Wielkopolski",
+      "away": "Porta XI Ensino",
+      "start": "2026-11-26T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.042,
+        "away": 7.66
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640742222": {
+      "sport": "hoops_eurocup_women",
+      "home": "Basket Lattes Montpellier",
+      "away": "MGS Panserraikos",
+      "start": "2026-11-26T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.011,
+        "away": 13.3
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1640742224": {
+      "sport": "hoops_eurocup_women",
+      "home": "ESB Villeneuve d´Ascq",
+      "away": "Maccabi Ashdod",
+      "start": "2026-11-26T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.105,
+        "away": 5.26
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640743605": {
+      "sport": "hoops_eurocup_women",
+      "home": "BC Namur Capitale",
+      "away": "MBK Ruzomberok",
+      "start": "2026-11-26T19:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.093,
+        "away": 5.55
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640736976": {
+      "sport": "hoops_eurocup_women",
+      "home": "SL Benfica",
+      "away": "Student Nis",
+      "start": "2026-11-26T20:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.029,
+        "away": 8.84
+      },
+      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
     }
   },
   "odds_refreshed": {
@@ -2905,11 +3143,12 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 28
+    "requests": 29
   },
   "finished_slot": "2026-11-26:2",
   "finished_cursor": 3,
   "odds_catalog_at": "2026-11-26T15:27:18.755546+00:00",
   "odds_extra": [],
-  "odds_remaining": 459
+  "odds_remaining": 459,
+  "hoops_attempt_at": "2026-11-26T15:47:26.205341+00:00"
 }
