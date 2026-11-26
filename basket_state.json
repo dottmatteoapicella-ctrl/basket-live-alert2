@@ -415,18 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "f1dad846a15c864b10f3cf4914c7cbd5": {
-      "sport": "basketball_ncaab",
-      "home": "Southern Illinois Salukis",
-      "away": "Middle Tennessee Blue Raiders",
-      "start": "2026-11-23T20:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.72,
-        "away": 2.18
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "b1abd9ff77f5dc5c376c08041fae20ea": {
       "sport": "basketball_ncaab",
       "home": "Southern Utah Thunderbirds",
@@ -3047,7 +3035,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-26",
-    "requests": 43
+    "requests": 44
   },
   "finished_slot": "2026-11-26:10",
   "finished_cursor": 6,
