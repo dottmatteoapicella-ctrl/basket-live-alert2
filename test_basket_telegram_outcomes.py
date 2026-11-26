@@ -53,3 +53,21 @@ class ReportTest(__import__("unittest").TestCase):
         self.assertEqual(result["total"]["success_pct"],50)
         self.assertEqual(result["total"]["pending"],1)
         self.assertEqual(result["by_quarter"]["2"]["verified"],2)
+
+
+class ShadowQ3Test(__import__("unittest").TestCase):
+    def test_explicit_periods_and_final(self):
+        from datetime import datetime, timezone
+        from basket_telegram_outcomes import observe_q3, settle_q3, shadow_report
+        m = {"code":"1","status_code":"live","home_team":{"name":"A","score":70,"period1":20,"period2":20,"period3":20},"away_team":{"name":"B","score":72,"period1":22,"period2":22,"period3":22}}
+        state = {}
+        observe_q3(state,m,4,"home",datetime.now(timezone.utc))
+        observe_q3(state,m,4,"home",datetime.now(timezone.utc))
+        self.assertEqual(shadow_report(state)["alerts"],1)
+        self.assertEqual(state["shadow_q3"]["1"]["q3_score"],[60,66])
+        m["status_code"]="finished"
+        settle_q3(state,[m])
+        self.assertEqual(shadow_report(state)["success_pct"],100)
+    def test_missing_periods(self):
+        from basket_telegram_outcomes import q3_score
+        self.assertIsNone(q3_score({"home_team":{"score":70},"away_team":{"score":72}}))
