@@ -30,6 +30,7 @@ jobs:
       - name: Esegui bot Basket
         env:
           SPORTSTATS_API_KEY: ${{ secrets.SPORTSTATS_API_KEY }}
+          HOOPS_API_KEY: ${{ secrets.HOOPS_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
