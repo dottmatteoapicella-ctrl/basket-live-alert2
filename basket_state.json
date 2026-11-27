@@ -4360,7 +4360,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 64
+    "requests": 65
   },
   "finished_slot": "2026-11-27:9",
   "finished_cursor": 22,
@@ -5853,11 +5853,11 @@
     },
     "mbgj5": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mbgj9": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mnzf2": {
       "league": "Czech Republic: 1. Liga",
@@ -5883,7 +5883,7 @@
     },
     "mnz5u": {
       "league": "Hungary: Nb I. A Women",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
@@ -5893,16 +5893,17 @@
     },
     "mnzjm": {
       "league": "Serbia: 1. Zls Women",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
         2,
-        3
+        3,
+        4
       ]
     },
     "moe8u": {
       "league": "Montenegro: Prva A Liga",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
         2,
@@ -5911,25 +5912,26 @@
     },
     "ms6t0": {
       "league": "Europe: World Cup - Qualification - Second Round",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
         2,
-        3
+        3,
+        4
       ]
     },
     "mbl12": {
       "league": "Latvia: RBL - A grupa",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mbgwa": {
       "league": "Hungary: Női Amatőr NB I. - Zöld",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mbkdj": {
       "league": "Slovakia: 1. liga ženy",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "moh07": {
       "league": "France: Espoirs U21",
@@ -5951,72 +5953,103 @@
     },
     "mbgnh": {
       "league": "Hungary: Férfi NB I. B - Zöld",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mbksv": {
       "league": "Latvia: NBL - Austrumi",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mbku0": {
       "league": "Latvia: NBL - Rietumi",
-      "last": "2026-11-27T18:07:20.962211+00:00"
+      "last": "2026-11-27T18:27:21.500464+00:00"
     },
     "mnob5": {
       "league": "Bosnia And Herzegovina: Prvenstvo Bih Women",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
     },
     "mnzex": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
     },
     "mnzf4": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
     },
     "mnzf3": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2
+      ]
+    },
+    "moge2": {
+      "league": "Sweden: Basketligan Women",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1
       ]
     },
-    "moge2": {
-      "league": "Sweden: Basketligan Women",
-      "last": "2026-11-27T18:07:20.962211+00:00",
-      "valid": true
-    },
     "ms6t5": {
       "league": "Europe: World Cup - Qualification - Second Round",
-      "last": "2026-11-27T18:07:20.962211+00:00",
-      "valid": true
+      "last": "2026-11-27T18:27:21.500464+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        2
+      ]
     },
     "ms7kg": {
       "league": "Asia: Asia Cup - Qualification - Pre-Qualification 2",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "favorite": true,
       "source": "moviodds"
     },
     "m1xoap": {
       "league": "Albania: Superliga",
-      "last": "2026-11-27T18:07:20.962211+00:00",
+      "last": "2026-11-27T18:27:21.500464+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
+    },
+    "mbl0f": {
+      "league": "Latvia: RBL - A grupa",
+      "last": "2026-11-27T18:27:21.500464+00:00"
+    },
+    "mbkyt": {
+      "league": "Latvia: RBL - A grupa",
+      "last": "2026-11-27T18:27:21.500464+00:00"
+    },
+    "mbkwo": {
+      "league": "Latvia: RBL - B grupa",
+      "last": "2026-11-27T18:27:21.500464+00:00"
+    },
+    "mbkwv": {
+      "league": "Latvia: RBL - C grupa",
+      "last": "2026-11-27T18:27:21.500464+00:00"
+    },
+    "mbkxe": {
+      "league": "Latvia: RBL - C grupa",
+      "last": "2026-11-27T18:27:21.500464+00:00"
     }
   },
   "favorite_sources": {
