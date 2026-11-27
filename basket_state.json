@@ -415,66 +415,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "1af3a5acedbb908ecc006767d288d16b": {
-      "sport": "basketball_ncaab",
-      "home": "North Florida Ospreys",
-      "away": "Central Arkansas Bears",
-      "start": "2026-11-24T00:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 4.5,
-        "away": 1.17
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "c6b930f2b10901f7c145736cde09fd95": {
-      "sport": "basketball_ncaab",
-      "home": "Iona Gaels",
-      "away": "Fairleigh Dickinson Knights",
-      "start": "2026-11-24T00:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.22,
-        "away": 4.0
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "120e2421c480efcf51c1aa27d4973187": {
-      "sport": "basketball_ncaab",
-      "home": "Northern Kentucky Norse",
-      "away": "Georgia Southern Eagles",
-      "start": "2026-11-24T00:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.62,
-        "away": 2.4
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "a711d8899fd6dad91337247433157f87": {
-      "sport": "basketball_ncaab",
-      "home": "Santa Clara Broncos",
-      "away": "Illinois St Redbirds",
-      "start": "2026-11-24T00:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.48,
-        "away": 2.8
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "f35ec8dcc1ab5e6f04bdb796a46b1524": {
-      "sport": "basketball_ncaab",
-      "home": "South Carolina St Bulldogs",
-      "away": "North Carolina A&T Aggies",
-      "start": "2026-11-24T00:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.2,
-        "away": 1.61
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "9fd23b7824675dff70bd989ae6fe4967": {
       "sport": "basketball_ncaab",
       "home": "Wichita St Shockers",
@@ -2938,8 +2878,8 @@
     }
   },
   "sportstats_budget": {
-    "day": "2026-11-26",
-    "requests": 57
+    "day": "2026-11-27",
+    "requests": 1
   },
   "finished_slot": "2026-11-27:0",
   "finished_cursor": 9,
