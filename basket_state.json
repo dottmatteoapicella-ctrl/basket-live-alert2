@@ -175,18 +175,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "3e065ed32915a4afefae3a851f6df12a": {
-      "sport": "basketball_euroleague",
-      "home": "Beşiktaş J.K.",
-      "away": "Paris Basketball",
-      "start": "2026-11-24T17:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.85,
-        "away": 2.01
-      },
-      "captured_at": "2026-11-24T10:07:29.957863+00:00"
-    },
     "d563569f19780b306d14d3c29b67f3bf": {
       "sport": "basketball_euroleague",
       "home": "KK Crvena zvezda",
@@ -4415,10 +4403,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 59
+    "requests": 61
   },
-  "finished_slot": "2026-11-27:8",
-  "finished_cursor": 21,
+  "finished_slot": "2026-11-27:9",
+  "finished_cursor": 22,
   "odds_catalog_at": "2026-11-27T15:27:23.523910+00:00",
   "odds_extra": [],
   "odds_remaining": 457,
@@ -5869,7 +5857,7 @@
     },
     "mnz34": {
       "league": "Ukraine: Superleague Women",
-      "last": "2026-11-27T16:47:22.287855+00:00",
+      "last": "2026-11-27T17:07:29.273371+00:00",
       "valid": true,
       "hypothetical_quarters": [
         2,
@@ -5878,21 +5866,23 @@
     },
     "mn7t6": {
       "league": "Poland: 1. Liga",
-      "last": "2026-11-27T16:47:22.287855+00:00",
-      "valid": true,
-      "hypothetical_quarters": [
-        1,
-        2
-      ]
-    },
-    "mnopn": {
-      "league": "Kosovo: Superliga Women",
-      "last": "2026-11-27T16:47:22.287855+00:00",
+      "last": "2026-11-27T17:07:29.273371+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
         2,
         3
+      ]
+    },
+    "mnopn": {
+      "league": "Kosovo: Superliga Women",
+      "last": "2026-11-27T17:07:29.273371+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2,
+        3,
+        4
       ]
     },
     "mnor4": {
@@ -5905,23 +5895,51 @@
     },
     "mbgj5": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T16:47:22.287855+00:00"
+      "last": "2026-11-27T17:07:29.273371+00:00"
     },
     "mbgj9": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T16:47:22.287855+00:00"
+      "last": "2026-11-27T17:07:29.273371+00:00"
     },
     "mnzf2": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T16:47:22.287855+00:00",
+      "last": "2026-11-27T17:07:29.273371+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2
+      ]
+    },
+    "mnzha": {
+      "league": "Finland: I Divisioona A",
+      "last": "2026-11-27T17:07:29.273371+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2
+      ]
+    },
+    "mnz5u": {
+      "league": "Hungary: Nb I. A Women",
+      "last": "2026-11-27T17:07:29.273371+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1
       ]
     },
-    "mnzha": {
-      "league": "Finland: I Divisioona A",
-      "last": "2026-11-27T16:47:22.287855+00:00",
+    "mnzjm": {
+      "league": "Serbia: 1. Zls Women",
+      "last": "2026-11-27T17:07:29.273371+00:00",
+      "valid": true
+    },
+    "moe8u": {
+      "league": "Montenegro: Prva A Liga",
+      "last": "2026-11-27T17:07:29.273371+00:00",
+      "valid": true
+    },
+    "ms6t0": {
+      "league": "Europe: World Cup - Qualification - Second Round",
+      "last": "2026-11-27T17:07:29.273371+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1
