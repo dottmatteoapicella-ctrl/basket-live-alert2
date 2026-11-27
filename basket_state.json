@@ -382,18 +382,6 @@
       },
       "captured_at": "2026-11-25T08:07:20.313616+00:00"
     },
-    "b46d2fa42df6e66be9af4204f2f8c609": {
-      "sport": "basketball_ncaab",
-      "home": "Lindenwood Lions",
-      "away": "New Haven Chargers",
-      "start": "2026-11-24T21:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.7,
-        "away": 2.05
-      },
-      "captured_at": "2026-11-24T07:47:19.613407+00:00"
-    },
     "cebf116689f6c16151415bb0f130dc5b": {
       "sport": "basketball_ncaab",
       "home": "Tulsa Golden Hurricane",
@@ -4227,10 +4215,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 73
+    "requests": 75
   },
-  "finished_slot": "2026-11-27:10",
-  "finished_cursor": 24,
+  "finished_slot": "2026-11-27:11",
+  "finished_cursor": 25,
   "odds_catalog_at": "2026-11-27T15:27:23.523910+00:00",
   "odds_extra": [],
   "odds_remaining": 457,
@@ -6551,7 +6539,7 @@
     },
     "ms6t4": {
       "league": "Europe: World Cup - Qualification - Second Round",
-      "last": "2026-11-27T20:47:20.655815+00:00",
+      "last": "2026-11-27T21:07:20.178406+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
@@ -6646,18 +6634,19 @@
     },
     "mogsp": {
       "league": "Italy: Serie A2",
-      "last": "2026-11-27T20:47:20.655815+00:00",
+      "last": "2026-11-27T21:07:20.178406+00:00",
       "valid": true,
       "favorite": true,
       "source": "moviodds"
     },
     "ms6t3": {
       "league": "Europe: World Cup - Qualification - Second Round",
-      "last": "2026-11-27T20:27:21.313674+00:00",
+      "last": "2026-11-27T21:07:20.178406+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
-        2
+        2,
+        3
       ]
     },
     "mbhg2": {
@@ -6670,14 +6659,15 @@
     },
     "mb9us": {
       "league": "Czech Republic: 1. Brněnská liga",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
     },
     "mnz0y": {
       "league": "Belgium: Top Division Women",
-      "last": "2026-11-27T20:27:21.313674+00:00",
+      "last": "2026-11-27T21:07:20.178406+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        2
+        2,
+        3
       ]
     },
     "mb8y0": {
@@ -6718,27 +6708,115 @@
     },
     "mb7wi": {
       "league": "Czech Republic: Středomoravská liga mužů",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
     },
     "mb9tv": {
       "league": "Czech Republic: Severočeský přebor mužů",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
     },
     "mb8ij": {
       "league": "Czech Republic: Severočeská liga mužů",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
     },
     "mb8il": {
       "league": "Czech Republic: Severočeská liga mužů",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
     },
     "mrfdb": {
       "league": "Italy: Divisione Regionale 3 Lazio - Girone H",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
     },
     "mgzzl": {
       "league": "Italy: Divisione Regionale 1 Emilia Romagna - Girone A",
-      "last": "2026-11-27T20:47:20.655815+00:00"
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mbh8o": {
+      "league": "Lithuania: RKL B divizionas - A grupė",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mb9eu": {
+      "league": "Czech Republic: 3.třída B (Praha)",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mao64": {
+      "league": "Germany: Landesliga Herren 3 - Niedersachsen",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "maigi": {
+      "league": "Germany: 2.Regionalliga 2 Herren - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "maklu": {
+      "league": "Germany: Bezirksliga 01 Herren - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mal1s": {
+      "league": "Germany: Bezirksliga 03 Herren - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "majtg": {
+      "league": "Germany: Bezirksliga 3 Damen - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mawns": {
+      "league": "Germany: Kreisliga Herren A - Nordrhein-Westfalen, Kreis Aachen",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mao01": {
+      "league": "Germany: 1. Kreisliga Herren - Nordrhein-Westfalen, Kreis Mettmann",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "marfm": {
+      "league": "Germany: Kreisliga Paderborn - Nordrhein-Westfalen, Kreis Paderborn",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mb1hx": {
+      "league": "Germany: 2. Kreisliga Herren Dortmund - Nordrhein-Westfalen, Kreis Dortmund",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "magno": {
+      "league": "Germany: Oberliga Herren - Sachsen-Anhalt",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "magl5": {
+      "league": "Germany: HBKN - Schleswig-Holstein",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mh0yb": {
+      "league": "Italy: Divisione Regionale 1 Friuli Venezia Giulia - GIRONE EST",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mb9ym": {
+      "league": "Czech Republic: 2. Brněnská liga",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mb46f": {
+      "league": "Italy: Serie C Femminile Lazio - Girone B",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mh0qr": {
+      "league": "Italy: Divisione Regionale 2 Emilia Romagna - Girone E",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mh77d": {
+      "league": "Italy: Divisione Regionale 2 Piemonte - Girone C",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mh1ds": {
+      "league": "Italy: Divisione Regionale 3 Friuli Venezia Giulia - GIRONE GO/TS",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "mrezi": {
+      "league": "Italy: Divisione Regionale 3 Lazio - Girone A",
+      "last": "2026-11-27T21:07:20.178406+00:00"
+    },
+    "m1ypb7": {
+      "league": "World: Americup - Qualification - Pre-Qualification",
+      "last": "2026-11-27T21:07:20.178406+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
     }
   },
   "favorite_sources": {
