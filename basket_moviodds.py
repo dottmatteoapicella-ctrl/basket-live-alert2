@@ -56,7 +56,7 @@ def favorite(match,state,parse,key):
         candidates.append(prices)
     if len(candidates)!=1: return None
     h,a=candidates[0]
-    return {"favorite":"home" if h<a else "away","prices":{"home":h,"away":a}}
+    return {"favorite":"home" if h<a else "away","prices":{"home":h,"away":a},"source":"moviodds"}
 
 def refresh(state,now,parse,key,api_key,enabled,save):
     if not enabled or not api_key: return

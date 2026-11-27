@@ -1,4 +1,5 @@
 import basket_moviodds
+import basket_coverage
 import json
 import math
 import os
@@ -443,10 +444,10 @@ def find_prematch_favorite(match, state):
                           team_key((match.get("home_team") or {}).get("name")) == team_key(item.get("away")) and
                           team_key((match.get("away_team") or {}).get("name")) == team_key(item.get("home")))
         if exact or loose:
-            candidates.append((0 if exact else 1, difference, item["favorite"], item.get("prices"), False))
+            candidates.append((0 if exact else 1, difference, item["favorite"], item.get("prices"), False, item.get("source","the_odds_api")))
         elif reversed_exact or reversed_loose:
             inverted = "away" if item["favorite"] == "home" else "home"
-            candidates.append((0 if reversed_exact else 1, difference, inverted, item.get("prices"), True))
+            candidates.append((0 if reversed_exact else 1, difference, inverted, item.get("prices"), True, item.get("source","the_odds_api")))
     if not candidates:
         return basket_moviodds.favorite(match,state,parse_time,normalize)
     candidates.sort(key=lambda pair: (pair[0], pair[1]))
@@ -457,7 +458,7 @@ def find_prematch_favorite(match, state):
     prices = best[3]
     if isinstance(prices, dict) and best[4]:
         prices = {"home": prices.get("away"), "away": prices.get("home")}
-    return {"favorite": best[2], "prices": prices}
+    return {"favorite": best[2], "prices": prices, "source": best[5]}
 
 
 
@@ -631,6 +632,8 @@ def main():
     missing_favorite_reasons = {}
 
     for match in matches:
+        gid="sportstats:"+str(match.get("code"))
+        basket_coverage.observe(state,match,now,current_quarter(match) if match.get("status_code")=="live" else None,state["favorites"].get(gid),state.get("favorite_sources",{}).get(gid),check_shadow=False)
         if match.get("status_code") != "live":
             continue
         if (match.get("freshness") or {}).get("stale") is True:
@@ -685,7 +688,9 @@ def main():
                 if matched["favorite"] == favorite and matched.get("prices"):
                     prices = matched["prices"]
                     state["favorite_prices"][game_id] = prices
+                    state.setdefault("favorite_sources",{})[game_id]=matched.get("source","unknown")
                 save_state(state)
+        basket_coverage.observe(state,match,now,quarter,favorite,state.get("favorite_sources",{}).get(game_id))
         if not favorite:
             skipped_no_favorite += 1
             diagnostic = diagnose_missing_odds(match, state)
@@ -745,6 +750,7 @@ def main():
                 "league": match.get("league_name"),
                 "quarter": quarter,
                 "deficit": abs(home_score - away_score),
+                "provider": state.get("favorite_sources",{}).get(game_id,"unknown"),
                 "favorite_odds": prices.get(favorite) if isinstance(prices, dict) else None,
             }
         state["alerts"].append(alert_id)
@@ -752,6 +758,7 @@ def main():
         sent += 1
         print("ALERT INVIATO:", alert_id)
 
+    print("BASKET_COVERAGE_REPORT:",json.dumps(basket_coverage.report(state,now,parse_time),ensure_ascii=False))
     save_state(state)
     print("Live con favorita nota:", with_favorite)
     print("Scartate senza periodo riconosciuto:", skipped_period)
