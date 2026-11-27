@@ -633,7 +633,7 @@ def main():
 
     for match in matches:
         gid="sportstats:"+str(match.get("code"))
-        basket_coverage.observe(state,match,now,current_quarter(match) if match.get("status_code")=="live" else None,state["favorites"].get(gid),state.get("favorite_sources",{}).get(gid))
+        basket_coverage.observe(state,match,now,current_quarter(match) if match.get("status_code")=="live" else None,state["favorites"].get(gid),state.get("favorite_sources",{}).get(gid),check_shadow=False)
         if match.get("status_code") != "live":
             continue
         if (match.get("freshness") or {}).get("stale") is True:
