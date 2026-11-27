@@ -3263,10 +3263,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 45
+    "requests": 47
   },
-  "finished_slot": "2026-11-27:6",
-  "finished_cursor": 18,
+  "finished_slot": "2026-11-27:7",
+  "finished_cursor": 19,
   "odds_catalog_at": "2026-11-26T15:27:18.755546+00:00",
   "odds_extra": [],
   "odds_remaining": 457,
