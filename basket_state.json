@@ -355,42 +355,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "11782e330b7215a8e2f0e3e4e9a27404": {
-      "sport": "basketball_ncaab",
-      "home": "Kansas Jayhawks",
-      "away": "Denver Pioneers",
-      "start": "2026-11-24T01:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.0,
-        "away": 100.0
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "5a237fcf6422f6a245d462ba2a6835dc": {
-      "sport": "basketball_ncaab",
-      "home": "North Carolina Tar Heels",
-      "away": "Monmouth Hawks",
-      "start": "2026-11-24T01:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.02,
-        "away": 16.92
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "aed6a97f577438479f8716801fd3d3f9": {
-      "sport": "basketball_ncaab",
-      "home": "Stephen F. Austin Lumberjacks",
-      "away": "Utah Valley Wolverines",
-      "start": "2026-11-24T01:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.38,
-        "away": 1.53
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "bd51dcc9b4ceb556e17992c7f5fe7f75": {
       "sport": "basketball_ncaab",
       "home": "Providence Friars",
@@ -2807,10 +2771,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 3
+    "requests": 5
   },
-  "finished_slot": "2026-11-27:0",
-  "finished_cursor": 9,
+  "finished_slot": "2026-11-27:1",
+  "finished_cursor": 10,
   "odds_catalog_at": "2026-11-26T15:27:18.755546+00:00",
   "odds_extra": [],
   "odds_remaining": 459,
