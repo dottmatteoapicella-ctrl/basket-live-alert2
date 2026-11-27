@@ -475,18 +475,6 @@
       },
       "captured_at": "2026-11-25T08:07:20.313616+00:00"
     },
-    "c431e5cece6a42f0acf8f2898b29e83e": {
-      "sport": "basketball_ncaab",
-      "home": "Ohio Bobcats",
-      "away": "New Mexico St Aggies",
-      "start": "2026-11-24T16:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.49,
-        "away": 2.77
-      },
-      "captured_at": "2026-11-24T07:47:19.613407+00:00"
-    },
     "c027a1281dd4c9e8ac848bc06f0e29fb": {
       "sport": "basketball_ncaab",
       "home": "Akron Zips",
@@ -2330,10 +2318,10 @@
       "start": "2026-11-27T19:30:00+00:00",
       "favorite": "home",
       "prices": {
-        "home": 1.091,
-        "away": 6.76
+        "home": 1.093,
+        "away": 6.7
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2347,7 +2335,7 @@
         "home": 1.602,
         "away": 2.35
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2361,7 +2349,7 @@
         "home": 1.442,
         "away": 2.77
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2375,7 +2363,7 @@
         "home": 2.23,
         "away": 1.666
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2386,10 +2374,10 @@
       "start": "2026-11-29T16:00:00+00:00",
       "favorite": "home",
       "prices": {
-        "home": 1.306,
-        "away": 3.41
+        "home": 1.302,
+        "away": 3.44
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2400,10 +2388,10 @@
       "start": "2026-11-29T17:00:00+00:00",
       "favorite": "home",
       "prices": {
-        "home": 1.186,
-        "away": 4.53
+        "home": 1.185,
+        "away": 4.54
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2415,9 +2403,9 @@
       "favorite": "home",
       "prices": {
         "home": 1.123,
-        "away": 5.72
+        "away": 5.73
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2431,7 +2419,7 @@
         "home": 2.55,
         "away": 1.515
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -2445,7 +2433,7 @@
         "home": 1.352,
         "away": 3.15
       },
-      "captured_at": "2026-11-26T15:47:26.205341+00:00",
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
       "source": "hoopsapi",
       "bookmaker": "pinnacle"
     },
@@ -3172,6 +3160,1182 @@
         "away": 1.38
       },
       "captured_at": "2026-11-27T08:27:19.757460+00:00"
+    },
+    "hoops:1640970098": {
+      "sport": "hoops_ncaa",
+      "home": "St. Thomas",
+      "away": "Liberty",
+      "start": "2026-11-27T17:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.892,
+        "away": 1.961
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973544": {
+      "sport": "hoops_ncaa",
+      "home": "Merrimack",
+      "away": "Vermont",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.092,
+        "away": 1.69
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1640973637": {
+      "sport": "hoops_ncaa",
+      "home": "UMass Lowell",
+      "away": "Hampton",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.69,
+        "away": 2.092
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641169572": {
+      "sport": "hoops_ncaa",
+      "home": "Le Moyne",
+      "away": "Maine",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.862,
+        "away": 1.99
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641177714": {
+      "sport": "hoops_ncaa",
+      "home": "Hampton",
+      "away": "UMass Lowell",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.12,
+        "away": 1.763
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641211102": {
+      "sport": "hoops_ncaa",
+      "home": "Iowa State",
+      "away": "St. John's",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.092,
+        "away": 1.69
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641219214": {
+      "sport": "hoops_ncaa",
+      "home": "St. John's",
+      "away": "Iowa State",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.787,
+        "away": 2.09
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641219215": {
+      "sport": "hoops_ncaa",
+      "home": "Vermont",
+      "away": "Merrimack",
+      "start": "2026-11-27T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.757,
+        "away": 2.13
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641196329": {
+      "sport": "hoops_ncaa",
+      "home": "Wake Forest",
+      "away": "Memphis",
+      "start": "2026-11-27T18:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.909,
+        "away": 1.943
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973231": {
+      "sport": "hoops_ncaa",
+      "home": "South Alabama",
+      "away": "Fresno State",
+      "start": "2026-11-27T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.714,
+        "away": 2.2
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973552": {
+      "sport": "hoops_ncaa",
+      "home": "Fairfield",
+      "away": "Navy",
+      "start": "2026-11-27T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.483,
+        "away": 2.75
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973643": {
+      "sport": "hoops_ncaa",
+      "home": "Maine",
+      "away": "Le Moyne",
+      "start": "2026-11-27T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.83,
+        "away": 1.91
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1641007785": {
+      "sport": "hoops_ncaa",
+      "home": "Vanderbilt",
+      "away": "Southern",
+      "start": "2026-11-27T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 14.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1641197417": {
+      "sport": "hoops_ncaa",
+      "home": "UCLA",
+      "away": "Georgetown",
+      "start": "2026-11-27T19:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.279,
+        "away": 3.89
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973254": {
+      "sport": "hoops_ncaa",
+      "home": "NC Wilmington",
+      "away": "Princeton",
+      "start": "2026-11-27T20:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.287,
+        "away": 3.82
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641007787": {
+      "sport": "hoops_ncaa",
+      "home": "Butler",
+      "away": "Bellarmine",
+      "start": "2026-11-27T20:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.02,
+        "away": 13.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641189807": {
+      "sport": "hoops_ncaa",
+      "home": "Louisiana Tech",
+      "away": "Texas State",
+      "start": "2026-11-27T20:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.64,
+        "away": 1.515
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641211115": {
+      "sport": "hoops_ncaa",
+      "home": "Baylor",
+      "away": "TCU",
+      "start": "2026-11-27T20:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.529,
+        "away": 2.6
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973259": {
+      "sport": "hoops_ncaa",
+      "home": "Hofstra",
+      "away": "Colgate",
+      "start": "2026-11-27T20:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.729,
+        "away": 2.17
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973665": {
+      "sport": "hoops_ncaa",
+      "home": "La Salle",
+      "away": "Bucknell",
+      "start": "2026-11-27T20:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.204,
+        "away": 4.81
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641228426": {
+      "sport": "hoops_ncaa",
+      "home": "Oregon",
+      "away": "Maryland",
+      "start": "2026-11-27T20:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.4,
+        "away": 1.609
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973586": {
+      "sport": "hoops_ncaa",
+      "home": "American",
+      "away": "Radford",
+      "start": "2026-11-27T21:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.32,
+        "away": 3.56
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641007788": {
+      "sport": "hoops_ncaa",
+      "home": "George Washington",
+      "away": "MD Baltimore County",
+      "start": "2026-11-27T21:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 17.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641013533": {
+      "sport": "hoops_ncaa",
+      "home": "Missouri",
+      "away": "Arkansas Pine Bluff",
+      "start": "2026-11-27T21:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 14.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1640973274": {
+      "sport": "hoops_ncaa",
+      "home": "Lafayette",
+      "away": "Niagara",
+      "start": "2026-11-27T21:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.467,
+        "away": 2.8
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973594": {
+      "sport": "hoops_ncaa",
+      "home": "Boston College",
+      "away": "Cincinnati",
+      "start": "2026-11-27T21:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 4.2,
+        "away": 1.25
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973275": {
+      "sport": "hoops_ncaa",
+      "home": "Marquette",
+      "away": "Texas A&M",
+      "start": "2026-11-27T22:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.813,
+        "away": 2.05
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641007673": {
+      "sport": "hoops_ncaa",
+      "home": "Kansas",
+      "away": "Villanova",
+      "start": "2026-11-27T22:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.146,
+        "away": 6.02
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641197367": {
+      "sport": "hoops_ncaa",
+      "home": "Virginia Tech",
+      "away": "Old Dominion",
+      "start": "2026-11-27T22:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.02,
+        "away": 13.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641211087": {
+      "sport": "hoops_ncaa",
+      "home": "Saint Marys CA",
+      "away": "Texas",
+      "start": "2026-11-27T22:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.72,
+        "away": 1.299
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973600": {
+      "sport": "hoops_ncaa",
+      "home": "Boise State",
+      "away": "Drake",
+      "start": "2026-11-27T22:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.432,
+        "away": 2.93
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641197439": {
+      "sport": "hoops_ncaa",
+      "home": "Kansas State",
+      "away": "Michigan",
+      "start": "2026-11-27T22:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 4.55,
+        "away": 1.221
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973602": {
+      "sport": "hoops_ncaa",
+      "home": "Pennsylvania",
+      "away": "Towson",
+      "start": "2026-11-27T23:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.641,
+        "away": 2.33
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641007789": {
+      "sport": "hoops_ncaa",
+      "home": "Indiana",
+      "away": "Bowling Green",
+      "start": "2026-11-27T23:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 12.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1641196323": {
+      "sport": "hoops_ncaa",
+      "home": "Illinois",
+      "away": "Western Kentucky",
+      "start": "2026-11-27T23:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 13.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1640973615": {
+      "sport": "hoops_ncaa",
+      "home": "Georgia",
+      "away": "Central Florida",
+      "start": "2026-11-28T00:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.418,
+        "away": 3.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973701": {
+      "sport": "hoops_ncaa",
+      "home": "UC Santa Barbara",
+      "away": "Lehigh",
+      "start": "2026-11-28T00:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.079,
+        "away": 8.9
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640978334": {
+      "sport": "hoops_ncaa",
+      "home": "North Carolina",
+      "away": "West Virginia",
+      "start": "2026-11-28T00:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.38,
+        "away": 1.617
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641207277": {
+      "sport": "hoops_ncaa",
+      "home": "East Tenn State",
+      "away": "Charleston Southern",
+      "start": "2026-11-28T00:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.177,
+        "away": 5.29
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641007790": {
+      "sport": "hoops_ncaa",
+      "home": "Houston",
+      "away": "Oakland",
+      "start": "2026-11-28T00:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.01,
+        "away": 14.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "cloudbet"
+    },
+    "hoops:1641189809": {
+      "sport": "hoops_ncaa",
+      "home": "Mississippi State",
+      "away": "Penn State",
+      "start": "2026-11-28T00:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.346,
+        "away": 3.38
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640973720": {
+      "sport": "hoops_ncaa",
+      "home": "North Dakota State",
+      "away": "North Texas",
+      "start": "2026-11-28T01:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.16,
+        "away": 1.384
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640982309": {
+      "sport": "hoops_ncaa",
+      "home": "UC Davis",
+      "away": "Pacific",
+      "start": "2026-11-28T01:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.29,
+        "away": 1.362
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641007692": {
+      "sport": "hoops_ncaa",
+      "home": "Oral Roberts",
+      "away": "Missouri State",
+      "start": "2026-11-28T01:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.518,
+        "away": 2.64
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641013534": {
+      "sport": "hoops_ncaa",
+      "home": "Northwestern",
+      "away": "Northeastern",
+      "start": "2026-11-28T01:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.105,
+        "away": 7.45
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641189808": {
+      "sport": "hoops_ncaa",
+      "home": "Washington State",
+      "away": "Idaho",
+      "start": "2026-11-28T01:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.128,
+        "away": 6.57
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641211101": {
+      "sport": "hoops_ncaa",
+      "home": "Alabama",
+      "away": "Miami Florida",
+      "start": "2026-11-28T01:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.15,
+        "away": 1.74
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641189810": {
+      "sport": "hoops_ncaa",
+      "home": "Kentucky",
+      "away": "Wichita State",
+      "start": "2026-11-28T02:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.497,
+        "away": 2.7
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641207310": {
+      "sport": "hoops_ncaa",
+      "home": "Louisville",
+      "away": "Tennessee",
+      "start": "2026-11-28T02:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.671,
+        "away": 2.27
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640978354": {
+      "sport": "hoops_ncaa",
+      "home": "Nebraska Omaha",
+      "away": "Jacksonville State",
+      "start": "2026-11-28T03:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.96,
+        "away": 1.427
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641211116": {
+      "sport": "hoops_ncaa",
+      "home": "Gonzaga",
+      "away": "Creighton",
+      "start": "2026-11-28T04:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.4,
+        "away": 3.08
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641228420": {
+      "sport": "hoops_ncaa",
+      "home": "San Diego State",
+      "away": "Texas Tech",
+      "start": "2026-11-28T04:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.47,
+        "away": 1.3
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641228427": {
+      "sport": "hoops_ncaa",
+      "home": "Texas Tech",
+      "away": "San Diego State",
+      "start": "2026-11-28T04:30:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.291,
+        "away": 3.78
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1639854975": {
+      "sport": "hoops_nba",
+      "home": "New York Knicks",
+      "away": "Miami Heat",
+      "start": "2026-11-28T00:10:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.571,
+        "away": 2.56
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640831639": {
+      "sport": "hoops_nba",
+      "home": "Indiana Pacers",
+      "away": "Philadelphia 76ers",
+      "start": "2026-11-28T00:40:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.41,
+        "away": 1.625
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640831641": {
+      "sport": "hoops_nba",
+      "home": "Toronto Raptors",
+      "away": "Brooklyn Nets",
+      "start": "2026-11-28T00:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.265,
+        "away": 4.16
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640836452": {
+      "sport": "hoops_nba",
+      "home": "Detroit Pistons",
+      "away": "Milwaukee Bucks",
+      "start": "2026-11-28T00:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.238,
+        "away": 4.47
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640836451": {
+      "sport": "hoops_nba",
+      "home": "Boston Celtics",
+      "away": "Atlanta Hawks",
+      "start": "2026-11-28T01:10:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.274,
+        "away": 4.07
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640831646": {
+      "sport": "hoops_nba",
+      "home": "Minnesota Timberwolves",
+      "away": "Memphis Grizzlies",
+      "start": "2026-11-28T01:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.492,
+        "away": 2.76
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640831640": {
+      "sport": "hoops_nba",
+      "home": "Phoenix Suns",
+      "away": "Dallas Mavericks",
+      "start": "2026-11-28T02:10:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.813,
+        "away": 2.11
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1639855015": {
+      "sport": "hoops_nba",
+      "home": "San Antonio Spurs",
+      "away": "Los Angeles Lakers",
+      "start": "2026-11-28T02:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.442,
+        "away": 2.94
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640822658": {
+      "sport": "hoops_nba",
+      "home": "Portland Trail Blazers",
+      "away": "Golden State Warriors",
+      "start": "2026-11-28T02:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.254,
+        "away": 4.28
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640822660": {
+      "sport": "hoops_nba",
+      "home": "Utah Jazz",
+      "away": "Denver Nuggets",
+      "start": "2026-11-28T02:40:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 4.41,
+        "away": 1.243
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640836440": {
+      "sport": "hoops_nba",
+      "home": "Los Angeles Clippers",
+      "away": "New Orleans Pelicans",
+      "start": "2026-11-28T02:40:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.763,
+        "away": 2.19
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640855467": {
+      "sport": "hoops_australia_wnbl",
+      "home": "Sydney Uni Flames",
+      "away": "Townsville Fire",
+      "start": "2026-11-28T04:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.55,
+        "away": 1.239
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640855516": {
+      "sport": "hoops_australia_wnbl",
+      "home": "Perth Lynx",
+      "away": "Adelaide Lightning",
+      "start": "2026-11-28T08:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.109,
+        "away": 5.16
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640938417": {
+      "sport": "hoops_australia_wnbl",
+      "home": "Southside Flyers",
+      "away": "Bendigo Spirit",
+      "start": "2026-11-29T02:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 4.34,
+        "away": 1.158
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640938441": {
+      "sport": "hoops_australia_wnbl",
+      "home": "Tasmania Jewels",
+      "away": "Canberra Capitals",
+      "start": "2026-11-29T04:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.523,
+        "away": 2.39
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640863884": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "BC Olimpas Palanga",
+      "away": "BC Telsiai",
+      "start": "2026-11-28T12:10:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.675,
+        "away": 2.02
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640888040": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "Suduva-Mantinga",
+      "away": "BC Jurbarkas-Karys",
+      "start": "2026-11-28T14:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.24,
+        "away": 3.26
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640889409": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "Kretingos Kretinga",
+      "away": "Kedainiai BC",
+      "start": "2026-11-28T14:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.042,
+        "away": 1.624
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1640889410": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "Vilnius Rytas-2",
+      "away": "BC Silute",
+      "start": "2026-11-28T14:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.65,
+        "away": 1.38
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640889412": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "Vytis-VDU Sakiai",
+      "away": "Plunge Olimpas",
+      "start": "2026-11-28T14:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.347,
+        "away": 2.76
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1640888041": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "Ukmerges Stekas",
+      "away": "Atletas",
+      "start": "2026-11-28T15:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.119,
+        "away": 4.36
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641057216": {
+      "sport": "hoops_lithuania_nkl",
+      "home": "BC Zalgiris Kaunas II",
+      "away": "Neptunas-Akvaservis Klaipeda",
+      "start": "2026-12-01T16:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 3.44,
+        "away": 1.211
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "pinnacle"
+    },
+    "hoops:1641144364": {
+      "sport": "hoops_euroleague",
+      "home": "Anadolu Efes SK",
+      "away": "Valencia BC",
+      "start": "2026-12-03T17:30:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.076,
+        "away": 1.803
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641136053": {
+      "sport": "hoops_euroleague",
+      "home": "Fenerbahce",
+      "away": "Crvena Zvezda",
+      "start": "2026-12-03T17:45:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.337,
+        "away": 3.46
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1640973228": {
+      "sport": "hoops_euroleague",
+      "home": "Hapoel Tel-Aviv",
+      "away": "Olimpia Milano",
+      "start": "2026-12-03T18:45:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.256,
+        "away": 4.165
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641139833": {
+      "sport": "hoops_euroleague",
+      "home": "Bayern Munich",
+      "away": "Paris",
+      "start": "2026-12-03T19:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.882,
+        "away": 1.98
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641136050": {
+      "sport": "hoops_euroleague",
+      "home": "Real Madrid",
+      "away": "Barcelona",
+      "start": "2026-12-03T19:45:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.337,
+        "away": 3.46
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641136052": {
+      "sport": "hoops_euroleague",
+      "home": "Virtus Bologna",
+      "away": "KK Partizan Belgrade",
+      "start": "2026-12-03T20:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.735,
+        "away": 2.175
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641189813": {
+      "sport": "hoops_euroleague",
+      "home": "Besiktas JK",
+      "away": "Panathinaikos BC",
+      "start": "2026-12-04T17:00:00+00:00",
+      "favorite": "away",
+      "prices": {
+        "home": 2.868,
+        "away": 1.454
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641197371": {
+      "sport": "hoops_euroleague",
+      "home": "BC Zalgiris Kaunas",
+      "away": "BC Dubai",
+      "start": "2026-12-04T18:00:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.566,
+        "away": 2.513
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
+    },
+    "hoops:1641189812": {
+      "sport": "hoops_euroleague",
+      "home": "Olympiakos BC",
+      "away": "Asvel Villeurbanne",
+      "start": "2026-12-04T19:15:00+00:00",
+      "favorite": "home",
+      "prices": {
+        "home": 1.08,
+        "away": 9.0
+      },
+      "captured_at": "2026-11-27T16:07:20.193039+00:00",
+      "source": "hoopsapi",
+      "bookmaker": "1xbet"
     }
   },
   "odds_refreshed": {
@@ -3251,14 +4415,14 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 56
+    "requests": 57
   },
   "finished_slot": "2026-11-27:8",
   "finished_cursor": 21,
   "odds_catalog_at": "2026-11-27T15:27:23.523910+00:00",
   "odds_extra": [],
   "odds_remaining": 457,
-  "hoops_attempt_at": "2026-11-26T15:47:26.205341+00:00",
+  "hoops_attempt_at": "2026-11-27T16:07:20.193039+00:00",
   "odds_extra_cursor": 0,
   "moviodds_budget": {
     "day": "2026-11-27",
@@ -4682,6 +5846,48 @@
       ],
       "start": "2026-11-29T02:00:00+00:00",
       "captured": "2026-11-27T15:47:20.359671+00:00"
+    }
+  },
+  "coverage": {
+    "mnv9s": {
+      "league": "Turkey: Tb2l",
+      "last": "2026-11-27T16:07:20.193039+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        3
+      ]
+    },
+    "ms7ke": {
+      "league": "Asia: Asia Cup - Qualification - Pre-Qualification 2",
+      "last": "2026-11-27T16:07:20.193039+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        3
+      ]
+    },
+    "mnz34": {
+      "league": "Ukraine: Superleague Women",
+      "last": "2026-11-27T16:07:20.193039+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        2
+      ]
+    },
+    "mn7t6": {
+      "league": "Poland: 1. Liga",
+      "last": "2026-11-27T16:07:20.193039+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
+    },
+    "mnopn": {
+      "league": "Kosovo: Superliga Women",
+      "last": "2026-11-27T16:07:20.193039+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
     }
   }
 }
