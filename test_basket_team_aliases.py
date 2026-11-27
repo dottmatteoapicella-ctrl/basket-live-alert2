@@ -1,4 +1,5 @@
 import ast
+from datetime import datetime
 import basket_moviodds
 import math
 import re
@@ -7,7 +8,7 @@ import unittest
 from pathlib import Path
 
 tree = ast.parse(Path(__file__).with_name("basket_alert.py").read_text(encoding="utf-8"))
-nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in ("team_key", "current_quarter", "supported_odds_sports", "valid_favorite_prices", "normalize", "diagnose_missing_odds")) or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ("TEAM_ALIASES", "HOOPS_LEAGUES") for t in n.targets))]
+nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in ("team_key", "current_quarter", "supported_odds_sports", "valid_favorite_prices", "normalize", "diagnose_missing_odds", "recovery_dates")) or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ("TEAM_ALIASES", "HOOPS_LEAGUES") for t in n.targets))]
 scope = {"basket_moviodds": basket_moviodds, "math": math, "re": re, "unicodedata": unicodedata, "ODDS_SPORTS": ("basketball_nba", "basketball_ncaab", "basketball_wncaab")}
 exec(compile(ast.Module(body=nodes, type_ignores=[]), "<team_key>", "exec"), scope)
 team_key = scope["team_key"]
@@ -64,6 +65,13 @@ class ProviderDiagnosticsTest(unittest.TestCase):
         self.assertEqual(diagnose(match, state)["reason"], "moviodds_quote_presenti_ma_matching_non_valido")
         state["moviodds_games"] = {}
         self.assertEqual(diagnose(match, state)["reason"], "campionato_non_coperto_dalle_quote_configurate")
+
+class RecoveryDatesTest(unittest.TestCase):
+    def test_midnight_and_legacy(self):
+        parse = lambda value: datetime.fromisoformat(value) if value else None
+        rows = [{"match_start": "2026-11-26T23:30:00+00:00", "created_at": "2026-11-27T00:10:00+00:00"},
+                {"created_at": "2026-11-27T01:00:00+00:00"}]
+        self.assertEqual(scope["recovery_dates"](rows, parse), ["2026-11-26", "2026-11-27"])
 
 class QuarterTest(unittest.TestCase):
     def test_explicit_quarters(self):
