@@ -41,6 +41,12 @@ class CoverageTest(unittest.TestCase):
         self.assertEqual(team_key("ZKK Student Niš Women"), team_key("Student Nis W"))
         self.assertNotEqual(team_key("Benfica"), team_key("Benfica W"))
 
+    def test_cached_rotated_league(self):
+        supported = scope["supported_odds_sports"]
+        state = {"odds_extra": [], "odds_games": {"event": {"sport": "basketball_eurocup"}}}
+        self.assertIn("basketball_eurocup", supported("Europe: Eurocup", state))
+        self.assertNotIn("basketball_eurocup", supported("Europe: Eurocup Women", state))
+
     def test_fiba_tauihi_candidates(self):
         supported = scope["supported_odds_sports"]
         state = {"odds_extra": ["basketball_fiba_world_cup_qualifiers", "basketball_new_zealand_tauihi"]}
