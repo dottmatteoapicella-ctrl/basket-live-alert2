@@ -3188,7 +3188,7 @@
   },
   "odds_refreshed": {
     "basketball_nba": "2026-11-27T08:27:19.757460+00:00",
-    "basketball_euroleague": "2026-11-26T22:27:25.653143+00:00",
+    "basketball_euroleague": "2026-11-27T10:47:22.321167+00:00",
     "basketball_nbl": "2026-11-27T08:27:19.757460+00:00",
     "basketball_ncaab": "2026-11-27T08:27:19.757460+00:00",
     "basketball_wncaab": "2026-11-27T08:27:19.757460+00:00"
@@ -3263,7 +3263,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 37
+    "requests": 38
   },
   "finished_slot": "2026-11-27:5",
   "finished_cursor": 16,
