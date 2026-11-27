@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'basket_alert.py'
+      - 'basket_coverage.py'
+      - 'test_basket_coverage.py'
       - 'basket_moviodds.py'
       - 'test_basket_moviodds.py'
       - 'test_basket_team_aliases.py'
@@ -19,4 +21,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests
-      - run: python -m unittest -v test_basket_telegram_outcomes test_basket_team_aliases test_basket_moviodds
+      - run: python -m unittest -v test_basket_telegram_outcomes test_basket_team_aliases test_basket_moviodds test_basket_coverage
