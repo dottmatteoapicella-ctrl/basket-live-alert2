@@ -295,18 +295,6 @@
       },
       "captured_at": "2026-11-25T10:27:20.169553+00:00"
     },
-    "db2311c331296d3328d71b842167dea4": {
-      "sport": "basketball_nba",
-      "home": "Houston Rockets",
-      "away": "Los Angeles Clippers",
-      "start": "2026-11-24T01:40:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.12,
-        "away": 6.0
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "3e9dc52cb055c0154839c4aec417955b": {
       "sport": "basketball_nba",
       "home": "Los Angeles Lakers",
@@ -2747,7 +2735,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 6
+    "requests": 7
   },
   "finished_slot": "2026-11-27:1",
   "finished_cursor": 10,
