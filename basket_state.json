@@ -382,18 +382,6 @@
       },
       "captured_at": "2026-11-25T08:07:20.313616+00:00"
     },
-    "cebf116689f6c16151415bb0f130dc5b": {
-      "sport": "basketball_ncaab",
-      "home": "Tulsa Golden Hurricane",
-      "away": "Illinois St Redbirds",
-      "start": "2026-11-24T21:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.8,
-        "away": 1.91
-      },
-      "captured_at": "2026-11-24T07:47:19.613407+00:00"
-    },
     "164c30fe9e3df9f785daa57c5053cf5d": {
       "sport": "basketball_ncaab",
       "home": "Arizona Wildcats",
@@ -4215,7 +4203,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 76
+    "requests": 77
   },
   "finished_slot": "2026-11-27:11",
   "finished_cursor": 25,
@@ -6488,7 +6476,7 @@
     },
     "mbgni": {
       "league": "Hungary: Férfi NB I. B - Zöld",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mbgng": {
       "league": "Hungary: Férfi NB I. B - Zöld",
@@ -6730,7 +6718,7 @@
     },
     "mgzzl": {
       "league": "Italy: Divisione Regionale 1 Emilia Romagna - Girone A",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mbh8o": {
       "league": "Lithuania: RKL B divizionas - A grupė",
@@ -6802,19 +6790,19 @@
     },
     "mh77d": {
       "league": "Italy: Divisione Regionale 2 Piemonte - Girone C",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh1ds": {
       "league": "Italy: Divisione Regionale 3 Friuli Venezia Giulia - GIRONE GO/TS",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mrezi": {
       "league": "Italy: Divisione Regionale 3 Lazio - Girone A",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "m1ypb7": {
       "league": "World: Americup - Qualification - Pre-Qualification",
-      "last": "2026-11-27T21:27:20.544614+00:00",
+      "last": "2026-11-27T21:47:20.625321+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
@@ -6827,15 +6815,15 @@
     },
     "mahlh": {
       "league": "Germany: Regionsliga Herren OL/OF - Niedersachsen, Region Oldenburg",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "magpp": {
       "league": "Germany: Landesliga Herren St. 1 - Sachsen-Anhalt",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "manyi": {
       "league": "Germany: Bezirksliga Herren Süd - Sachsen-Anhalt",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "matar": {
       "league": "Germany: 1. Kreisliga Herren - Nordrhein-Westfalen, Kreis Bonn",
@@ -6843,87 +6831,291 @@
     },
     "mb1hz": {
       "league": "Germany: 2. Kreisliga Herren Dortmund - Nordrhein-Westfalen, Kreis Dortmund",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mha0r": {
       "league": "Italy: Divisione Regionale 3 Toscana - Girone B",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mb7we": {
       "league": "Czech Republic: Středomoravská liga mužů",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mair9": {
       "league": "Germany: Oberliga 3 Herren - Nordrhein-Westfalen",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "makzv": {
       "league": "Germany: Landesliga 06 Herren - Nordrhein-Westfalen",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mavl7": {
       "league": "Germany: Kreisliga Vorrunde D/NE - Nordrhein-Westfalen, Kreis Düsseldorf",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mawx5": {
       "league": "Germany: 1. Kreisliga Essen - Nordrhein-Westfalen, Kreis Essen",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mao02": {
       "league": "Germany: 1. Kreisliga Herren - Nordrhein-Westfalen, Kreis Mettmann",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "maud8": {
       "league": "Germany: Kreisliga Lippe - Nordrhein-Westfalen, Kreis Unna/Soest",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh154": {
       "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE GO/TS",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh5q3": {
       "league": "Italy: Divisione Regionale 2 Marche - Gir.B",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mha2s": {
       "league": "Italy: Divisione Regionale 3 Toscana - Girone C",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mb7wh": {
       "league": "Czech Republic: Středomoravská liga mužů",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh0jh": {
       "league": "Italy: Divisione Regionale 2 Emilia Romagna - Girone C",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh1b9": {
       "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE UD",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh1vq": {
       "league": "Italy: Divisione Regionale 2 Liguria - Girone A",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh28v": {
       "league": "Italy: Divisione Regionale 1 Lazio - Girone C",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mpxcv": {
       "league": "Italy: Divisione Regionale 3 Emilia Romagna - Girone I",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mquf7": {
       "league": "Italy: Divisione Regionale 3 Sicilia - Girone A",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mrfa5": {
       "league": "Italy: Divisione Regionale 3 Lazio - Girone F",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
     },
     "mh84m": {
       "league": "Italy: Divisione Regionale 2 Sardegna - Girone Sud B",
-      "last": "2026-11-27T21:27:20.544614+00:00"
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mb1k4": {
+      "league": "Germany: 1. Kreisliga Herren Dortmund - Nordrhein-Westfalen, Kreis Dortmund",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mbh54": {
+      "league": "Hungary: Férfi NB II. - Nyugati",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maqgd": {
+      "league": "Germany: BBW4 Kreisliga Ost - Baden-Württemberg, Alb/Bodensee",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maik7": {
+      "league": "Germany: Oberliga 1 Herren - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maj1u": {
+      "league": "Germany: Oberliga 2 Damen - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maj4z": {
+      "league": "Germany: Landesliga 1 Damen - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maj5h": {
+      "league": "Germany: Landesliga 1 Damen - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mal8h": {
+      "league": "Germany: Bezirksliga 04 Herren - Nordrhein-Westfalen",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mataq": {
+      "league": "Germany: 1. Kreisliga Herren - Nordrhein-Westfalen, Kreis Bonn",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maum7": {
+      "league": "Germany: RBK Kreisliga Herren - Nordrhein-Westfalen, Rhein. Berg. Kreis",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maupd": {
+      "league": "Germany: Kreisliga Herren - Nordrhein-Westfalen, Kreis Niederrhein",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "maz00": {
+      "league": "Germany: Kreisliga Herren BBK Wuppertal - Nordrhein-Westfalen, Kreis Wuppertal",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mgz1g": {
+      "league": "Italy: Divisione Regionale 2 Calabria - Girone B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mb953": {
+      "league": "Czech Republic: 1.třída (Praha)",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh153": {
+      "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE GO/TS",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh1bb": {
+      "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE UD",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh8jp": {
+      "league": "Italy: Divisione Regionale 2 Trentino Alto Adige",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mb3j6": {
+      "league": "Italy: Serie C Friuli Venezia Giulia - GIRONE D",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mb4me": {
+      "league": "Italy: Serie C Femminile Lombardia - Girone A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mgzzp": {
+      "league": "Italy: Divisione Regionale 1 Emilia Romagna - Girone A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh06d": {
+      "league": "Italy: Divisione Regionale 1 Emilia Romagna - Girone B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh06g": {
+      "league": "Italy: Divisione Regionale 1 Emilia Romagna - Girone B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh0c3": {
+      "league": "Italy: Divisione Regionale 2 Emilia Romagna - Girone A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh0c5": {
+      "league": "Italy: Divisione Regionale 2 Emilia Romagna - Girone A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh0c6": {
+      "league": "Italy: Divisione Regionale 2 Emilia Romagna - Girone A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh0jk": {
+      "league": "Italy: Divisione Regionale 2 Emilia Romagna - Girone C",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh0y9": {
+      "league": "Italy: Divisione Regionale 1 Friuli Venezia Giulia - GIRONE EST",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh0yd": {
+      "league": "Italy: Divisione Regionale 1 Friuli Venezia Giulia - GIRONE EST",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh11y": {
+      "league": "Italy: Divisione Regionale 1 Friuli Venezia Giulia - GIRONE OVEST",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh121": {
+      "league": "Italy: Divisione Regionale 1 Friuli Venezia Giulia - GIRONE OVEST",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh155": {
+      "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE GO/TS",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh1iu": {
+      "league": "Italy: Divisione Regionale 3 Friuli Venezia Giulia - GIRONE UD",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh2wu": {
+      "league": "Italy: Divisione Regionale 2 Lombardia - Girone F",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh3i6": {
+      "league": "Italy: Divisione Regionale 3 Lombardia - Girone G",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh3n6": {
+      "league": "Italy: Divisione Regionale 3 Lombardia - Girone H",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh4sc": {
+      "league": "Italy: Divisione Regionale 1 Marche - Girone A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh55q": {
+      "league": "Italy: Divisione Regionale 2 Marche - Gir.A",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh6e0": {
+      "league": "Italy: Divisione Regionale 1 Piemonte - Girone B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh715": {
+      "league": "Italy: Divisione Regionale 2 Piemonte - Girone B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh77e": {
+      "league": "Italy: Divisione Regionale 2 Piemonte - Girone C",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh7cf": {
+      "league": "Italy: Divisione Regionale 2 Piemonte - Girone D",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh9sa": {
+      "league": "Italy: Divisione Regionale 2 Toscana - Girone D",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mpxf1": {
+      "league": "Italy: Divisione Regionale 3 Emilia Romagna - Girone L",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mb5l6": {
+      "league": "Italy: Serie C Femminile Piemonte - Girone B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh157": {
+      "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE GO/TS",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh185": {
+      "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE PN",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh1b8": {
+      "league": "Italy: Divisione Regionale 2 Friuli Venezia Giulia - GIRONE UD",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh2wt": {
+      "league": "Italy: Divisione Regionale 2 Lombardia - Girone F",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh5q7": {
+      "league": "Italy: Divisione Regionale 2 Marche - Gir.B",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mh9s9": {
+      "league": "Italy: Divisione Regionale 2 Toscana - Girone D",
+      "last": "2026-11-27T21:47:20.625321+00:00"
+    },
+    "mha2t": {
+      "league": "Italy: Divisione Regionale 3 Toscana - Girone C",
+      "last": "2026-11-27T21:47:20.625321+00:00"
     }
   },
   "favorite_sources": {
