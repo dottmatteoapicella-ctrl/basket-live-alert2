@@ -1,3 +1,4 @@
+import basket_moviodds
 import json
 import math
 import os
@@ -447,7 +448,7 @@ def find_prematch_favorite(match, state):
             inverted = "away" if item["favorite"] == "home" else "home"
             candidates.append((0 if reversed_exact else 1, difference, inverted, item.get("prices"), True))
     if not candidates:
-        return None
+        return basket_moviodds.favorite(match,state,parse_time,normalize)
     candidates.sort(key=lambda pair: (pair[0], pair[1]))
     # Evita di attribuire quote a un'altra partita con nomi simili.
     if len(candidates) > 1 and candidates[0][:2] == candidates[1][:2] and candidates[0][2] != candidates[1][2]:
@@ -545,6 +546,7 @@ def main():
     now = utc_now()
     update_odds(state, now)
     update_hoops(state, now)
+    basket_moviodds.refresh(state,now,parse_time,normalize,os.environ.get("MOVIODDS_API_KEY",""),os.environ.get("MOVIODDS_BASKET_ENABLED")=="true",save_state)
     save_state(state)
 
     budget = state.setdefault("sportstats_budget", {})
