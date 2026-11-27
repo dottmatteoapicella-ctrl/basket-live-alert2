@@ -212,7 +212,7 @@ def update_odds(state, now):
                             prices[outcome["name"]] = float(outcome["price"])
                         except (ValueError, TypeError, KeyError):
                             pass
-                if home in prices and away in prices and prices[home] != prices[away]:
+                if home in prices and away in prices and all(math.isfinite(p) and p > 1 for p in (prices[home], prices[away])) and prices[home] != prices[away]:
                     favorite = "home" if prices[home] < prices[away] else "away"
                     selected_prices = {"home": prices[home], "away": prices[away]}
                     break
@@ -412,6 +412,16 @@ def supported_odds_sports(league, state):
     return result
 
 
+def valid_favorite_prices(favorite, prices):
+    if favorite not in ("home", "away") or not isinstance(prices, dict):
+        return False
+    try:
+        h, a = float(prices["home"]), float(prices["away"])
+    except (KeyError, TypeError, ValueError):
+        return False
+    return all(math.isfinite(p) and p > 1 for p in (h, a)) and (h < a if favorite == "home" else a < h)
+
+
 def find_prematch_favorite(match, state):
     home = normalize((match.get("home_team") or {}).get("name"))
     away = normalize((match.get("away_team") or {}).get("name"))
@@ -429,7 +439,10 @@ def find_prematch_favorite(match, state):
         if not captured or captured >= start:
             continue
         odds_start = parse_time(item.get("start"))
-        if not odds_start or abs((start - odds_start).total_seconds()) > MAX_START_DIFFERENCE_HOURS * 3600:
+        if not odds_start or captured >= odds_start or abs((start - odds_start).total_seconds()) > MAX_START_DIFFERENCE_HOURS * 3600:
+            continue
+        prices = item.get("prices")
+        if not valid_favorite_prices(item.get("favorite"), prices):
             continue
         odds_home, odds_away = normalize(item.get("home")), normalize(item.get("away"))
         difference = abs((start - odds_start).total_seconds())
@@ -547,7 +560,9 @@ def main():
     now = utc_now()
     update_odds(state, now)
     update_hoops(state, now)
-    basket_moviodds.refresh(state,now,parse_time,normalize,os.environ.get("MOVIODDS_API_KEY",""),os.environ.get("MOVIODDS_BASKET_ENABLED")=="true",save_state)
+    movi_enabled = os.environ.get("MOVIODDS_BASKET_ENABLED")=="true"
+    print("BASKET_MOVIODDS_STATUS:", json.dumps({"enabled":movi_enabled,"key_configured":bool(os.environ.get("MOVIODDS_API_KEY")),"cached":len(state.get("moviodds_games",{}))}))
+    basket_moviodds.refresh(state,now,parse_time,normalize,os.environ.get("MOVIODDS_API_KEY",""),movi_enabled,save_state)
     save_state(state)
 
     budget = state.setdefault("sportstats_budget", {})
@@ -691,7 +706,7 @@ def main():
                     state.setdefault("favorite_sources",{})[game_id]=matched.get("source","unknown")
                 save_state(state)
         basket_coverage.observe(state,match,now,quarter,favorite,state.get("favorite_sources",{}).get(game_id))
-        if not favorite:
+        if not valid_favorite_prices(favorite, prices):
             skipped_no_favorite += 1
             diagnostic = diagnose_missing_odds(match, state)
             reason = diagnostic["reason"]
@@ -737,7 +752,14 @@ def main():
             f"📉 Svantaggio: {abs(home_score - away_score)} punti\n\n"
             "Dati: Stadiro / SportStatsAPI (sportstatsapi.com)"
         )
-        message_id = send_telegram(message)
+        try:
+            message_id = send_telegram(message)
+        except (requests.RequestException, ValueError, RuntimeError) as exc:
+            print("BASKET_DELIVERY_UNCONFIRMED:", alert_id, type(exc).__name__)
+            continue
+        if not isinstance(message_id, int) or isinstance(message_id, bool) or message_id <= 0:
+            print("BASKET_DELIVERY_UNCONFIRMED:", alert_id, "missing_message_id")
+            continue
         if message_id is not None:
             state["telegram_alerts"][alert_id] = {
                 "game_code": str(game_code),
@@ -777,6 +799,7 @@ def main():
         sport = item.get("sport", "sconosciuto")
         cached_by_sport[sport] = cached_by_sport.get(sport, 0) + 1
     print("Quote in cache per campionato:", json.dumps(cached_by_sport, ensure_ascii=False))
+    print("BASKET_MOVIODDS_CACHE:", len(state.get("moviodds_games",{})))
     print("Campionati quote configurati:", ", ".join(ODDS_SPORTS))
 
 
