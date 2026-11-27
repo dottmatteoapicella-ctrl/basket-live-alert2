@@ -8,7 +8,7 @@ def band(value):
     if not math.isfinite(v) or v<=1: return "unknown"
     return next((label for limit,label in [(1.2,"1.01-1.19"),(1.4,"1.20-1.39"),(1.6,"1.40-1.59"),(1.8,"1.60-1.79"),(2,"1.80-1.99")] if v<limit),"2.00+")
 
-def observe(state,match,now,quarter,favorite=None,source=None):
+def observe(state,match,now,quarter,favorite=None,source=None,check_shadow=True):
     if match.get("status_code")!="live" or not match.get("code"): return
     row=state.setdefault("coverage",{}).setdefault(str(match["code"]),{})
     row.update(league=match.get("league_name") or "unknown",last=now.isoformat())
@@ -19,7 +19,7 @@ def observe(state,match,now,quarter,favorite=None,source=None):
     scores=[(match.get(k) or {}).get("score") for k in ("home_team","away_team")]
     if not all(str(x).isdigit() for x in scores): return
     row["valid"]=True
-    if favorite not in ("home","away") and scores[0]!=scores[1]:
+    if check_shadow and favorite not in ("home","away") and int(scores[0])!=int(scores[1]):
         quarters=set(row.get("hypothetical_quarters",[]))
         quarters.add(quarter)
         row["hypothetical_quarters"]=sorted(quarters)
