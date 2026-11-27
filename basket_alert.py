@@ -72,6 +72,9 @@ TEAM_ALIASES = {
     "besiktas": "besiktas",
     "besiktasjk": "besiktas",
     "besiktasistanbul": "besiktas",
+    "slbenficaw": "benficaw",
+    "sportlisboaebenficaw": "benficaw",
+    "zkkstudentnisw": "studentnisw",
     "panathinaikoswomen": "panathinaikosw",
     "panathinaikosfemale": "panathinaikosw",
 }
@@ -82,7 +85,7 @@ def team_key(name):
     value = unicodedata.normalize("NFKD", name or "")
     value = "".join(c for c in value if not unicodedata.combining(c))
     value = value.casefold().replace("&", " and ")
-    value = re.sub(r"\b(?:women|female)\b", "w", value)
+    value = re.sub(r"\b(?:women|female|ladies)\b", "w", value)
     # Abbreviazioni editoriali frequenti, senza rimuovere citta' o nomi.
     value = re.sub(r"\b(?:basketball|basket|bc|bk|b c)\b", " ", value)
     key = re.sub(r"[^a-z0-9]", "", value)
@@ -360,6 +363,41 @@ def fetch_live():
     return payload.get("data", [])
 
 
+def supported_odds_sports(league, state):
+    league = league.casefold()
+    labels = {
+        "basketball_euroleague": ("euroleague", "euro league"),
+        "basketball_nba": ("nba",),
+        "basketball_nbl": ("australia: nbl", "australian nbl"),
+        "basketball_ncaab": ("ncaa", "ncaab"),
+        "basketball_wncaab": ("wncaa", "ncaa women", "ncaa - women"),
+        "basketball_wnba": ("wnba",),
+        "basketball_eurocup": ("eurocup", "euro cup"),
+        "basketball_spain_acb": ("spain: acb", "liga endesa"),
+        "basketball_italy_lega_basket": ("italy: serie a", "lega basket"),
+        "basketball_germany_bbl": ("germany: bbl", "basketball bundesliga"),
+        "basketball_france_lnb": ("france: lnb", "betclic elite"),
+    }
+    labels.update({sport: names for sport, names in HOOPS_LEAGUES.values()})
+    active = set(ODDS_SPORTS) | set(state.get("odds_extra", []))
+    women = any(x in league for x in ("women", "female", "femmin", "wncaa", "wnba", "wnbl"))
+    result = set()
+    for sport, names in labels.items():
+        if not (sport.startswith("hoops_") or sport in active):
+            continue
+        if not any(name in league for name in names):
+            continue
+        female_sport = sport in {"basketball_wnba", "basketball_wncaab", "hoops_eurocup_women", "hoops_australia_wnbl"}
+        if women != female_sport:
+            continue
+        if sport in {"basketball_nba", "hoops_nba"} and any(x in league for x in ("g league", "summer")):
+            continue
+        if sport in {"basketball_italy_lega_basket", "hoops_italy_a1"} and "a2" in league:
+            continue
+        result.add(sport)
+    return result
+
+
 def find_prematch_favorite(match, state):
     home = normalize((match.get("home_team") or {}).get("name"))
     away = normalize((match.get("away_team") or {}).get("name"))
@@ -367,37 +405,11 @@ def find_prematch_favorite(match, state):
     if not home or not away or not start:
         return None
     league = (match.get("league_name") or "").casefold()
-    league_sports = {
-        "serie a2": "hoops_italy_a2",
-        "lega a2": "hoops_italy_a2",
-        "euroleague": "basketball_euroleague",
-        "euro league": "basketball_euroleague",
-        "nba": "basketball_nba",
-        "australia: nbl": "basketball_nbl",
-        "australian nbl": "basketball_nbl",
-        "wncaa": "basketball_wncaab",
-        "ncaa women": "basketball_wncaab",
-        "ncaa": "basketball_ncaab",
-        "ncaab": "basketball_ncaab",
-    }
-    expected_sport = next((sport for label, sport in league_sports.items() if label in league), None)
-    hoops_sport = next((sport for sport, labels in HOOPS_LEAGUES.values() if any(label in league for label in labels)), None)
-    if hoops_sport == "hoops_ncaa" and any(x in league for x in ("women", "wncaa", "female")):
-        hoops_sport = None
-    if hoops_sport == "hoops_nba" and any(x in league for x in ("wnba", "g league", "summer")):
-        hoops_sport = None
-    if hoops_sport == "hoops_eurocup" and any(x in league for x in ("women", "femmin", "female")):
-        hoops_sport = None
-    if hoops_sport == "hoops_italy_a1" and "a2" in league:
-        hoops_sport = None
+    supported = supported_odds_sports(league, state)
     candidates = []
     for item in state["odds_games"].values():
         item_sport = item.get("sport", "")
-        if item_sport.startswith("hoops_") and item_sport != hoops_sport:
-            continue
-        if not (expected_sport or hoops_sport):
-            continue
-        if item_sport not in (expected_sport, hoops_sport):
+        if item_sport not in supported:
             continue
         captured = parse_time(item.get("captured_at"))
         if not captured or captured >= start:
@@ -439,28 +451,7 @@ def find_prematch_favorite(match, state):
 def diagnose_missing_odds(match, state):
     """Diagnostica prudente: non associare mai quote di incontri estranei."""
     league = (match.get("league_name") or "").casefold()
-    known_leagues = {
-        "hoops_italy_a2": ("serie a2", "lega a2"),
-        "basketball_wnba": ("wnba",),
-        "basketball_eurocup": ("eurocup", "euro cup"),
-        "basketball_spain_acb": ("acb", "liga endesa"),
-        "basketball_italy_lega_basket": ("lega basket", "italy: serie a"),
-        "basketball_germany_bbl": ("germany: bbl", "basketball bundesliga"),
-        "basketball_france_lnb": ("lnb", "betclic elite"),
-        "basketball_nba": ("nba",),
-        "basketball_euroleague": ("euroleague", "euro league"),
-        "basketball_nbl": ("australia: nbl", "australian nbl"),
-        "basketball_ncaab": ("ncaa", "ncaab"),
-        "basketball_wncaab": ("wncaa", "ncaa women"),
-    }
-    known_leagues.update({sport: labels for sport, labels in HOOPS_LEAGUES.values()})
-    supported = [sport for sport, labels in known_leagues.items()
-                 if any(label in league for label in labels)]
-    supported = [sport for sport in supported if sport in (*ODDS_SPORTS, *state.get("odds_extra", [])) or sport.startswith("hoops_")]
-    if "basketball_wnba" in supported:
-        supported = ["basketball_wnba"]
-    if "basketball_wncaab" in supported:
-        supported = ["basketball_wncaab"]
+    supported = sorted(supported_odds_sports(league, state))
     if not supported:
         return {"reason": "campionato_non_coperto_dalle_quote_configurate",
                 "league": match.get("league_name")}
