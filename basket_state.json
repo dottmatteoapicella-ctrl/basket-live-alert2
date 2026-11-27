@@ -295,18 +295,6 @@
       },
       "captured_at": "2026-11-25T10:27:20.169553+00:00"
     },
-    "b45e9d96ab3298d614e74c19902f3998": {
-      "sport": "basketball_ncaab",
-      "home": "Arizona Wildcats",
-      "away": "Colorado St Rams",
-      "start": "2026-11-24T04:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.04,
-        "away": 12.56
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "38c575bb916b4b6634ccbc1d442b53a2": {
       "sport": "basketball_ncaab",
       "home": "Maryland Terrapins",
@@ -2663,7 +2651,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 16
+    "requests": 17
   },
   "finished_slot": "2026-11-27:2",
   "finished_cursor": 12,
