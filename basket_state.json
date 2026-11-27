@@ -463,30 +463,6 @@
       },
       "captured_at": "2026-11-25T08:07:20.313616+00:00"
     },
-    "c027a1281dd4c9e8ac848bc06f0e29fb": {
-      "sport": "basketball_ncaab",
-      "home": "Akron Zips",
-      "away": "Belmont Bruins",
-      "start": "2026-11-24T17:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.67,
-        "away": 2.3
-      },
-      "captured_at": "2026-11-24T07:47:19.613407+00:00"
-    },
-    "f199c1cbe3ed8c1fc4c77116bfc48499": {
-      "sport": "basketball_ncaab",
-      "home": "N Colorado Bears",
-      "away": "SE Louisiana Lions",
-      "start": "2026-11-24T17:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.57,
-        "away": 2.53
-      },
-      "captured_at": "2026-11-24T07:47:19.613407+00:00"
-    },
     "25c249c5d826256a741704663708b66f": {
       "sport": "basketball_ncaab",
       "home": "Florida Int'l Golden Panthers",
@@ -4403,7 +4379,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 62
+    "requests": 63
   },
   "finished_slot": "2026-11-27:9",
   "finished_cursor": 22,
@@ -5866,7 +5842,7 @@
     },
     "mn7t6": {
       "league": "Poland: 1. Liga",
-      "last": "2026-11-27T17:27:20.337159+00:00",
+      "last": "2026-11-27T17:47:24.129552+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
@@ -5896,28 +5872,30 @@
     },
     "mbgj5": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T17:27:20.337159+00:00"
+      "last": "2026-11-27T17:47:24.129552+00:00"
     },
     "mbgj9": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T17:27:20.337159+00:00"
+      "last": "2026-11-27T17:47:24.129552+00:00"
     },
     "mnzf2": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T17:07:29.273371+00:00",
+      "last": "2026-11-27T17:47:24.129552+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
-        2
+        2,
+        3
       ]
     },
     "mnzha": {
       "league": "Finland: I Divisioona A",
-      "last": "2026-11-27T17:07:29.273371+00:00",
+      "last": "2026-11-27T17:47:24.129552+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
-        2
+        2,
+        3
       ]
     },
     "mnz5u": {
@@ -5956,7 +5934,31 @@
     },
     "mbl12": {
       "league": "Latvia: RBL - A grupa",
-      "last": "2026-11-27T17:27:20.337159+00:00"
+      "last": "2026-11-27T17:47:24.129552+00:00"
+    },
+    "mbgwa": {
+      "league": "Hungary: Női Amatőr NB I. - Zöld",
+      "last": "2026-11-27T17:47:24.129552+00:00"
+    },
+    "mbkdj": {
+      "league": "Slovakia: 1. liga ženy",
+      "last": "2026-11-27T17:47:24.129552+00:00"
+    },
+    "moh07": {
+      "league": "France: Espoirs U21",
+      "last": "2026-11-27T17:47:24.129552+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
+    },
+    "ms6t1": {
+      "league": "Europe: World Cup - Qualification - Second Round",
+      "last": "2026-11-27T17:47:24.129552+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
     }
   }
 }
