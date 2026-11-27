@@ -526,25 +526,27 @@ def diagnose_missing_odds(match, state):
 
 
 def current_quarter(match):
-    """Rileva Q1-Q4 solo da indicazioni esplicite del periodo corrente."""
+    """Accept explicit, consistent quarter labels only."""
     live = match.get("live")
-    period = live.get("period") if isinstance(live, dict) else None
-    status = match.get("status")
-    for value in (period, live.get("quarter") if isinstance(live, dict) else None,
-                  match.get("current_quarter"), match.get("current_period"),
-                  match.get("quarter"), status, match.get("status_code")):
-        if value is None:
+    live = live if isinstance(live, dict) else {}
+    values = (live.get("period"), live.get("quarter"), match.get("current_quarter"),
+              match.get("current_period"), match.get("quarter"))
+    found = set()
+    for value in values + (match.get("status"), match.get("status_code")):
+        if isinstance(value, dict):
+            value = value.get("name") or value.get("label") or value.get("number")
+        if value is None or isinstance(value, bool):
             continue
         label = str(value).strip().lower()
+        if label in ("halftime", "half time", "finished", "final", "ot", "overtime"):
+            return None
         if label in ("1", "2", "3", "4"):
-            return int(label)
-        found = re.fullmatch(
-            r"(?:q(?:uarter|tr)?[ _-]*([1-4])|([1-4])(?:st|nd|rd|th)?[ _-]*(?:quarter|qtr|q))",
-            label,
-        )
-        if found:
-            return int(found.group(1) or found.group(2))
-    return None
+            found.add(int(label))
+            continue
+        m = re.fullmatch(r"(?:q(?:uarter|tr)?[ _-]*([1-4])|([1-4])(?:st|nd|rd|th)?[ _-]*(?:quarter|qtr|q)|period[ _-]*([1-4]))", label)
+        if m:
+            found.add(int(next(x for x in m.groups() if x)))
+    return next(iter(found)) if len(found) == 1 else None
 
 
 def send_telegram(message):
