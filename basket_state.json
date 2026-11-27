@@ -295,30 +295,6 @@
       },
       "captured_at": "2026-11-25T10:27:20.169553+00:00"
     },
-    "35ca45d3e548dc7207fd7f1696ab16f5": {
-      "sport": "basketball_nba",
-      "home": "Charlotte Hornets",
-      "away": "Memphis Grizzlies",
-      "start": "2026-11-24T00:10:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.4,
-        "away": 1.62
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "ac6fb079d66ef35a2a77e22b5e94ef8d": {
-      "sport": "basketball_nba",
-      "home": "Philadelphia 76ers",
-      "away": "Portland Trail Blazers",
-      "start": "2026-11-24T00:10:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.61,
-        "away": 2.3
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "a72a1703f7a92b80768255d1d977a761": {
       "sport": "basketball_nba",
       "home": "Minnesota Timberwolves",
@@ -2879,7 +2855,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 1
+    "requests": 2
   },
   "finished_slot": "2026-11-27:0",
   "finished_cursor": 9,
