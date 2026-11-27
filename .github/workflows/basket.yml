@@ -25,10 +25,11 @@ jobs:
           python-version: "3.11"
 
       - name: Installa requests
-        run: pip install requests
+        run: pip install requests cryptography
 
       - name: Esegui bot Basket
         env:
+          BASKET_STATE_KEY: ${{ secrets.BASKET_STATE_KEY }}
           SPORTSTATS_API_KEY: ${{ secrets.SPORTSTATS_API_KEY }}
           MOVIODDS_API_KEY: ${{ secrets.MOVIODDS_API_KEY }}
           MOVIODDS_BASKET_ENABLED: ${{ vars.MOVIODDS_BASKET_ENABLED }}
@@ -38,12 +39,14 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python basket_alert.py
 
-      - name: Salva quote e avvisi
+      - name: Salva quote e avvisi cifrati
+        if: always()
         run: |
-          if [ -f basket_state.json ]; then
+          if [ -f basket_state.enc ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add basket_state.json
+            git add basket_state.enc
+            git rm --ignore-unmatch basket_state.json
             if ! git diff --cached --quiet; then
               git commit -m "Aggiorna stato Basket"
               git push
