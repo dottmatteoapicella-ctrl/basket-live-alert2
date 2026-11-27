@@ -319,30 +319,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "b7a4f6e90eb128b0d569dacbfe487e80": {
-      "sport": "basketball_ncaab",
-      "home": "California Golden Bears",
-      "away": "Alabama St Hornets",
-      "start": "2026-11-24T03:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.01,
-        "away": 15.0
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "8236efa27962bd6d4b110bb43e861b07": {
-      "sport": "basketball_ncaab",
-      "home": "UNLV Rebels",
-      "away": "Eastern Washington Eagles",
-      "start": "2026-11-24T03:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.29,
-        "away": 3.74
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "b45e9d96ab3298d614e74c19902f3998": {
       "sport": "basketball_ncaab",
       "home": "Arizona Wildcats",
@@ -2711,10 +2687,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 10
+    "requests": 12
   },
-  "finished_slot": "2026-11-27:1",
-  "finished_cursor": 10,
+  "finished_slot": "2026-11-27:2",
+  "finished_cursor": 12,
   "odds_catalog_at": "2026-11-26T15:27:18.755546+00:00",
   "odds_extra": [],
   "odds_remaining": 459,
