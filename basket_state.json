@@ -295,42 +295,6 @@
       },
       "captured_at": "2026-11-25T10:27:20.169553+00:00"
     },
-    "a72a1703f7a92b80768255d1d977a761": {
-      "sport": "basketball_nba",
-      "home": "Minnesota Timberwolves",
-      "away": "Brooklyn Nets",
-      "start": "2026-11-24T00:40:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.16,
-        "away": 5.61
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "c9b6c9f77fd3628308dd34f50854a9c0": {
-      "sport": "basketball_nba",
-      "home": "Indiana Pacers",
-      "away": "Oklahoma City Thunder",
-      "start": "2026-11-24T00:40:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 2.5,
-        "away": 1.41
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "a5184238c27b9c3bfca29220f9d5d14a": {
-      "sport": "basketball_nba",
-      "home": "Toronto Raptors",
-      "away": "Milwaukee Bucks",
-      "start": "2026-11-24T00:40:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.2,
-        "away": 4.9
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "b8dfee1fca57ec870528a14c792ad73a": {
       "sport": "basketball_nba",
       "home": "Chicago Bulls",
@@ -388,18 +352,6 @@
       "prices": {
         "home": 4.5,
         "away": 1.2
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
-    "9fd23b7824675dff70bd989ae6fe4967": {
-      "sport": "basketball_ncaab",
-      "home": "Wichita St Shockers",
-      "away": "Texas A&M-CC Islanders",
-      "start": "2026-11-24T00:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.03,
-        "away": 11.0
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
@@ -2855,7 +2807,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 2
+    "requests": 3
   },
   "finished_slot": "2026-11-27:0",
   "finished_cursor": 9,
