@@ -161,7 +161,7 @@
     },
     "2026-11-27": {
       "api.sportstatsapi.com": {
-        "requests": 72,
+        "requests": 73,
         "http_errors": 0,
         "rate_limits": 0,
         "reported_credits_charged": 0,
@@ -205,7 +205,7 @@
   "monthly": {
     "2026-11": {
       "api.sportstatsapi.com": {
-        "requests": 464,
+        "requests": 465,
         "http_errors": 28,
         "rate_limits": 14,
         "reported_credits_charged": 0,
@@ -619,7 +619,8 @@
     "46056795009",
     "46059118084",
     "46061406816",
-    "46063730549"
+    "46063730549",
+    "46065980265"
   ],
-  "updated_utc": "2026-11-27T20:27:24.238780+00:00"
+  "updated_utc": "2026-11-27T20:47:23.558165+00:00"
 }
