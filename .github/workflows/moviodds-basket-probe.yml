@@ -1,0 +1,46 @@
+name: MoviOdds Basket Probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      MOVIODDS_API_KEY: ${{ secrets.MOVIODDS_API_KEY }}
+    steps:
+      - name: Inspect basketball odds coverage
+        run: |
+          python - <<'PY'
+          import os,json,urllib.request,urllib.error,collections
+          key=os.environ.get("MOVIODDS_API_KEY","").strip()
+          if not key: raise SystemExit("MOVIODDS_API_KEY missing")
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*args,**kwargs): return None
+          req=urllib.request.Request("https://moviodds.com/odds?sport=basketball",headers={"X-API-Key":key,"Accept":"application/json"})
+          try:
+              with urllib.request.build_opener(NoRedirect()).open(req,timeout=25) as res:
+                  print("HTTP",res.status)
+                  for k,v in res.headers.items():
+                      if "ratelimit" in k.lower() and v.isdigit(): print(k,v)
+                  data=json.load(res)
+          except urllib.error.HTTPError as e:
+              raise SystemExit("HTTP "+str(e.code))
+          matches=data.get("matches",[])
+          leagues=collections.Counter()
+          markets=collections.Counter()
+          pre=0
+          for m in matches:
+              if not isinstance(m,dict): continue
+              leagues[str(m.get("league"))]+=1
+              pre+=m.get("in_play") is False
+              for q in m.get("quotes") or []:
+                  if isinstance(q,dict): markets[str(q.get("group_name"))]+=1
+          print("Matches",len(matches),"Prematch",pre)
+          print("Leagues",json.dumps(dict(leagues),ensure_ascii=True))
+          print("Markets",json.dumps(dict(markets),ensure_ascii=True))
+          for m in [m for m in matches if isinstance(m,dict) and m.get("in_play") is False][:3]:
+              print("Sample",json.dumps({k:m.get(k) for k in ("home","away","league","kickoff_utc","polled_at","in_play")},ensure_ascii=True))
+              print("Quote sample",json.dumps([{k:q.get(k) for k in ("group_name","market_id","line","side","odds_dec","ts","suspended","phase")} for q in (m.get("quotes") or []) if isinstance(q,dict) and str(q.get("group_name","")).lower() in ("winner","game","moneyline","match winner")][:8],ensure_ascii=True))
+          PY
