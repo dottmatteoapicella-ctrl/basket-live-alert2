@@ -74,6 +74,9 @@ class QuarterTest(unittest.TestCase):
         self.assertIsNone(q({"status": "Live"}))
         self.assertIsNone(q({"status": "Halftime"}))
         self.assertIsNone(q({"status": "OT"}))
+        self.assertEqual(q({"live": {"period": {"name": "Period 3"}}}), 3)
+        self.assertIsNone(q({"live": {"quarter": 3}, "status_code": "Q4"}))
+        self.assertIsNone(q({"live": {"quarter": 2}, "status": "Halftime"}))
 
 class FavoritePricesTest(unittest.TestCase):
     def test_valid(self):
