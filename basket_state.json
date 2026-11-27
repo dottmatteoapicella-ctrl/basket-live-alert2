@@ -4403,7 +4403,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 61
+    "requests": 62
   },
   "finished_slot": "2026-11-27:9",
   "finished_cursor": 22,
@@ -5866,12 +5866,13 @@
     },
     "mn7t6": {
       "league": "Poland: 1. Liga",
-      "last": "2026-11-27T17:07:29.273371+00:00",
+      "last": "2026-11-27T17:27:20.337159+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
         2,
-        3
+        3,
+        4
       ]
     },
     "mnopn": {
@@ -5895,11 +5896,11 @@
     },
     "mbgj5": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T17:07:29.273371+00:00"
+      "last": "2026-11-27T17:27:20.337159+00:00"
     },
     "mbgj9": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T17:07:29.273371+00:00"
+      "last": "2026-11-27T17:27:20.337159+00:00"
     },
     "mnzf2": {
       "league": "Czech Republic: 1. Liga",
@@ -5921,29 +5922,41 @@
     },
     "mnz5u": {
       "league": "Hungary: Nb I. A Women",
-      "last": "2026-11-27T17:07:29.273371+00:00",
+      "last": "2026-11-27T17:27:20.337159+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
     },
     "mnzjm": {
       "league": "Serbia: 1. Zls Women",
-      "last": "2026-11-27T17:07:29.273371+00:00",
-      "valid": true
+      "last": "2026-11-27T17:27:20.337159+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        2
+      ]
     },
     "moe8u": {
       "league": "Montenegro: Prva A Liga",
-      "last": "2026-11-27T17:07:29.273371+00:00",
-      "valid": true
+      "last": "2026-11-27T17:27:20.337159+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        2
+      ]
     },
     "ms6t0": {
       "league": "Europe: World Cup - Qualification - Second Round",
-      "last": "2026-11-27T17:07:29.273371+00:00",
+      "last": "2026-11-27T17:27:20.337159+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
+    },
+    "mbl12": {
+      "league": "Latvia: RBL - A grupa",
+      "last": "2026-11-27T17:27:20.337159+00:00"
     }
   }
 }
