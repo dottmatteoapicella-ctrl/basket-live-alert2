@@ -1,4 +1,5 @@
 import ast
+import basket_moviodds
 import math
 import re
 import unicodedata
@@ -6,8 +7,8 @@ import unittest
 from pathlib import Path
 
 tree = ast.parse(Path(__file__).with_name("basket_alert.py").read_text(encoding="utf-8"))
-nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in ("team_key", "current_quarter", "supported_odds_sports", "valid_favorite_prices")) or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ("TEAM_ALIASES", "HOOPS_LEAGUES") for t in n.targets))]
-scope = {"math": math, "re": re, "unicodedata": unicodedata, "ODDS_SPORTS": ("basketball_nba", "basketball_ncaab", "basketball_wncaab")}
+nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in ("team_key", "current_quarter", "supported_odds_sports", "valid_favorite_prices", "normalize", "diagnose_missing_odds")) or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ("TEAM_ALIASES", "HOOPS_LEAGUES") for t in n.targets))]
+scope = {"basket_moviodds": basket_moviodds, "math": math, "re": re, "unicodedata": unicodedata, "ODDS_SPORTS": ("basketball_nba", "basketball_ncaab", "basketball_wncaab")}
 exec(compile(ast.Module(body=nodes, type_ignores=[]), "<team_key>", "exec"), scope)
 team_key = scope["team_key"]
 
@@ -54,6 +55,15 @@ class CoverageTest(unittest.TestCase):
         self.assertNotIn("basketball_fiba_world_cup_qualifiers", supported("World Cup", state))
         self.assertIn("basketball_new_zealand_tauihi", supported("New Zealand: Tauihi Women", state))
         self.assertNotIn("basketball_new_zealand_tauihi", supported("New Zealand: NBL", state))
+
+class ProviderDiagnosticsTest(unittest.TestCase):
+    def test_moviodds_only_coverage(self):
+        diagnose = scope["diagnose_missing_odds"]
+        match = {"league_name": "Turkey: Tb2l"}
+        state = {"odds_games": {}, "moviodds_games": {"x": {"league": "turkiyetb2l"}}}
+        self.assertEqual(diagnose(match, state)["reason"], "moviodds_quote_presenti_ma_matching_non_valido")
+        state["moviodds_games"] = {}
+        self.assertEqual(diagnose(match, state)["reason"], "campionato_non_coperto_dalle_quote_configurate")
 
 class QuarterTest(unittest.TestCase):
     def test_explicit_quarters(self):
