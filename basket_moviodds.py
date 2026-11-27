@@ -63,10 +63,10 @@ def refresh(state,now,parse,key,api_key,enabled,save):
     budget=state.setdefault("moviodds_budget",{})
     day=now.date().isoformat()
     if budget.get("day")!=day: budget.clear(); budget.update(day=day,requests=0)
-    last=parse(budget.get("last"))
+    last=parse(state.get("moviodds_last"))
     if budget.get("blocked") or budget["requests"]>=8 or (last and now-last<timedelta(hours=3)): return
     budget["requests"]+=1
-    budget["last"]=now.isoformat()
+    state["moviodds_last"]=now.isoformat()
     save(state)
     try:
         res=requests.get("https://moviodds.com/odds",params={"sport":"basketball"},headers={"X-API-Key":api_key,"Accept":"application/json"},timeout=25,allow_redirects=False)
