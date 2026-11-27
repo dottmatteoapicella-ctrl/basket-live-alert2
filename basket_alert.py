@@ -393,7 +393,7 @@ def supported_odds_sports(league, state):
         "basketball_france_lnb": ("france: lnb", "betclic elite"),
     }
     labels.update({sport: names for sport, names in HOOPS_LEAGUES.values()})
-    active = set(ODDS_SPORTS) | set(state.get("odds_extra", []))
+    active = set(ODDS_SPORTS) | set(state.get("odds_extra", [])) | {r.get("sport") for r in state.get("odds_games", {}).values() if isinstance(r, dict)}
     women = any(x in league for x in ("women", "female", "femmin", "wncaa", "wnba", "wnbl"))
     result = set()
     for sport, names in labels.items():
@@ -479,6 +479,10 @@ def diagnose_missing_odds(match, state):
     """Diagnostica prudente: non associare mai quote di incontri estranei."""
     league = (match.get("league_name") or "").casefold()
     supported = sorted(supported_odds_sports(league, state))
+    movi_league = basket_moviodds.LEAGUES.get(normalize(league), normalize(league))
+    movi_count = sum(r.get("league") == movi_league for r in state.get("moviodds_games", {}).values() if isinstance(r, dict))
+    if not supported and movi_count:
+        return {"reason": "moviodds_quote_presenti_ma_matching_non_valido", "cached": movi_count}
     if not supported:
         return {"reason": "campionato_non_coperto_dalle_quote_configurate",
                 "league": match.get("league_name")}
