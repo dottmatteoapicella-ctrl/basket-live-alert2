@@ -113,7 +113,9 @@ def save_state(state):
     )
 
 
-EXTRA_ODDS_KEYS = ("basketball_eurocup", "basketball_spain_acb",
+EXTRA_ODDS_KEYS = ("basketball_fiba_world_cup_qualification", "basketball_fiba_world_cup_qualifiers",
+                   "basketball_new_zealand_tauihi", "basketball_new_zealand_tauihi_women",
+                   "basketball_eurocup", "basketball_spain_acb",
                    "basketball_italy_lega_basket", "basketball_germany_bbl",
                    "basketball_france_lnb", "basketball_wnba")
 ODDS_RESERVE = 100
@@ -133,7 +135,11 @@ def discover_odds(state, now):
             raise ValueError("Invalid catalog")
         active = {item.get("key") for item in games
                   if isinstance(item, dict) and item.get("active") is True}
-        state["odds_extra"] = [key for key in EXTRA_ODDS_KEYS if key in active][:3]
+        print("Catalogo basket attivo:", sorted(key for key in active if isinstance(key, str) and key.startswith("basketball_")))
+        available = [key for key in EXTRA_ODDS_KEYS if key in active]
+        cursor = state.get("odds_extra_cursor", 0) % max(1, len(available))
+        state["odds_extra"] = (available[cursor:] + available[:cursor])[:3]
+        state["odds_extra_cursor"] = cursor + len(state["odds_extra"])
         state["odds_remaining"] = int(response.headers["x-requests-remaining"])
         print("Campionati quote aggiuntivi:", state["odds_extra"])
     except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
@@ -234,6 +240,8 @@ def update_odds(state, now):
 
 
 HOOPS_LEAGUES = {
+    "World - FIBA World Cup Qualification": ("hoops_fiba_qualifiers", ("world cup - qualification", "world cup qualification")),
+    "New Zealand - Tauihi Women": ("hoops_tauihi_women", ("new zealand: tauihi women",)),
     "Lithuania - National Basketball League": ("hoops_lithuania_nkl", ("lithuania: nkl",)),
     "Bosnia and Herzegovina - Prvenstvo BIH": ("hoops_bosnia_bih", ("bosnia and herzegovina: prvenstvo bih",)),
     "Russia - Super League": ("hoops_russia_super", ("russia: super league",)),
@@ -366,6 +374,10 @@ def fetch_live():
 def supported_odds_sports(league, state):
     league = league.casefold()
     labels = {
+        "basketball_fiba_world_cup_qualification": ("world cup - qualification", "world cup qualification"),
+        "basketball_fiba_world_cup_qualifiers": ("world cup - qualification", "world cup qualification"),
+        "basketball_new_zealand_tauihi": ("new zealand: tauihi women",),
+        "basketball_new_zealand_tauihi_women": ("new zealand: tauihi women",),
         "basketball_euroleague": ("euroleague", "euro league"),
         "basketball_nba": ("nba",),
         "basketball_nbl": ("australia: nbl", "australian nbl"),
@@ -387,7 +399,7 @@ def supported_odds_sports(league, state):
             continue
         if not any(name in league for name in names):
             continue
-        female_sport = sport in {"basketball_wnba", "basketball_wncaab", "hoops_eurocup_women", "hoops_australia_wnbl"}
+        female_sport = sport in {"basketball_wnba", "basketball_wncaab", "hoops_eurocup_women", "hoops_australia_wnbl", "hoops_tauihi_women", "basketball_new_zealand_tauihi", "basketball_new_zealand_tauihi_women"}
         if women != female_sport:
             continue
         if sport in {"basketball_nba", "hoops_nba"} and any(x in league for x in ("g league", "summer")):

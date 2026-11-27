@@ -40,6 +40,14 @@ class CoverageTest(unittest.TestCase):
         self.assertEqual(team_key("ZKK Student Niš Women"), team_key("Student Nis W"))
         self.assertNotEqual(team_key("Benfica"), team_key("Benfica W"))
 
+    def test_fiba_tauihi_candidates(self):
+        supported = scope["supported_odds_sports"]
+        state = {"odds_extra": ["basketball_fiba_world_cup_qualifiers", "basketball_new_zealand_tauihi"]}
+        self.assertIn("basketball_fiba_world_cup_qualifiers", supported("Australasia: World Cup - Qualification - Second Round", state))
+        self.assertNotIn("basketball_fiba_world_cup_qualifiers", supported("World Cup", state))
+        self.assertIn("basketball_new_zealand_tauihi", supported("New Zealand: Tauihi Women", state))
+        self.assertNotIn("basketball_new_zealand_tauihi", supported("New Zealand: NBL", state))
+
 class QuarterTest(unittest.TestCase):
     def test_explicit_quarters(self):
         q = scope["current_quarter"]
