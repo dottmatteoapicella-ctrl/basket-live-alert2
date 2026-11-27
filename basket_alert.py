@@ -1,3 +1,4 @@
+import basket_state_crypto
 import basket_moviodds
 import basket_coverage
 import json
@@ -18,7 +19,7 @@ SPORTSTATS_API_KEY = os.environ["SPORTSTATS_API_KEY"]
 ODDS_API_KEY = os.environ["ODDS_API_KEY"]
 TELEGRAM_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-STATE_FILE = Path("basket_state.json")
+STATE_FILE = Path("basket_state.enc")
 
 # Monitoraggio H24 ogni 20 minuti; budget prudenziale 90 richieste UTC.
 # Quote: 5 campionati ogni 24h e EuroLeague ogni 12h (circa 180 crediti/mese, se disponibili).
@@ -95,10 +96,7 @@ def team_key(name):
 
 
 def load_state():
-    if STATE_FILE.exists():
-        state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
-    else:
-        state = {}
+    state = basket_state_crypto.load(STATE_FILE)
     state.setdefault("favorites", {})
     state.setdefault("favorite_prices", {})
     state.setdefault("alerts", [])
@@ -110,9 +108,7 @@ def load_state():
 
 
 def save_state(state):
-    STATE_FILE.write_text(
-        json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    basket_state_crypto.save(STATE_FILE, state)
 
 
 EXTRA_ODDS_KEYS = ("basketball_fiba_world_cup_qualification", "basketball_fiba_world_cup_qualifiers",
