@@ -1,12 +1,13 @@
 import ast
+import math
 import re
 import unicodedata
 import unittest
 from pathlib import Path
 
 tree = ast.parse(Path(__file__).with_name("basket_alert.py").read_text(encoding="utf-8"))
-nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in ("team_key", "current_quarter", "supported_odds_sports")) or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ("TEAM_ALIASES", "HOOPS_LEAGUES") for t in n.targets))]
-scope = {"re": re, "unicodedata": unicodedata, "ODDS_SPORTS": ("basketball_nba", "basketball_ncaab", "basketball_wncaab")}
+nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in ("team_key", "current_quarter", "supported_odds_sports", "valid_favorite_prices")) or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ("TEAM_ALIASES", "HOOPS_LEAGUES") for t in n.targets))]
+scope = {"math": math, "re": re, "unicodedata": unicodedata, "ODDS_SPORTS": ("basketball_nba", "basketball_ncaab", "basketball_wncaab")}
 exec(compile(ast.Module(body=nodes, type_ignores=[]), "<team_key>", "exec"), scope)
 team_key = scope["team_key"]
 
@@ -57,6 +58,16 @@ class QuarterTest(unittest.TestCase):
         self.assertIsNone(q({"status": "Live"}))
         self.assertIsNone(q({"status": "Halftime"}))
         self.assertIsNone(q({"status": "OT"}))
+
+class FavoritePricesTest(unittest.TestCase):
+    def test_valid(self):
+        valid = scope["valid_favorite_prices"]
+        self.assertTrue(valid("home", {"home": 1.4, "away": 3.2}))
+        self.assertTrue(valid("away", {"home": 3.2, "away": 1.4}))
+    def test_invalid(self):
+        valid = scope["valid_favorite_prices"]
+        for prices in (None, {}, {"home": 1, "away": 2}, {"home": 2, "away": 2}, {"home": float("nan"), "away": 2}, {"home": 3, "away": 2}):
+            self.assertFalse(valid("home", prices))
 
 if __name__ == "__main__":
     unittest.main()
