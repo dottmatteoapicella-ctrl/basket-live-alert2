@@ -525,6 +525,18 @@ def diagnose_missing_odds(match, state):
     return result
 
 
+def recovery_dates(records, parse):
+    dates = set()
+    for record in records:
+        start = parse(record.get("match_start"))
+        created = parse(record.get("created_at"))
+        if start:
+            dates.add(start.date().isoformat())
+        if created:
+            dates.add(created.date().isoformat())
+    return sorted(dates)
+
+
 def current_quarter(match):
     """Accept explicit, consistent quarter labels only."""
     live = match.get("live")
@@ -616,7 +628,7 @@ def main():
     if recent_pending and budget["requests"] + remaining_live < 90 and state.get("finished_slot") != slot_key and reserve():
         state["finished_slot"] = slot_key
         save_state(state)
-        dates = sorted({parse_time(r["created_at"]).date().isoformat() for r in recent_pending})
+        dates = recovery_dates(recent_pending, parse_time)
         cursor = state.get("finished_cursor", 0)
         day = dates[(cursor // 3) % len(dates)]
         offset = (cursor % 3) * 100
@@ -776,6 +788,7 @@ def main():
                 "teams": [home, away],
                 "favorite": favorite,
                 "created_at": now.isoformat(),
+                "match_start": match.get("start_at"),
                 "finalized": False,
                 "league": match.get("league_name"),
                 "quarter": quarter,
