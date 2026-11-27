@@ -176,18 +176,6 @@
     "534325": "2026-11-17T14:07:23.694887+00:00"
   },
   "odds_games": {
-    "6bcef0e5f7b2a021b7e07514cdfa6493": {
-      "sport": "basketball_euroleague",
-      "home": "FC Bayern München",
-      "away": "Maccabi Tel Aviv",
-      "start": "2026-11-24T19:00:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.58,
-        "away": 2.48
-      },
-      "captured_at": "2026-11-24T10:07:29.957863+00:00"
-    },
     "767cda572a9aefe0c057a4fe3199dfa4": {
       "sport": "basketball_euroleague",
       "home": "Valencia Basket",
@@ -451,18 +439,6 @@
         "away": 4.2
       },
       "captured_at": "2026-11-25T08:07:20.313616+00:00"
-    },
-    "805ca96e9d27ffe645d7a7f11348756f": {
-      "sport": "basketball_ncaab",
-      "home": "San Francisco Dons",
-      "away": "Oregon St Beavers",
-      "start": "2026-11-24T19:00:00+00:00",
-      "favorite": "away",
-      "prices": {
-        "home": 4.5,
-        "away": 1.17
-      },
-      "captured_at": "2026-11-24T07:47:19.613407+00:00"
     },
     "aa88b3c9dbbd08c5d5b25ea5f6b52bf1": {
       "sport": "basketball_ncaab",
@@ -4336,10 +4312,10 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 66
+    "requests": 68
   },
-  "finished_slot": "2026-11-27:9",
-  "finished_cursor": 22,
+  "finished_slot": "2026-11-27:10",
+  "finished_cursor": 24,
   "odds_catalog_at": "2026-11-27T15:27:23.523910+00:00",
   "odds_extra": [],
   "odds_remaining": 457,
@@ -4347,9 +4323,9 @@
   "odds_extra_cursor": 0,
   "moviodds_budget": {
     "day": "2026-11-27",
-    "requests": 1
+    "requests": 2
   },
-  "moviodds_last": "2026-11-27T15:47:20.359671+00:00",
+  "moviodds_last": "2026-11-27T19:07:22.968312+00:00",
   "moviodds_games": {
     "205293562": {
       "league": "ncaab",
@@ -4553,11 +4529,11 @@
         "georgetown"
       ],
       "prices": [
-        1.2857142857142856,
-        3.75
+        1.2777777777777777,
+        3.8
       ],
       "start": "2026-11-27T19:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293574": {
       "league": "ncaab",
@@ -4570,7 +4546,7 @@
         3.75
       ],
       "start": "2026-11-27T20:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293577": {
       "league": "ncaab",
@@ -4579,11 +4555,11 @@
         "texasstate"
       ],
       "prices": [
-        2.55,
-        1.5405405405405406
+        2.5700000000000003,
+        1.53475935828877
       ],
       "start": "2026-11-27T20:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205308046": {
       "league": "ncaab",
@@ -4605,11 +4581,11 @@
         "baylor"
       ],
       "prices": [
-        2.63,
-        1.510204081632653
+        2.5700000000000003,
+        1.53475935828877
       ],
       "start": "2026-11-27T20:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205308052": {
       "league": "ncaab",
@@ -4618,11 +4594,11 @@
         "colgate"
       ],
       "prices": [
-        1.6666666666666665,
-        2.25
+        1.7692307692307692,
+        2.1
       ],
       "start": "2026-11-27T20:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205312155": {
       "league": "ncaab",
@@ -4631,11 +4607,11 @@
         "lasalle"
       ],
       "prices": [
-        4.5,
-        1.2222222222222223
+        4.75,
+        1.2
       ],
       "start": "2026-11-27T20:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205319910": {
       "league": "ncaab",
@@ -4644,11 +4620,11 @@
         "oregon"
       ],
       "prices": [
-        1.6097560975609757,
-        2.3899999999999997
+        1.5882352941176472,
+        2.45
       ],
       "start": "2026-11-27T20:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205258977": {
       "league": "mexicoligaabe",
@@ -4683,11 +4659,11 @@
         "radford"
       ],
       "prices": [
-        1.303030303030303,
-        3.65
+        1.3278688524590163,
+        3.45
       ],
       "start": "2026-11-27T21:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293580": {
       "league": "ncaab",
@@ -4713,7 +4689,7 @@
         2.8
       ],
       "start": "2026-11-27T21:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205257164": {
       "league": "portugalu21champs",
@@ -4774,11 +4750,11 @@
         "drake"
       ],
       "prices": [
-        1.4166666666666667,
-        2.95
+        1.4,
+        3.05
       ],
       "start": "2026-11-27T22:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205320070": {
       "league": "ncaab",
@@ -4787,11 +4763,11 @@
         "kansasstate"
       ],
       "prices": [
-        1.2127659574468086,
-        4.6
+        1.1904761904761905,
+        4.9
       ],
       "start": "2026-11-27T22:30:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205259257": {
       "league": "fibaworldcupqualification",
@@ -4813,11 +4789,11 @@
         "towson"
       ],
       "prices": [
-        1.5813953488372094,
-        2.46
+        1.6024096385542168,
+        2.41
       ],
-      "start": "2026-11-27T23:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "start": "2026-11-27T23:00:01+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205270942": {
       "league": "fibaworldcupqualification",
@@ -4852,11 +4828,11 @@
         "westvirginia"
       ],
       "prices": [
-        2.2800000000000002,
-        1.65359477124183
+        2.31,
+        1.641025641025641
       ],
       "start": "2026-11-28T00:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293607": {
       "league": "ncaab",
@@ -4891,11 +4867,11 @@
         "lehigh"
       ],
       "prices": [
-        1.0714285714285714,
-        9.5
+        1.0769230769230769,
+        9.0
       ],
       "start": "2026-11-28T00:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293614": {
       "league": "ncaab",
@@ -4930,11 +4906,11 @@
         "phi76ers"
       ],
       "prices": [
-        2.33,
-        1.6329113924050633
+        2.44,
+        1.5917159763313609
       ],
       "start": "2026-11-28T00:40:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205242655": {
       "league": "nba",
@@ -4960,7 +4936,7 @@
         2.65
       ],
       "start": "2026-11-28T01:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293634": {
       "league": "ncaab",
@@ -4995,11 +4971,11 @@
         "idaho"
       ],
       "prices": [
-        1.125,
-        6.5
+        1.1333333333333333,
+        6.25
       ],
       "start": "2026-11-28T01:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293658": {
       "league": "ncaab",
@@ -5012,7 +4988,7 @@
         3.1
       ],
       "start": "2026-11-28T01:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205242660": {
       "league": "nba",
@@ -5021,11 +4997,11 @@
         "atlhawks"
       ],
       "prices": [
-        1.2702702702702702,
-        3.9
+        1.263157894736842,
+        4.0
       ],
       "start": "2026-11-28T01:10:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205270947": {
       "league": "fibaworldcupqualification",
@@ -5060,11 +5036,11 @@
         "memgrizzlies"
       ],
       "prices": [
-        1.529100529100529,
-        2.59
+        1.6289308176100628,
+        2.34
       ],
       "start": "2026-11-28T01:40:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205293645": {
       "league": "ncaab",
@@ -5086,11 +5062,11 @@
         "louisville"
       ],
       "prices": [
-        2.19,
-        1.7194244604316546
+        2.2800000000000002,
+        1.65359477124183
       ],
       "start": "2026-11-28T02:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205242667": {
       "league": "nba",
@@ -5099,11 +5075,11 @@
         "dalmavericks"
       ],
       "prices": [
-        1.7936507936507935,
-        2.06
+        1.6578947368421053,
+        2.27
       ],
       "start": "2026-11-28T02:10:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205242670": {
       "league": "nba",
@@ -5112,11 +5088,11 @@
         "dennuggets"
       ],
       "prices": [
-        4.5,
-        1.2222222222222223
+        4.4,
+        1.2272727272727273
       ],
       "start": "2026-11-28T02:40:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205242673": {
       "league": "nba",
@@ -5138,11 +5114,11 @@
         "gswarriors"
       ],
       "prices": [
-        1.2439024390243902,
-        4.25
+        1.3225806451612903,
+        3.5
       ],
       "start": "2026-11-28T02:40:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205325385": {
       "league": "elsalvadorfesabalu21",
@@ -5255,11 +5231,11 @@
         "kazakhstan"
       ],
       "prices": [
-        1.0769230769230769,
-        7.25
+        1.1818181818181819,
+        4.4
       ],
       "start": "2026-11-28T08:00:00+00:00",
-      "captured": "2026-11-27T15:47:20.359671+00:00"
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     },
     "205324089": {
       "league": "philippinesuaap",
@@ -5767,6 +5743,513 @@
       ],
       "start": "2026-11-29T02:00:00+00:00",
       "captured": "2026-11-27T15:47:20.359671+00:00"
+    },
+    "205012739": {
+      "league": "icelanddivision1",
+      "names": [
+        "akranesia",
+        "kfggardabaer"
+      ],
+      "prices": [
+        1.0769230769230769,
+        7.25
+      ],
+      "start": "2026-11-27T19:15:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205012742": {
+      "league": "icelanddivision1",
+      "names": [
+        "skallagrimur",
+        "fjolnir"
+      ],
+      "prices": [
+        1.0454545454545454,
+        8.75
+      ],
+      "start": "2026-11-27T19:15:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205012746": {
+      "league": "icelanddivision1",
+      "names": [
+        "snaefell",
+        "breidablik"
+      ],
+      "prices": [
+        3.05,
+        1.3448275862068966
+      ],
+      "start": "2026-11-27T19:15:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205012752": {
+      "league": "icelanddivision1",
+      "names": [
+        "kvreykjavik",
+        "haukar"
+      ],
+      "prices": [
+        11.0,
+        1.02
+      ],
+      "start": "2026-11-27T19:15:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205238395": {
+      "league": "italyseriea2",
+      "names": [
+        "rimini",
+        "pesaro"
+      ],
+      "prices": [
+        1.0909090909090908,
+        6.75
+      ],
+      "start": "2026-11-27T19:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205179251": {
+      "league": "fibaworldcupqualification",
+      "names": [
+        "poland",
+        "croatia"
+      ],
+      "prices": [
+        1.5,
+        2.5
+      ],
+      "start": "2026-11-27T19:45:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213977": {
+      "league": "belgiumdiv1women",
+      "names": [
+        "spiroucharleroiw",
+        "jeugdgentsonw"
+      ],
+      "prices": [
+        8.25,
+        1.0555555555555556
+      ],
+      "start": "2026-11-27T19:45:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205259184": {
+      "league": "fibaamericupprequalifiers",
+      "names": [
+        "ecuador",
+        "cuba"
+      ],
+      "prices": [
+        3.3,
+        1.2941176470588236
+      ],
+      "start": "2026-11-27T21:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205297774": {
+      "league": "wncaab",
+      "names": [
+        "kansasw",
+        "miamiohiow"
+      ],
+      "prices": [
+        1.606060606060606,
+        2.4
+      ],
+      "start": "2026-11-27T23:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205297777": {
+      "league": "wncaab",
+      "names": [
+        "ncstatew",
+        "kansasstatew"
+      ],
+      "prices": [
+        1.2,
+        4.75
+      ],
+      "start": "2026-11-28T00:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "199519593": {
+      "league": "nba",
+      "names": [
+        "nyknicks",
+        "miaheat"
+      ],
+      "prices": [
+        1.6289308176100628,
+        2.34
+      ],
+      "start": "2026-11-28T00:10:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "199519596": {
+      "league": "nba",
+      "names": [
+        "saspurs",
+        "lalakers"
+      ],
+      "prices": [
+        1.425531914893617,
+        2.9
+      ],
+      "start": "2026-11-28T02:40:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205332822": {
+      "league": "ncaab",
+      "names": [
+        "creighton",
+        "gonzaga"
+      ],
+      "prices": [
+        3.05,
+        1.4
+      ],
+      "start": "2026-11-28T04:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213378": {
+      "league": "japanwjblpremierwomen",
+      "names": [
+        "toyotaboshokusunshinerabbitsw",
+        "chansonvmagicw"
+      ],
+      "prices": [
+        1.3571428571428572,
+        3.0
+      ],
+      "start": "2026-11-28T05:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213272": {
+      "league": "japanbleagueone",
+      "names": [
+        "kagawafivearrows",
+        "bambitiousnara"
+      ],
+      "prices": [
+        1.434782608695652,
+        2.65
+      ],
+      "start": "2026-11-28T05:05:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213275": {
+      "league": "japanbleagueone",
+      "names": [
+        "risingzephyrfukuoka",
+        "koshigayaalphas"
+      ],
+      "prices": [
+        5.75,
+        1.1176470588235294
+      ],
+      "start": "2026-11-28T05:05:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213288": {
+      "league": "japanbleagueone",
+      "names": [
+        "yokohamaexcellence",
+        "gifuswoops"
+      ],
+      "prices": [
+        1.0285714285714285,
+        10.0
+      ],
+      "start": "2026-11-28T06:05:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213291": {
+      "league": "japanbleagueone",
+      "names": [
+        "tokushimagambarous",
+        "niigataalbirex"
+      ],
+      "prices": [
+        1.3125,
+        3.2
+      ],
+      "start": "2026-11-28T06:05:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205322306": {
+      "league": "chinesetaipeipleague",
+      "names": [
+        "taoyuanpilots",
+        "yankeyark"
+      ],
+      "prices": [
+        1.8,
+        1.8695652173913042
+      ],
+      "start": "2026-11-28T09:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205324141": {
+      "league": "maltanationalleaguewomen",
+      "names": [
+        "bchiberniansw",
+        "depirobcw"
+      ],
+      "prices": [
+        2.9,
+        1.3636363636363638
+      ],
+      "start": "2026-11-28T14:15:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205312640": {
+      "league": "finlandkorisliigawomen",
+      "names": [
+        "espoobasketteamw",
+        "pelikarhutw"
+      ],
+      "prices": [
+        1.8695652173913042,
+        1.8
+      ],
+      "start": "2026-11-28T15:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205325605": {
+      "league": "portugalnacional2a",
+      "names": [
+        "fisicatorresvedras",
+        "alges"
+      ],
+      "prices": [
+        1.2564102564102564,
+        3.65
+      ],
+      "start": "2026-11-28T15:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205286136": {
+      "league": "romaniadiviziaawomen",
+      "names": [
+        "csmunicipalalexandriaw",
+        "sportulstudentescbucurestiw"
+      ],
+      "prices": [
+        1.0066666666666666,
+        16.0
+      ],
+      "start": "2026-11-28T16:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205331704": {
+      "league": "spainlfchallengewomen",
+      "names": [
+        "unicajaw",
+        "unibasketlogronow"
+      ],
+      "prices": [
+        1.1818181818181819,
+        4.4
+      ],
+      "start": "2026-11-28T16:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205331861": {
+      "league": "portugalnacional1a",
+      "names": [
+        "electricofc",
+        "estorilbc"
+      ],
+      "prices": [
+        1.9523809523809523,
+        1.7407407407407407
+      ],
+      "start": "2026-11-28T16:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205011825": {
+      "league": "germanyprob",
+      "names": [
+        "culturecityweimar",
+        "ludwigsburg2"
+      ],
+      "prices": [
+        1.9523809523809523,
+        1.7407407407407407
+      ],
+      "start": "2026-11-28T17:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205295987": {
+      "league": "spainsegundafeb",
+      "names": [
+        "moron",
+        "caceres"
+      ],
+      "prices": [
+        2.12,
+        1.6451612903225805
+      ],
+      "start": "2026-11-28T17:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205011828": {
+      "league": "germanyprob",
+      "names": [
+        "dragonsrhondorf",
+        "bbccoburg"
+      ],
+      "prices": [
+        1.434782608695652,
+        2.65
+      ],
+      "start": "2026-11-28T18:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205011831": {
+      "league": "germanyprob",
+      "names": [
+        "ahorncampbaskets",
+        "erfurtlowen"
+      ],
+      "prices": [
+        1.3703703703703702,
+        2.85
+      ],
+      "start": "2026-11-28T18:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205011843": {
+      "league": "germanyprob",
+      "names": [
+        "oberhaching",
+        "tv1862langen"
+      ],
+      "prices": [
+        2.85,
+        1.3703703703703702
+      ],
+      "start": "2026-11-28T18:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205011851": {
+      "league": "germanyprob",
+      "names": [
+        "tsgreutlingen",
+        "dresden"
+      ],
+      "prices": [
+        1.6451612903225805,
+        2.12
+      ],
+      "start": "2026-11-28T18:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205326276": {
+      "league": "portugalnacional2a",
+      "names": [
+        "gdbleca",
+        "bcvalenca"
+      ],
+      "prices": [
+        2.3,
+        1.5555555555555556
+      ],
+      "start": "2026-11-28T18:15:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205011856": {
+      "league": "germanyprob",
+      "names": [
+        "leitershofen",
+        "bayern2"
+      ],
+      "prices": [
+        1.1818181818181819,
+        4.4
+      ],
+      "start": "2026-11-28T18:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205326315": {
+      "league": "portugalnacional2a",
+      "names": [
+        "montijoba",
+        "cdpinhalnovense"
+      ],
+      "prices": [
+        1.0151515151515151,
+        12.0
+      ],
+      "start": "2026-11-28T18:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205213437": {
+      "league": "greatbritainchampionshipbasketball",
+      "names": [
+        "hemelstorm",
+        "cityofbirminghamrockets"
+      ],
+      "prices": [
+        1.3703703703703702,
+        2.85
+      ],
+      "start": "2026-11-28T19:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205323591": {
+      "league": "italynationalserieb",
+      "names": [
+        "leonessabrescia",
+        "ferrarabasket2018"
+      ],
+      "prices": [
+        1.1428571428571428,
+        5.0
+      ],
+      "start": "2026-11-28T19:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205323594": {
+      "league": "italynationalserieb",
+      "names": [
+        "andreacostaimola",
+        "sangiorgesebasket"
+      ],
+      "prices": [
+        1.5555555555555556,
+        2.3
+      ],
+      "start": "2026-11-28T19:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205323598": {
+      "league": "italynationalserieb",
+      "names": [
+        "fulgorbasketomegna",
+        "trevigliobrianza"
+      ],
+      "prices": [
+        1.9523809523809523,
+        1.7407407407407407
+      ],
+      "start": "2026-11-28T20:00:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "205327010": {
+      "league": "portugalnacional2a",
+      "names": [
+        "pnbloures",
+        "udvilafranquense"
+      ],
+      "prices": [
+        1.3636363636363638,
+        2.9
+      ],
+      "start": "2026-11-28T20:30:00+00:00",
+      "captured": "2026-11-27T19:07:22.968312+00:00"
     }
   },
   "coverage": {
@@ -5829,11 +6312,11 @@
     },
     "mbgj5": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T18:47:18.587934+00:00"
+      "last": "2026-11-27T19:07:22.968312+00:00"
     },
     "mbgj9": {
       "league": "Hungary: Férfi NB I. B - Piros",
-      "last": "2026-11-27T18:47:18.587934+00:00"
+      "last": "2026-11-27T19:07:22.968312+00:00"
     },
     "mnzf2": {
       "league": "Czech Republic: 1. Liga",
@@ -5901,29 +6384,53 @@
     },
     "mbl12": {
       "league": "Latvia: RBL - A grupa",
-      "last": "2026-11-27T18:47:18.587934+00:00"
+      "last": "2026-11-27T19:07:22.968312+00:00"
     },
     "mbgwa": {
       "league": "Hungary: Női Amatőr NB I. - Zöld",
-      "last": "2026-11-27T18:47:18.587934+00:00"
+      "last": "2026-11-27T19:07:22.968312+00:00"
     },
     "mbkdj": {
       "league": "Slovakia: 1. liga ženy",
-      "last": "2026-11-27T18:47:18.587934+00:00"
+      "last": "2026-11-27T19:07:22.968312+00:00"
     },
     "moh07": {
       "league": "France: Espoirs U21",
-      "last": "2026-11-27T18:47:18.587934+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
         2,
-        3
+        3,
+        4
       ]
     },
     "ms6t1": {
       "league": "Europe: World Cup - Qualification - Second Round",
-      "last": "2026-11-27T18:47:18.587934+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "mbgnh": {
+      "league": "Hungary: Férfi NB I. B - Zöld",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbksv": {
+      "league": "Latvia: NBL - Austrumi",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbku0": {
+      "league": "Latvia: NBL - Rietumi",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mnob5": {
+      "league": "Bosnia And Herzegovina: Prvenstvo Bih Women",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
@@ -5931,43 +6438,24 @@
         3
       ]
     },
-    "mbgnh": {
-      "league": "Hungary: Férfi NB I. B - Zöld",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbksv": {
-      "league": "Latvia: NBL - Austrumi",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbku0": {
-      "league": "Latvia: NBL - Rietumi",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mnob5": {
-      "league": "Bosnia And Herzegovina: Prvenstvo Bih Women",
-      "last": "2026-11-27T18:27:21.500464+00:00",
-      "valid": true,
-      "hypothetical_quarters": [
-        1,
-        2
-      ]
-    },
     "mnzex": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:27:21.500464+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
-        2
+        2,
+        3
       ]
     },
     "mnzf4": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:27:21.500464+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
-        2
+        2,
+        3
       ]
     },
     "mnzf3": {
@@ -5998,67 +6486,131 @@
     },
     "ms7kg": {
       "league": "Asia: Asia Cup - Qualification - Pre-Qualification 2",
-      "last": "2026-11-27T18:27:21.500464+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "favorite": true,
       "source": "moviodds"
     },
     "m1xoap": {
       "league": "Albania: Superliga",
-      "last": "2026-11-27T18:47:18.587934+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2,
+        3
+      ]
+    },
+    "mbl0f": {
+      "league": "Latvia: RBL - A grupa",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbkyt": {
+      "league": "Latvia: RBL - A grupa",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbkwo": {
+      "league": "Latvia: RBL - B grupa",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbkwv": {
+      "league": "Latvia: RBL - C grupa",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbkxe": {
+      "league": "Latvia: RBL - C grupa",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbh14": {
+      "league": "Hungary: Férfi NB II. - Közép A",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mb91m": {
+      "league": "Czech Republic: Přebor B (Praha)",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mnzew": {
+      "league": "Czech Republic: 1. Liga",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1,
         2
       ]
     },
-    "mbl0f": {
-      "league": "Latvia: RBL - A grupa",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbkyt": {
-      "league": "Latvia: RBL - A grupa",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbkwo": {
-      "league": "Latvia: RBL - B grupa",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbkwv": {
-      "league": "Latvia: RBL - C grupa",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbkxe": {
-      "league": "Latvia: RBL - C grupa",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mbh14": {
-      "league": "Hungary: Férfi NB II. - Közép A",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mb91m": {
-      "league": "Czech Republic: Přebor B (Praha)",
-      "last": "2026-11-27T18:47:18.587934+00:00"
-    },
-    "mnzew": {
-      "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:47:18.587934+00:00",
-      "valid": true,
-      "hypothetical_quarters": [
-        1
-      ]
-    },
     "mnzf5": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:47:18.587934+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
-        1
+        1,
+        2
       ]
     },
     "mnzf1": {
       "league": "Czech Republic: 1. Liga",
-      "last": "2026-11-27T18:47:18.587934+00:00",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1,
+        2
+      ]
+    },
+    "mrezg": {
+      "league": "Italy: Divisione Regionale 3 Lazio - Girone A",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mb9l5": {
+      "league": "Czech Republic: 1.třída (Praha) žen",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mb7wf": {
+      "league": "Czech Republic: Středomoravská liga mužů",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbgni": {
+      "league": "Hungary: Férfi NB I. B - Zöld",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mbgng": {
+      "league": "Hungary: Férfi NB I. B - Zöld",
+      "last": "2026-11-27T19:07:22.968312+00:00"
+    },
+    "mnolz": {
+      "league": "France: Ligue 2 Women",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
+    },
+    "mnzey": {
+      "league": "Czech Republic: 1. Liga",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
+    },
+    "mnzf0": {
+      "league": "Czech Republic: 1. Liga",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
+    },
+    "ms6t2": {
+      "league": "Europe: World Cup - Qualification - Second Round",
+      "last": "2026-11-27T19:07:22.968312+00:00",
+      "valid": true,
+      "hypothetical_quarters": [
+        1
+      ]
+    },
+    "ms6t4": {
+      "league": "Europe: World Cup - Qualification - Second Round",
+      "last": "2026-11-27T19:07:22.968312+00:00",
       "valid": true,
       "hypothetical_quarters": [
         1
