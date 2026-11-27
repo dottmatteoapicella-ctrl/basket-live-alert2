@@ -319,18 +319,6 @@
       },
       "captured_at": "2026-11-23T07:27:24.063663+00:00"
     },
-    "69e165166aa1f48345e5bdd45029fb18": {
-      "sport": "basketball_ncaab",
-      "home": "Pepperdine Waves",
-      "away": "UNC Greensboro Spartans",
-      "start": "2026-11-24T02:30:00+00:00",
-      "favorite": "home",
-      "prices": {
-        "home": 1.15,
-        "away": 5.88
-      },
-      "captured_at": "2026-11-23T07:27:24.063663+00:00"
-    },
     "b7a4f6e90eb128b0d569dacbfe487e80": {
       "sport": "basketball_ncaab",
       "home": "California Golden Bears",
@@ -2723,7 +2711,7 @@
   },
   "sportstats_budget": {
     "day": "2026-11-27",
-    "requests": 9
+    "requests": 10
   },
   "finished_slot": "2026-11-27:1",
   "finished_cursor": 10,
