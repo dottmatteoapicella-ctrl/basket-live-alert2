@@ -494,6 +494,8 @@ def diagnose_missing_odds(match, state):
     away = team_key((match.get("away_team") or {}).get("name"))
     same_league = [item for item in state["odds_games"].values()
                    if item.get("sport") in supported]
+    if not same_league and movi_count:
+        return {"reason": "moviodds_quote_presenti_ma_matching_non_valido", "cached": movi_count}
     if not same_league:
         return {"reason": "nessuna_quota_memorizzata_per_campionato",
                 "sport": supported}
