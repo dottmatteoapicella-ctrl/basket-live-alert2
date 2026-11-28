@@ -203,7 +203,7 @@
     },
     "2026-11-28": {
       "api.sportstatsapi.com": {
-        "requests": 5,
+        "requests": 6,
         "http_errors": 0,
         "rate_limits": 0,
         "reported_credits_charged": 0,
@@ -217,13 +217,21 @@
         "reported_credits_charged": 0,
         "credit_charge_observations": 0,
         "last_reported_remaining": null
+      },
+      "moviodds.com": {
+        "requests": 1,
+        "http_errors": 0,
+        "rate_limits": 0,
+        "reported_credits_charged": 0,
+        "credit_charge_observations": 0,
+        "last_reported_remaining": null
       }
     }
   },
   "monthly": {
     "2026-11": {
       "api.sportstatsapi.com": {
-        "requests": 481,
+        "requests": 482,
         "http_errors": 28,
         "rate_limits": 14,
         "reported_credits_charged": 0,
@@ -255,7 +263,7 @@
         "last_reported_remaining": null
       },
       "moviodds.com": {
-        "requests": 3,
+        "requests": 4,
         "http_errors": 0,
         "rate_limits": 0,
         "reported_credits_charged": 0,
@@ -651,7 +659,8 @@
     "46086169378",
     "46087953054",
     "46089741846",
-    "46091470888"
+    "46091470888",
+    "46093180600"
   ],
-  "updated_utc": "2026-11-28T01:07:25.053053+00:00"
+  "updated_utc": "2026-11-28T01:27:23.595804+00:00"
 }
