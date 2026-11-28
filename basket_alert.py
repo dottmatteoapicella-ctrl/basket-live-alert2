@@ -743,6 +743,8 @@ def main():
                   (favorite == "away" and away_score < home_score))
         if not losing:
             continue
+        if not basket_telegram_outcomes.alert_quarter_allowed(quarter):
+            continue
 
         favorite_name = home if favorite == "home" else away
         odds_text = ""

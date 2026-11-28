@@ -89,3 +89,12 @@ class RecoveryPaginationTests(unittest.TestCase):
     def test_removed_date(self):
         from basket_recovery import next_page
         self.assertEqual(next_page({"finished_page": {"day": "old", "offset": 300}}, ["new"]), ("new", 0))
+
+
+class AlertQuarterTests(unittest.TestCase):
+    def test_only_third_and_fourth(self):
+        from basket_telegram_outcomes import alert_quarter_allowed
+        for q in (None, True, 0, 1, 2, 5, '3', 3.0):
+            self.assertFalse(alert_quarter_allowed(q))
+        for q in (3, 4):
+            self.assertTrue(alert_quarter_allowed(q))

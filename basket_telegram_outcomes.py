@@ -153,3 +153,7 @@ def shadow_report(state):
     return dict(alerts=len(rows), verified=len(verified), pending=len(rows)-len(verified),
                 favorite_lost=lost, favorite_won=len(verified)-lost,
                 success_pct=round(100*lost/len(verified),2) if verified else None)
+
+
+def alert_quarter_allowed(quarter):
+    return type(quarter) is int and quarter in (3, 4)
