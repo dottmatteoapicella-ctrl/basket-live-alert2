@@ -71,3 +71,21 @@ class ShadowQ3Test(__import__("unittest").TestCase):
     def test_missing_periods(self):
         from basket_telegram_outcomes import q3_score
         self.assertIsNone(q3_score({"home_team":{"score":70},"away_team":{"score":72}}))
+
+
+class RecoveryPaginationTests(unittest.TestCase):
+    def test_recent_first_and_beyond_300(self):
+        from basket_recovery import next_page, advance
+        state = {}
+        dates = ["2026-11-27", "2026-11-28"]
+        self.assertEqual(next_page(state, dates), ("2026-11-28", 0))
+        rows = [{"code": i} for i in range(100)]
+        for offset in (0, 100, 200, 300):
+            advance(state, dates, dates[1], offset, rows, [])
+            self.assertEqual(next_page(state, dates), (dates[1], offset+100))
+        advance(state, dates, dates[1], 400, [], [])
+        self.assertEqual(next_page(state, dates), (dates[0], 0))
+
+    def test_removed_date(self):
+        from basket_recovery import next_page
+        self.assertEqual(next_page({"finished_page": {"day": "old", "offset": 300}}, ["new"]), ("new", 0))
