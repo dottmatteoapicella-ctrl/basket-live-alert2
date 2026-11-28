@@ -534,6 +534,10 @@ def recovery_dates(records, parse):
     return sorted(dates)
 
 
+def alert_quarter_allowed(quarter):
+    return type(quarter) is int and quarter in (3, 4)
+
+
 def current_quarter(match):
     """Accept explicit, consistent quarter labels only."""
     live = match.get("live")
@@ -742,6 +746,8 @@ def main():
         losing = ((favorite == "home" and home_score < away_score) or
                   (favorite == "away" and away_score < home_score))
         if not losing:
+            continue
+        if not alert_quarter_allowed(quarter):
             continue
 
         favorite_name = home if favorite == "home" else away
