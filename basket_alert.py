@@ -1,3 +1,4 @@
+import basket_recovery
 import basket_state_crypto
 import basket_moviodds
 import basket_coverage
@@ -625,10 +626,8 @@ def main():
         state["finished_slot"] = slot_key
         save_state(state)
         dates = recovery_dates(recent_pending, parse_time)
-        cursor = state.get("finished_cursor", 0)
-        day = dates[(cursor // 3) % len(dates)]
-        offset = (cursor % 3) * 100
-        state["finished_cursor"] = cursor + 1
+        day, offset = basket_recovery.next_page(state, dates)
+        state["finished_page"] = {"day": day, "offset": offset}
         save_state(state)
         try:
             response = requests.get(
@@ -645,8 +644,7 @@ def main():
                 print("SPORTSTATS final recovery:", day, "offset:", offset, "rows:", len(finished))
                 basket_telegram_outcomes.update(state, finished, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID)
                 basket_telegram_outcomes.settle_q3(state, finished)
-                if len(finished) < 100:
-                    state["finished_cursor"] = (cursor // 3 + 1) * 3
+                basket_recovery.advance(state, dates, day, offset, finished, recent_pending)
         except (requests.RequestException, ValueError, TypeError) as exc:
             block_on_limit(exc)
             print("Risultati basket conclusi non disponibili:", type(exc).__name__)
